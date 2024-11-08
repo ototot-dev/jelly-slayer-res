@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8dab2d30fc60a957d4915f1821d476ae06dc3345f5e6c887c16e243a2a7d410d
-size 363
+using UnityEngine;
+using System.Collections;
+
+// Cartoon FX  - (c) 2015 Jean Moreno
+
+// Automatically destroys the GameObject when there are no children left.
+
+public class CFX_AutodestructWhenNoChildren : MonoBehaviour
+{
+	// Update is called once per frame
+	void Update ()
+	{
+		if( transform.childCount == 0)
+		{
+			GameObject.Destroy(this.gameObject);
+		}
+	}
+}

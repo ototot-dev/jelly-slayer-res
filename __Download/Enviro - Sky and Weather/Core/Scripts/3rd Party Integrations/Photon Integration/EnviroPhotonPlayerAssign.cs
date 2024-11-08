@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ececdcdbb5bb22415643b1473d5306c31e9e8619061952d8e8efafadfce611a7
-size 613
+﻿using System.Collections;
+using System.Collections.Generic;
+#if ENVIRO_PHOTON_SUPPORT
+using Photon.Pun;
+#endif
+using UnityEngine;
+#if ENVIRO_PHOTON_SUPPORT
+[RequireComponent(typeof(PhotonView))]
+#endif
+public class EnviroPhotonPlayerAssign : MonoBehaviour {
+#if ENVIRO_PHOTON_SUPPORT
+    public PhotonView myView;
+
+	void Start ()
+    {
+        if(myView == null)
+           myView = GetComponent<PhotonView>();
+
+        if (myView.IsMine && EnviroSkyMgr.instance != null)
+        {
+              EnviroSkyMgr.instance.AssignAndStart(gameObject, Camera.main); 
+        }
+    }
+#endif
+}

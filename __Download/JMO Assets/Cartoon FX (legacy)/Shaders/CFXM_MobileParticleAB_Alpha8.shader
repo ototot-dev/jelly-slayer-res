@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a865ff7536c62d91b20bbe9d4babbef257a3def21a78732f53777007ba515d27
-size 800
+// Simplified Additive Particle shader. Differences from regular Additive Particle one:
+// - no Tint color
+// - no Smooth particle support
+// - no AlphaTest
+// - no ColorMask
+
+// Cartoon FX difference:
+// - uses Alpha8 monochrome textures to save up on texture memory size
+
+Shader "Cartoon FX/Legacy/Particles Alpha Blended Alpha8"
+{
+Properties
+{
+	_MainTex ("Particle Texture (Alpha8)", 2D) = "white" {}
+}
+
+Category
+{
+	Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
+	Blend SrcAlpha OneMinusSrcAlpha
+	Cull Off Lighting Off ZWrite Off Fog { Color (0,0,0,0) }
+	
+	BindChannels
+	{
+		Bind "Color", color
+		Bind "Vertex", vertex
+		Bind "TexCoord", texcoord
+	}
+	
+	SubShader
+	{
+		Pass
+		{
+			SetTexture [_MainTex]
+			{
+				combine primary, texture * primary
+			}
+		}
+	}
+}
+}

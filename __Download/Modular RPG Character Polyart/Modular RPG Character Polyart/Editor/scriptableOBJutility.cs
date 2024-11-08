@@ -1,3 +1,78 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:90745c9635a9d41e9172bb76c7adab69d4bf5909c675082f227c35a568a3bf06
-size 2498
+﻿using UnityEngine;
+using UnityEditor;
+using System.IO;
+
+public static class ScriptableObjectUtility
+{
+	public static void CreateItemAsset<T> () where T : ScriptableObject
+	{
+		T asset = ScriptableObject.CreateInstance<T> ();
+
+		string path = AssetDatabase.GetAssetPath (Selection.activeObject);
+		if (path == "") 
+		{
+			path = "Assets/";
+		} 
+		else if (Path.GetExtension (path) != "") 
+		{
+			path = path.Replace (Path.GetFileName (AssetDatabase.GetAssetPath (Selection.activeObject)), "");
+		}
+
+		string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath (path + "/New " + typeof(T).ToString() + ".asset");
+
+		AssetDatabase.CreateAsset(asset, assetPathAndName);
+
+		AssetDatabase.SaveAssets ();
+		AssetDatabase.Refresh();
+		EditorUtility.FocusProjectWindow ();
+		Selection.activeObject = asset;
+	}
+
+    public static void CreateHairAsset<T>() where T : ScriptableObject
+    {
+        T asset = ScriptableObject.CreateInstance<T>();
+
+        string path = AssetDatabase.GetAssetPath(Selection.activeObject);
+        if (path == "")
+        {
+            path = "Assets/";
+        }
+        else if (Path.GetExtension(path) != "")
+        {
+            path = path.Replace(Path.GetFileName(AssetDatabase.GetAssetPath(Selection.activeObject)), "");
+        }
+
+        string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath(path + "/New " + typeof(T).ToString() + ".asset");
+
+        AssetDatabase.CreateAsset(asset, assetPathAndName);
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = asset;
+    }
+
+    public static void CreateUnderwearAsset<T>() where T : ScriptableObject
+    {
+        T asset = ScriptableObject.CreateInstance<T>();
+
+        string path = AssetDatabase.GetAssetPath(Selection.activeObject);
+        if (path == "")
+        {
+            path = "Assets/";
+        }
+        else if (Path.GetExtension(path) != "")
+        {
+            path = path.Replace(Path.GetFileName(AssetDatabase.GetAssetPath(Selection.activeObject)), "");
+        }
+
+        string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath(path + "/New " + typeof(T).ToString() + ".asset");
+
+        AssetDatabase.CreateAsset(asset, assetPathAndName);
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = asset;
+    }
+}

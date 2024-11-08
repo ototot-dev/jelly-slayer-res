@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f0eb0126d804430d012076bad753ebe482f8316aef302a5f55243e3d52a60e4
-size 523
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HS_CallBackParent : MonoBehaviour
+{
+    [SerializeField]protected Transform parentObject;
+
+    protected virtual void OnParticleSystemStopped()
+    {
+        if (parentObject != null)
+        {
+            transform.parent = parentObject;
+            transform.localPosition = Vector3.zero;
+            transform.localEulerAngles = Vector3.zero;
+        }
+        else
+            Destroy(gameObject);
+    }
+}

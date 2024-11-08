@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c438b7c5543c48f4f3f991a49c3493da77ec720af8417c4dc456d9f27d9193c3
-size 494
+These are prefabs already set up with a LOD Group and a unique material, use them as you see fit!
+
+On the Mesh Renderers shadow casting can be disabled should you wish. 
+
+Unity terrain (Unity 2021.2+)
+-----------------
+The grass/detail system does not support LODs. As such these prefabs won't appear to do anything when trying to paint them.
+
+Instead using the prefabs found in the TerrainFlowers & TerrainGrass folders. These do not have a LOD Group setup, that's the only difference.

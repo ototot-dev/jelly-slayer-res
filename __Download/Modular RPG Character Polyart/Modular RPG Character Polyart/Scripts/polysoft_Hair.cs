@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:57a4922cba9553ea4a479bffd9e3332690b46365c6ccb14db44ff389bf6546c4
-size 622
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+[Serializable]
+public class polysoft_Hair : ScriptableObject {
+    public Inventory.Gender gender;
+    public enum hairType {hair, beard, mustache}
+    public string _name;
+    public hairType itemType;
+    public SkinnedMeshRenderer ItemMeshRenderer;
+    [Serializable]
+    public class _boneChainOptions
+    {
+        public BoneManager.BoneChain.boneChainType BoneUsed;
+        public int boneLength;
+    }
+    public _boneChainOptions[] BoneChainOptions;
+    [TextArea]
+    public string description;
+}

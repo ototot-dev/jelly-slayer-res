@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:015dc2eb87aadcb18d6c771ee220fd9baa2cbb181192d950e97914c07d6db6ad
-size 805
+﻿using UnityEngine;
+
+namespace Filo{
+
+    [AddComponentMenu("Filo Cables/Cable Solver")]
+    public class CableSolver : MonoBehaviour {
+    
+        public int iterations = 4;
+        public float bias = 0.2f;
+    
+        public Cable[] cables;
+       
+        void FixedUpdate () { 
+
+            for (int i = 0; i < cables.Length; ++i){
+                if (cables[i] != null && cables[i].isActiveAndEnabled)
+                    cables[i].UpdateCable(Time.fixedDeltaTime);
+            }
+    
+            for (int j = 0; j < iterations; ++j){
+                for (int i = 0; i < cables.Length; ++i){
+                    if (cables[i] != null && cables[i].isActiveAndEnabled)
+                        cables[i].Solve(Time.fixedDeltaTime, bias);
+                }
+            }
+
+        }
+       
+
+    }
+}

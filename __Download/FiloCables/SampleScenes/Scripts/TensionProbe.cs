@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5855685f42c62702d89d387cc57419c8cc0acee083301cde509d46a0132b4dde
-size 795
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using Filo;
+
+[RequireComponent(typeof(Cable))]
+[RequireComponent(typeof(CableRenderer))]
+public class TensionProbe : MonoBehaviour
+{
+    CableRenderer cableRenderer;
+    Cable cable;
+    public float tension = 0;
+    public float cableTension = 0;
+
+    public void Awake()
+    {
+        cableRenderer = GetComponent<CableRenderer>();
+        cable = GetComponent<Cable>();
+    }
+
+    public void Update(){
+        tension = cableRenderer.sampledCable.Length / cable.RestLength;
+
+        IList<CableJoint> joints = cable.Joints;
+        foreach (CableJoint j in joints){
+            float force = j.ImpulseMagnitude / Time.fixedDeltaTime;
+            Debug.Log(force + " N, Mass:" + force/-9.81f +" Kg");
+        }
+    } 
+}
+
+

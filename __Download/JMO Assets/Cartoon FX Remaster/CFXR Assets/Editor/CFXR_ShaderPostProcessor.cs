@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bc4da708b19238b6f8b31d3fc3bd4a56a5e2442a8975ee1cae00dc97c996bcf1
-size 1265
+using System;
+using UnityEditor;
+using UnityEngine;
+
+namespace CartoonFX
+{
+    namespace CustomShaderImporter
+    {
+        public class CFXR_ShaderPostProcessor : AssetPostprocessor
+        {
+            static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+            {
+                CleanCFXRShaders(importedAssets);
+            }
+
+            static void CleanCFXRShaders(string[] paths)
+            {
+                foreach (var assetPath in paths)
+                {
+                    if (!assetPath.EndsWith(CFXR_ShaderImporter.FILE_EXTENSION, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    var shader = AssetDatabase.LoadMainAssetAtPath(assetPath) as Shader;
+                    if (shader != null)
+                    {
+                        ShaderUtil.ClearShaderMessages(shader);
+                        if (!ShaderUtil.ShaderHasError(shader))
+                        {
+                            ShaderUtil.RegisterShader(shader);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

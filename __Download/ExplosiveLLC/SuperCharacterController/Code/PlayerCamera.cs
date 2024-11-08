@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e46019c6665da4ef7644e4cef609023b6c562728cf0c9c1f5209c0ad6338b81
-size 1083
+﻿using UnityEngine;
+
+public class PlayerCamera:MonoBehaviour
+{
+	public float Distance = 5.0f;
+	public float Height = 2.0f;
+
+	public GameObject PlayerTarget;
+
+	private PlayerInputController input;
+	private Transform target;
+	private PlayerMachine machine;
+	private float yRotation;
+
+	private SuperCharacterController controller;
+
+	private void Start()
+	{
+		input = PlayerTarget.GetComponent<PlayerInputController>();
+		machine = PlayerTarget.GetComponent<PlayerMachine>();
+		controller = PlayerTarget.GetComponent<SuperCharacterController>();
+		target = PlayerTarget.transform;
+	}
+
+	private void LateUpdate()
+	{
+		transform.position = target.position;
+
+		yRotation += input.Current.MouseInput.y;
+
+		Vector3 left = Vector3.Cross(machine.lookDirection, controller.up);
+
+		transform.rotation = Quaternion.LookRotation(machine.lookDirection, controller.up);
+		transform.rotation = Quaternion.AngleAxis(yRotation, left) * transform.rotation;
+
+		transform.position -= transform.forward * Distance;
+		transform.position += controller.up * Height;
+	}
+}

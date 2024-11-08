@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2443f162ed9ab467e7c1e501c0ee36b07fe170ad6264dbd12e19a0cd56344c3c
-size 377
+using UnityEngine;
+using System.Collections;
+
+// Cartoon FX  - (c) 2015 Jean Moreno
+
+// Indefinitely rotates an object at a constant speed
+
+public class CFX_AutoRotate : MonoBehaviour
+{
+	// Rotation speed & axis
+	public Vector3 rotation;
+	
+	// Rotation space
+	public Space space = Space.Self;
+	
+	void Update()
+	{
+		this.transform.Rotate(rotation * Time.deltaTime, space);
+	}
+}

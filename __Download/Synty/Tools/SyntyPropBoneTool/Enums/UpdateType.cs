@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7dc9a2d3db5eaf9d8ff90e09e7f59d9bd096ff2c1f18fd4046aa2046e14a7c2e
-size 531
+// Copyright (c) 2024 Synty Studios Limited. All rights reserved.
+//
+// Use of this software is subject to the terms and conditions of the Synty Studios End User Licence Agreement (EULA)
+// available at: https://syntystore.com/pages/end-user-licence-agreement
+//
+// For additional details, see the LICENSE.MD file bundled with this software.
+
+using System;
+
+namespace Synty.Tools.SyntyPropBoneTool
+{
+    [Serializable]
+    public enum UpdateType
+    {
+        Update,
+        FixedUpdate,
+        LateUpdate,
+        Manual
+    }
+}

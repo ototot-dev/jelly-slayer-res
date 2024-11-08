@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c528b5736de49576b4b974f028bb005057b5c1c390d614c7931045d63205074
-size 832
+using UnityEngine;
+using System.Collections;
+
+// Cartoon FX  - (c) 2015, Jean Moreno
+
+// Drag/Drop this script on a Particle System (or an object having Particle System objects as children) to prevent a Shuriken bug
+// where a system would emit at its original instantiated position before being translated, resulting in particles in-between
+// the two positions.
+// Possibly a threading bug from Unity (as of 3.5.4)
+
+public class CFX_ShurikenThreadFix : MonoBehaviour
+{
+	private ParticleSystem[] systems;
+	
+	void OnEnable()
+	{
+		systems = GetComponentsInChildren<ParticleSystem>();
+		
+		foreach(ParticleSystem ps in systems)
+		{
+			ps.Stop(true);
+			ps.Clear(true);
+		}
+		
+		StartCoroutine("WaitFrame");
+	}
+	
+	IEnumerator WaitFrame()
+	{
+		yield return null;
+		
+		foreach(ParticleSystem ps in systems)
+		{
+			ps.Play(true);
+		}
+	}
+}

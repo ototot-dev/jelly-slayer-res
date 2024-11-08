@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:68fa85f8aa0028b89daa44276444bfd9e7fef14ac8c7d77ce98d1d49d4ec5e10
-size 599
+﻿using UnityEngine;
+
+public class PlayerMachineDebug:MonoBehaviour
+{
+	[SerializeField]
+	private PlayerMachine playerMachine;
+
+	private float timeScale = 1.0f;
+
+	private void Awake()
+	{
+		if (playerMachine == null) { playerMachine = GetComponent<PlayerMachine>(); }
+	}
+
+	private void OnGUI()
+	{
+		GUI.Box(new Rect(10, 10, 200, 100), "Player Machine");
+
+		GUI.TextField(new Rect(20, 40, 180, 20), string.Format("State: {0}", playerMachine.currentState));
+		timeScale = GUI.HorizontalSlider(new Rect(20, 70, 180, 20), timeScale, 0.0f, 1.0f);
+
+		Time.timeScale = timeScale;
+	}
+}

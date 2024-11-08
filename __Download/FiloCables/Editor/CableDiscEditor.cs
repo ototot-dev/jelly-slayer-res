@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fd39955e98a3992050b107c7870a3051bd7958ab75fa0045570d47f4acf947bf
-size 913
+﻿using UnityEditor;
+using UnityEngine;
+
+namespace Filo{
+    
+    [CustomEditor(typeof(CableDisc)), CanEditMultipleObjects] 
+    public class CableDiscEditor : Editor
+    {
+        
+        public override void OnInspectorGUI() {
+            
+            serializedObject.UpdateIfRequiredOrScript();
+            
+            Editor.DrawPropertiesExcluding(serializedObject,"m_Script");
+            
+            // Apply changes to the serializedProperty
+            if (GUI.changed){
+                serializedObject.ApplyModifiedProperties();                
+            }
+            
+        }
+
+        [DrawGizmo(GizmoType.InSelectionHierarchy)]
+        private static void DrawGizmos(CableDisc disc, GizmoType gizmoType)
+        {
+            Handles.color = Color.cyan;
+            Handles.DrawWireDisc(disc.transform.position, disc.GetCablePlaneNormal(), disc.ScaledRadius);
+        }
+        
+    }
+
+}
+
+

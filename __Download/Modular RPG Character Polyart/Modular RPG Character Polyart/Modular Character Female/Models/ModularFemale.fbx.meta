@@ -1,3 +1,2416 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7799a591c4c6131f4cbd81198f1a96f0116ffabcd7b81268fe6a3e9d21b121a4
-size 84330
+fileFormatVersion: 2
+guid: 59c5f9675c8ea3f429e7c8a4b7657bad
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: attachBone_1
+    100002: attachBone_2
+    100004: back_1.1
+    100006: back_1.2
+    100008: back_1.3
+    100010: back_1.4
+    100012: body
+    100014: breast.L
+    100016: breast.R
+    100018: f_index.01.L
+    100020: f_index.01.R
+    100022: f_index.02.L
+    100024: f_index.02.R
+    100026: f_index.03.L
+    100028: f_index.03.R
+    100030: f_middle.01.L
+    100032: f_middle.01.R
+    100034: f_middle.02.L
+    100036: f_middle.02.R
+    100038: f_middle.03.L
+    100040: f_middle.03.R
+    100042: f_pinky.01.L
+    100044: f_pinky.01.R
+    100046: f_pinky.02.L
+    100048: f_pinky.02.R
+    100050: f_pinky.03.L
+    100052: f_pinky.03.R
+    100054: f_ring.01.L
+    100056: f_ring.01.R
+    100058: f_ring.02.L
+    100060: f_ring.02.R
+    100062: f_ring.03.L
+    100064: f_ring.03.R
+    100066: foot.L
+    100068: foot.R
+    100070: forearm.L
+    100072: forearm.R
+    100074: Hair female 01
+    100076: hair_1.1
+    100078: hair_1.2
+    100080: hair_1.3
+    100082: hair_1.4
+    100084: hair_1.5
+    100086: hair_1.6
+    100088: hand.L
+    100090: hand.R
+    100092: Head
+    100094: head
+    100096: heel.02.L
+    100098: heel.02.R
+    100100: Leather_Body_01
+    100102: Leather_Helm_01
+    100104: Leather_Legs_01
+    100106: Legs
+    100108: metarig
+    100110: //RootNode
+    100112: palm.01.L
+    100114: palm.01.R
+    100116: palm.02.L
+    100118: palm.02.R
+    100120: palm.03.L
+    100122: palm.03.R
+    100124: palm.04.L
+    100126: palm.04.R
+    100128: pelvis.L
+    100130: pelvis.R
+    100132: shin.L
+    100134: shin.R
+    100136: shoulder.L
+    100138: shoulder.R
+    100140: shulder.L
+    100142: shulder.R
+    100144: spine
+    100146: spine.001
+    100148: spine.002
+    100150: spine.003
+    100152: spine.004
+    100154: spine.005
+    100156: tail_1.1
+    100158: tail_1.2
+    100160: tail_1.3
+    100162: tail_1.4
+    100164: thigh.L
+    100166: thigh.R
+    100168: thumb.01.L
+    100170: thumb.01.R
+    100172: thumb.02.L
+    100174: thumb.02.R
+    100176: thumb.03.L
+    100178: thumb.03.R
+    100180: toe.L
+    100182: toe.R
+    100184: upper_arm.L
+    100186: upper_arm.R
+    100188: waist_B.1
+    100190: waist_B.2
+    100192: waist_B.3
+    100194: waist_B.4
+    100196: waist_B.5
+    100198: waist_F.1
+    100200: waist_F.2
+    100202: waist_F.3
+    100204: waist_F.4
+    100206: waist_F.5
+    100208: waist_L.1
+    100210: waist_L.2
+    100212: waist_L.3
+    100214: waist_L.4
+    100216: waist_L.5
+    100218: waist_R.1
+    100220: waist_R.2
+    100222: waist_R.3
+    100224: waist_R.4
+    100226: waist_R.5
+    100228: attachBone_1_end
+    100230: attachBone_2_end
+    100232: back_1.4_end
+    100234: breast.L_end
+    100236: breast.R_end
+    100238: f_index.03.L_end
+    100240: f_index.03.R_end
+    100242: f_middle.03.L_end
+    100244: f_middle.03.R_end
+    100246: f_pinky.03.L_end
+    100248: f_pinky.03.R_end
+    100250: f_ring.03.L_end
+    100252: f_ring.03.R_end
+    100254: heel.02.L_end
+    100256: heel.02.R_end
+    100258: pelvis.L_end
+    100260: pelvis.R_end
+    100262: shulder.L_end
+    100264: shulder.R_end
+    100266: tail_1.4_end
+    100268: tail_2.1
+    100270: tail_2.2
+    100272: tail_2.3
+    100274: tail_2.4
+    100276: tail_2.5
+    100278: tail_2.6
+    100280: tail_2.6_end
+    100282: thumb.03.L_end
+    100284: thumb.03.R_end
+    100286: toe.L_end
+    100288: toe.R_end
+    100290: waist_B.5_end
+    100292: waist_F.5_end
+    100294: waist_L.5_end
+    100296: waist_R.5_end
+    100298: tail_1.002
+    100300: tail_1.003
+    100302: tail_1.004
+    100304: tail_1.005
+    100306: Female_body
+    100308: Female_hair_01
+    100310: Female_head
+    100312: Female_leather_helm_01
+    100314: Female_legs
+    100316: Female_pants_01
+    100318: Female_pants_02
+    100320: Female_pants_03
+    100322: Female_pants_04
+    100324: Female_pants_05
+    100326: Female_leather_body_01
+    100328: Female_leather_legs_01
+    100330: Female_leather_shoulders 01
+    100332: Female_leather_waist 01
+    100334: Female_hair_02
+    100336: Female_leather_shoulders_01
+    100338: Female_leather_waist_01
+    100340: Female_hair_03
+    100342: Female_brassiere_01
+    100344: Female_pants_06
+    100346: Female_brassiere_02
+    100348: Female_brassiere_03
+    100350: Female_pants_07
+    100352: Female_brassiere_04
+    100354: Female_hair_04
+    100356: Female_leather_body_02
+    100358: Female_leather_helm_02
+    100360: Female_leather_legs_02
+    100362: Female_leather_shoulders_02
+    100364: Female_leather_waist_02
+    100366: Female_leather_legs_01.001
+    100368: Female_leather_body_03
+    100370: Female_leather_helm_03
+    100372: leather Body 03
+    100374: leather Body 03.001
+    100376: Female_leather_legs_03
+    100378: Female_leather_shoulders_03
+    100380: Female_leather_waist_03
+    100382: Female_leather_body_04
+    100384: Female_leather_helm_04
+    100386: Female_leather_legs_04
+    100388: Female_leather_shoulders_04
+    100390: Female_leather_waist_04
+    100392: Female_leather_05_helmet
+    100394: Female_leather_05_legs
+    100396: Female_leather_05_shoulders
+    100398: Female_leather_05_torso
+    100400: Female_leather_05_waist
+    100402: FH_armor_cloth_01_helmet
+    100404: FH_armor_cloth_01_legs
+    100406: FH_armor_cloth_01_shoulders
+    100408: FH_armor_cloth_01_torso
+    100410: FH_armor_cloth_01_waist
+    100412: FH_armor_cloth_02_torso
+    100414: FH_armor_leather_01_legs
+    100416: FH_armor_cloth_02_helmet
+    100418: FH_armor_cloth_02_legs
+    100420: FH_armor_cloth_02_shoulders
+    100422: FH_armor_cloth_02_waist
+    100424: FH_armor_cloth_03_helmet
+    100426: FH_armor_cloth_03_legs
+    100428: FH_armor_cloth_03_shoulders
+    100430: FH_armor_cloth_03_torso
+    100432: FH_armor_cloth_03_waist
+    100434: FH_armor_cloth_04_head
+    100436: FH_armor_cloth_04_legs
+    100438: FH_armor_cloth_04_shoulders
+    100440: FH_armor_cloth_04_torso
+    100442: FH_armor_cloth_04_waist
+    100444: FH_armor_cloth_05_torso
+    100446: FH_armor_cloth_05_helmet
+    100448: FH_armor_cloth_05_legs
+    100450: FH_armor_cloth_05_shoulders
+    100452: FH_armor_cloth_05_waist
+    100454: FH_body_head
+    100456: FH_hair_03
+    100458: FH_hair_01
+    100460: FH_hair_04
+    100462: FH_hair_05
+    100464: FH_armor_plate_01_head
+    100466: FH_armor_plate_01_legs
+    100468: FH_armor_plate_01_shoulders
+    100470: FH_armor_plate_01_torso
+    100472: FH_armor_plate_01_waist
+    100474: FH_armor_plate_02_head
+    100476: FH_armor_plate_02_legs
+    100478: FH_armor_plate_02_shoulders
+    100480: FH_armor_plate_02_torso
+    100482: FH_armor_plate_02_waist
+    100484: FH_armor_plate_03_head
+    100486: FH_armor_plate_03_legs
+    100488: FH_armor_plate_03_shoulders
+    100490: FH_armor_plate_03_torso
+    100492: FH_armor_plate_03_waist
+    100494: FH_armor_plate_04_torso
+    100496: FH_armor_plate_04_legs
+    100498: FH_armor_plate_04_waist
+    100500: FH_armor_leather_01_helmet
+    100502: FH_armor_leather_01_shoulders
+    100504: FH_armor_leather_01_torso
+    100506: FH_armor_leather_01_waist
+    100508: FH_armor_leather_02_helmet
+    100510: FH_armor_leather_02_legs
+    100512: FH_armor_leather_02_shoulders
+    100514: FH_armor_leather_02_torso
+    100516: FH_armor_leather_02_waist
+    100518: FH_armor_leather_03_helmet
+    100520: FH_armor_leather_03_legs
+    100522: FH_armor_leather_03_shoulders
+    100524: FH_armor_leather_03_torso
+    100526: FH_armor_leather_03_waist
+    100528: FH_armor_leather_04_helmet
+    100530: FH_armor_leather_04_legs
+    100532: FH_armor_leather_04_shoulders
+    100534: FH_armor_leather_04_torso
+    100536: FH_armor_leather_04_waist
+    100538: FH_armor_leather_05_helmet
+    100540: FH_armor_leather_05_legs
+    100542: FH_armor_leather_05_shoulders
+    100544: FH_armor_leather_05_torso
+    100546: FH_armor_leather_05_waist
+    100548: FH_armor_plate_01_waist_B
+    100550: FH_armor_plate_04_head
+    100552: FH_armor_plate_04_shoulders
+    100554: FH_armor_plate_05_head
+    100556: FH_armor_plate_05_legs
+    100558: FH_armor_plate_05_shoulders
+    100560: FH_armor_plate_05_torso
+    100562: FH_armor_plate_05_waist
+    100564: FH_armor_plate_06_torso
+    100566: FH_armor_plate_06_head
+    100568: FH_armor_plate_06_shoulders
+    100570: FH_armor_plate_06_legs
+    100572: FH_armor_plate_06_waist
+    100574: FH_body_torso.001
+    100576: FH_body_head.001
+    100578: plate Shoulders 07.001
+    100580: FH_armor_plate_07_head
+    100582: FH_armor_plate_07_legs
+    100584: FH_armor_plate_07_shoulders
+    100586: FH_armor_plate_07_torso
+    100588: FH_armor_plate_07_waist
+    100590: FH_body_legs
+    100592: FH_body_torso
+    100594: FH_hair_07
+    100596: FH_hair_02
+    100598: FH_hair_06
+    100600: FH_hair_08
+    100602: FH_hair_09
+    100604: tail_3.L
+    100606: tail_3.R
+    100608: tail_3.L.001
+    100610: tail_3.L.002
+    100612: tail_3.R.001
+    100614: tail_3.R.002
+    100616: FH_hair_10
+    100618: tail_3_1.L
+    100620: tail_3_1.R
+    100622: tail_3_2.L
+    100624: tail_3_2.R
+    100626: tail_3_3.L
+    100628: tail_3_3.R
+    100630: FH_outfit_legs_02
+    100632: FH_underwear_brassiere_03
+    100634: FH_outfit_legs_03
+    100636: FH_outfit_legs_07
+    100638: FH_outfit_legs_08
+    100640: FH_outfit_legs_04
+    100642: FH_outfit_torso_01
+    100644: FH_outfit_torso_02
+    100646: FH_outfit_torso_06
+    100648: FH_outfit_torso_07
+    100650: FH_outfit_torso_09
+    100652: FH_armor_cloth_06_helmet
+    100654: FH_armor_cloth_06_legs
+    100656: FH_armor_cloth_06_torso
+    100658: FH_armor_cloth_06_torso.001
+    100660: FH_armor_cloth_06_waist
+    100662: FH_hair_11
+    100664: helmet_1
+    100666: helmet_2
+    100668: helmet_3
+    100670: helmet_4
+    100672: FH_armor_cloth_06_shoulders
+    100674: FH_body_legs.001
+    100676: FH_armor_leather_06_helmet
+    100678: FH_armor_leather_06_legs
+    100680: FH_armor_leather_06_shoulders
+    100682: FH_armor_leather_06_torso
+    100684: FH_armor_leather_06_waist
+    100686: FH_outfit_head_01
+    100688: FH_outfit_head_02
+    100690: FH_outfit_head_03
+    100692: FH_outfit_head_04
+    100694: FH_outfit_head_05
+    100696: FH_outfit_head_06
+    100698: FH_outfit_legs_01
+    100700: FH_outfit_legs_05
+    100702: FH_outfit_legs_06
+    100704: FH_outfit_legs_09
+    100706: FH_outfit_legs_10
+    100708: FH_outfit_torso_03
+    100710: FH_outfit_torso_04
+    100712: FH_outfit_torso_05
+    100714: FH_outfit_torso_08
+    100716: FH_outfit_torso_10
+    100718: FH_underwear_brassiere_01
+    100720: FH_underwear_brassiere_02
+    100722: FH_underwear_brassiere_04
+    100724: FH_underwear_pants_01
+    100726: FH_underwear_pants_02
+    100728: FH_underwear_pants_03
+    100730: FH_underwear_pants_04
+    100732: FH_underwear_pants_05
+    100734: FH_underwear_pants_06
+    100736: FH_underwear_pants_07
+    100738: FH_waist
+    100740: FH_base_body_head
+    100742: FH_base_body_legs
+    100744: FH_base_body_shoulders
+    100746: FH_base_body_torso
+    100748: FH_base_hair
+    100750: FH_base_waist
+    100752: FH_base_body_brassiere
+    100754: FH_base_body_pants
+    100756: FH_armor_cloth_04_helmet
+    100758: FH_armor_plate_01_helmet
+    100760: FH_armor_plate_02_helmet
+    100762: FH_armor_plate_03_helmet
+    100764: FH_armor_plate_04_helmet
+    100766: FH_armor_plate_05_helmet
+    100768: FH_armor_plate_06_helmet
+    100770: FH_armor_plate_07_helmet
+    100772: FH_hair_12
+    100774: FH_armor_cloth_07_head
+    100776: FH_armor_cloth_07_legs
+    100778: FH_armor_cloth_07_shoulders
+    100780: FH_armor_cloth_07_torso
+    100782: FH_armor_cloth_07_waist
+    100784: FH_armor_leather_07_helmet
+    100786: FH_armor_leather_07_legs
+    100788: FH_armor_leather_07_shoulders
+    100790: FH_armor_leather_07_torso
+    100792: FH_armor_leather_07_waist
+    100794: FH_hair_13
+    100796: FH_hair_14
+    100798: FH_hair_15
+    100800: FH_hair_16
+    100802: FH_hair_17
+    400000: attachBone_1
+    400002: attachBone_2
+    400004: back_1.1
+    400006: back_1.2
+    400008: back_1.3
+    400010: back_1.4
+    400012: body
+    400014: breast.L
+    400016: breast.R
+    400018: f_index.01.L
+    400020: f_index.01.R
+    400022: f_index.02.L
+    400024: f_index.02.R
+    400026: f_index.03.L
+    400028: f_index.03.R
+    400030: f_middle.01.L
+    400032: f_middle.01.R
+    400034: f_middle.02.L
+    400036: f_middle.02.R
+    400038: f_middle.03.L
+    400040: f_middle.03.R
+    400042: f_pinky.01.L
+    400044: f_pinky.01.R
+    400046: f_pinky.02.L
+    400048: f_pinky.02.R
+    400050: f_pinky.03.L
+    400052: f_pinky.03.R
+    400054: f_ring.01.L
+    400056: f_ring.01.R
+    400058: f_ring.02.L
+    400060: f_ring.02.R
+    400062: f_ring.03.L
+    400064: f_ring.03.R
+    400066: foot.L
+    400068: foot.R
+    400070: forearm.L
+    400072: forearm.R
+    400074: Hair female 01
+    400076: hair_1.1
+    400078: hair_1.2
+    400080: hair_1.3
+    400082: hair_1.4
+    400084: hair_1.5
+    400086: hair_1.6
+    400088: hand.L
+    400090: hand.R
+    400092: Head
+    400094: head
+    400096: heel.02.L
+    400098: heel.02.R
+    400100: Leather_Body_01
+    400102: Leather_Helm_01
+    400104: Leather_Legs_01
+    400106: Legs
+    400108: metarig
+    400110: //RootNode
+    400112: palm.01.L
+    400114: palm.01.R
+    400116: palm.02.L
+    400118: palm.02.R
+    400120: palm.03.L
+    400122: palm.03.R
+    400124: palm.04.L
+    400126: palm.04.R
+    400128: pelvis.L
+    400130: pelvis.R
+    400132: shin.L
+    400134: shin.R
+    400136: shoulder.L
+    400138: shoulder.R
+    400140: shulder.L
+    400142: shulder.R
+    400144: spine
+    400146: spine.001
+    400148: spine.002
+    400150: spine.003
+    400152: spine.004
+    400154: spine.005
+    400156: tail_1.1
+    400158: tail_1.2
+    400160: tail_1.3
+    400162: tail_1.4
+    400164: thigh.L
+    400166: thigh.R
+    400168: thumb.01.L
+    400170: thumb.01.R
+    400172: thumb.02.L
+    400174: thumb.02.R
+    400176: thumb.03.L
+    400178: thumb.03.R
+    400180: toe.L
+    400182: toe.R
+    400184: upper_arm.L
+    400186: upper_arm.R
+    400188: waist_B.1
+    400190: waist_B.2
+    400192: waist_B.3
+    400194: waist_B.4
+    400196: waist_B.5
+    400198: waist_F.1
+    400200: waist_F.2
+    400202: waist_F.3
+    400204: waist_F.4
+    400206: waist_F.5
+    400208: waist_L.1
+    400210: waist_L.2
+    400212: waist_L.3
+    400214: waist_L.4
+    400216: waist_L.5
+    400218: waist_R.1
+    400220: waist_R.2
+    400222: waist_R.3
+    400224: waist_R.4
+    400226: waist_R.5
+    400228: attachBone_1_end
+    400230: attachBone_2_end
+    400232: back_1.4_end
+    400234: breast.L_end
+    400236: breast.R_end
+    400238: f_index.03.L_end
+    400240: f_index.03.R_end
+    400242: f_middle.03.L_end
+    400244: f_middle.03.R_end
+    400246: f_pinky.03.L_end
+    400248: f_pinky.03.R_end
+    400250: f_ring.03.L_end
+    400252: f_ring.03.R_end
+    400254: heel.02.L_end
+    400256: heel.02.R_end
+    400258: pelvis.L_end
+    400260: pelvis.R_end
+    400262: shulder.L_end
+    400264: shulder.R_end
+    400266: tail_1.4_end
+    400268: tail_2.1
+    400270: tail_2.2
+    400272: tail_2.3
+    400274: tail_2.4
+    400276: tail_2.5
+    400278: tail_2.6
+    400280: tail_2.6_end
+    400282: thumb.03.L_end
+    400284: thumb.03.R_end
+    400286: toe.L_end
+    400288: toe.R_end
+    400290: waist_B.5_end
+    400292: waist_F.5_end
+    400294: waist_L.5_end
+    400296: waist_R.5_end
+    400298: tail_1.002
+    400300: tail_1.003
+    400302: tail_1.004
+    400304: tail_1.005
+    400306: Female_body
+    400308: Female_hair_01
+    400310: Female_head
+    400312: Female_leather_helm_01
+    400314: Female_legs
+    400316: Female_pants_01
+    400318: Female_pants_02
+    400320: Female_pants_03
+    400322: Female_pants_04
+    400324: Female_pants_05
+    400326: Female_leather_body_01
+    400328: Female_leather_legs_01
+    400330: Female_leather_shoulders 01
+    400332: Female_leather_waist 01
+    400334: Female_hair_02
+    400336: Female_leather_shoulders_01
+    400338: Female_leather_waist_01
+    400340: Female_hair_03
+    400342: Female_brassiere_01
+    400344: Female_pants_06
+    400346: Female_brassiere_02
+    400348: Female_brassiere_03
+    400350: Female_pants_07
+    400352: Female_brassiere_04
+    400354: Female_hair_04
+    400356: Female_leather_body_02
+    400358: Female_leather_helm_02
+    400360: Female_leather_legs_02
+    400362: Female_leather_shoulders_02
+    400364: Female_leather_waist_02
+    400366: Female_leather_legs_01.001
+    400368: Female_leather_body_03
+    400370: Female_leather_helm_03
+    400372: leather Body 03
+    400374: leather Body 03.001
+    400376: Female_leather_legs_03
+    400378: Female_leather_shoulders_03
+    400380: Female_leather_waist_03
+    400382: Female_leather_body_04
+    400384: Female_leather_helm_04
+    400386: Female_leather_legs_04
+    400388: Female_leather_shoulders_04
+    400390: Female_leather_waist_04
+    400392: Female_leather_05_helmet
+    400394: Female_leather_05_legs
+    400396: Female_leather_05_shoulders
+    400398: Female_leather_05_torso
+    400400: Female_leather_05_waist
+    400402: FH_armor_cloth_01_helmet
+    400404: FH_armor_cloth_01_legs
+    400406: FH_armor_cloth_01_shoulders
+    400408: FH_armor_cloth_01_torso
+    400410: FH_armor_cloth_01_waist
+    400412: FH_armor_cloth_02_torso
+    400414: FH_armor_leather_01_legs
+    400416: FH_armor_cloth_02_helmet
+    400418: FH_armor_cloth_02_legs
+    400420: FH_armor_cloth_02_shoulders
+    400422: FH_armor_cloth_02_waist
+    400424: FH_armor_cloth_03_helmet
+    400426: FH_armor_cloth_03_legs
+    400428: FH_armor_cloth_03_shoulders
+    400430: FH_armor_cloth_03_torso
+    400432: FH_armor_cloth_03_waist
+    400434: FH_armor_cloth_04_head
+    400436: FH_armor_cloth_04_legs
+    400438: FH_armor_cloth_04_shoulders
+    400440: FH_armor_cloth_04_torso
+    400442: FH_armor_cloth_04_waist
+    400444: FH_armor_cloth_05_torso
+    400446: FH_armor_cloth_05_helmet
+    400448: FH_armor_cloth_05_legs
+    400450: FH_armor_cloth_05_shoulders
+    400452: FH_armor_cloth_05_waist
+    400454: FH_body_head
+    400456: FH_hair_03
+    400458: FH_hair_01
+    400460: FH_hair_04
+    400462: FH_hair_05
+    400464: FH_armor_plate_01_head
+    400466: FH_armor_plate_01_legs
+    400468: FH_armor_plate_01_shoulders
+    400470: FH_armor_plate_01_torso
+    400472: FH_armor_plate_01_waist
+    400474: FH_armor_plate_02_head
+    400476: FH_armor_plate_02_legs
+    400478: FH_armor_plate_02_shoulders
+    400480: FH_armor_plate_02_torso
+    400482: FH_armor_plate_02_waist
+    400484: FH_armor_plate_03_head
+    400486: FH_armor_plate_03_legs
+    400488: FH_armor_plate_03_shoulders
+    400490: FH_armor_plate_03_torso
+    400492: FH_armor_plate_03_waist
+    400494: FH_armor_plate_04_torso
+    400496: FH_armor_plate_04_legs
+    400498: FH_armor_plate_04_waist
+    400500: FH_armor_leather_01_helmet
+    400502: FH_armor_leather_01_shoulders
+    400504: FH_armor_leather_01_torso
+    400506: FH_armor_leather_01_waist
+    400508: FH_armor_leather_02_helmet
+    400510: FH_armor_leather_02_legs
+    400512: FH_armor_leather_02_shoulders
+    400514: FH_armor_leather_02_torso
+    400516: FH_armor_leather_02_waist
+    400518: FH_armor_leather_03_helmet
+    400520: FH_armor_leather_03_legs
+    400522: FH_armor_leather_03_shoulders
+    400524: FH_armor_leather_03_torso
+    400526: FH_armor_leather_03_waist
+    400528: FH_armor_leather_04_helmet
+    400530: FH_armor_leather_04_legs
+    400532: FH_armor_leather_04_shoulders
+    400534: FH_armor_leather_04_torso
+    400536: FH_armor_leather_04_waist
+    400538: FH_armor_leather_05_helmet
+    400540: FH_armor_leather_05_legs
+    400542: FH_armor_leather_05_shoulders
+    400544: FH_armor_leather_05_torso
+    400546: FH_armor_leather_05_waist
+    400548: FH_armor_plate_01_waist_B
+    400550: FH_armor_plate_04_head
+    400552: FH_armor_plate_04_shoulders
+    400554: FH_armor_plate_05_head
+    400556: FH_armor_plate_05_legs
+    400558: FH_armor_plate_05_shoulders
+    400560: FH_armor_plate_05_torso
+    400562: FH_armor_plate_05_waist
+    400564: FH_armor_plate_06_torso
+    400566: FH_armor_plate_06_head
+    400568: FH_armor_plate_06_shoulders
+    400570: FH_armor_plate_06_legs
+    400572: FH_armor_plate_06_waist
+    400574: FH_body_torso.001
+    400576: FH_body_head.001
+    400578: plate Shoulders 07.001
+    400580: FH_armor_plate_07_head
+    400582: FH_armor_plate_07_legs
+    400584: FH_armor_plate_07_shoulders
+    400586: FH_armor_plate_07_torso
+    400588: FH_armor_plate_07_waist
+    400590: FH_body_legs
+    400592: FH_body_torso
+    400594: FH_hair_07
+    400596: FH_hair_02
+    400598: FH_hair_06
+    400600: FH_hair_08
+    400602: FH_hair_09
+    400604: tail_3.L
+    400606: tail_3.R
+    400608: tail_3.L.001
+    400610: tail_3.L.002
+    400612: tail_3.R.001
+    400614: tail_3.R.002
+    400616: FH_hair_10
+    400618: tail_3_1.L
+    400620: tail_3_1.R
+    400622: tail_3_2.L
+    400624: tail_3_2.R
+    400626: tail_3_3.L
+    400628: tail_3_3.R
+    400630: FH_outfit_legs_02
+    400632: FH_underwear_brassiere_03
+    400634: FH_outfit_legs_03
+    400636: FH_outfit_legs_07
+    400638: FH_outfit_legs_08
+    400640: FH_outfit_legs_04
+    400642: FH_outfit_torso_01
+    400644: FH_outfit_torso_02
+    400646: FH_outfit_torso_06
+    400648: FH_outfit_torso_07
+    400650: FH_outfit_torso_09
+    400652: FH_armor_cloth_06_helmet
+    400654: FH_armor_cloth_06_legs
+    400656: FH_armor_cloth_06_torso
+    400658: FH_armor_cloth_06_torso.001
+    400660: FH_armor_cloth_06_waist
+    400662: FH_hair_11
+    400664: helmet_1
+    400666: helmet_2
+    400668: helmet_3
+    400670: helmet_4
+    400672: FH_armor_cloth_06_shoulders
+    400674: FH_body_legs.001
+    400676: FH_armor_leather_06_helmet
+    400678: FH_armor_leather_06_legs
+    400680: FH_armor_leather_06_shoulders
+    400682: FH_armor_leather_06_torso
+    400684: FH_armor_leather_06_waist
+    400686: FH_outfit_head_01
+    400688: FH_outfit_head_02
+    400690: FH_outfit_head_03
+    400692: FH_outfit_head_04
+    400694: FH_outfit_head_05
+    400696: FH_outfit_head_06
+    400698: FH_outfit_legs_01
+    400700: FH_outfit_legs_05
+    400702: FH_outfit_legs_06
+    400704: FH_outfit_legs_09
+    400706: FH_outfit_legs_10
+    400708: FH_outfit_torso_03
+    400710: FH_outfit_torso_04
+    400712: FH_outfit_torso_05
+    400714: FH_outfit_torso_08
+    400716: FH_outfit_torso_10
+    400718: FH_underwear_brassiere_01
+    400720: FH_underwear_brassiere_02
+    400722: FH_underwear_brassiere_04
+    400724: FH_underwear_pants_01
+    400726: FH_underwear_pants_02
+    400728: FH_underwear_pants_03
+    400730: FH_underwear_pants_04
+    400732: FH_underwear_pants_05
+    400734: FH_underwear_pants_06
+    400736: FH_underwear_pants_07
+    400738: FH_waist
+    400740: FH_base_body_head
+    400742: FH_base_body_legs
+    400744: FH_base_body_shoulders
+    400746: FH_base_body_torso
+    400748: FH_base_hair
+    400750: FH_base_waist
+    400752: FH_base_body_brassiere
+    400754: FH_base_body_pants
+    400756: FH_armor_cloth_04_helmet
+    400758: FH_armor_plate_01_helmet
+    400760: FH_armor_plate_02_helmet
+    400762: FH_armor_plate_03_helmet
+    400764: FH_armor_plate_04_helmet
+    400766: FH_armor_plate_05_helmet
+    400768: FH_armor_plate_06_helmet
+    400770: FH_armor_plate_07_helmet
+    400772: FH_hair_12
+    400774: FH_armor_cloth_07_head
+    400776: FH_armor_cloth_07_legs
+    400778: FH_armor_cloth_07_shoulders
+    400780: FH_armor_cloth_07_torso
+    400782: FH_armor_cloth_07_waist
+    400784: FH_armor_leather_07_helmet
+    400786: FH_armor_leather_07_legs
+    400788: FH_armor_leather_07_shoulders
+    400790: FH_armor_leather_07_torso
+    400792: FH_armor_leather_07_waist
+    400794: FH_hair_13
+    400796: FH_hair_14
+    400798: FH_hair_15
+    400800: FH_hair_16
+    400802: FH_hair_17
+    2100000: body
+    2100002: colors
+    2100004: hair
+    2100006: pants
+    2100008: colors.001
+    2100010: armor
+    2100012: underwear
+    2300000: body
+    2300002: Hair female 01
+    2300004: Head
+    2300006: Leather_Body_01
+    2300008: Leather_Helm_01
+    2300010: Leather_Legs_01
+    2300012: Legs
+    2300014: FH_armor_cloth_02_helmet
+    2300016: FH_armor_cloth_02_legs
+    2300018: FH_armor_cloth_02_shoulders
+    2300020: FH_armor_cloth_02_torso
+    2300022: FH_armor_cloth_02_waist
+    3300000: body
+    3300002: Hair female 01
+    3300004: Head
+    3300006: Leather_Body_01
+    3300008: Leather_Helm_01
+    3300010: Leather_Legs_01
+    3300012: Legs
+    3300014: FH_armor_cloth_02_helmet
+    3300016: FH_armor_cloth_02_legs
+    3300018: FH_armor_cloth_02_shoulders
+    3300020: FH_armor_cloth_02_torso
+    3300022: FH_armor_cloth_02_waist
+    4300000: body
+    4300002: Legs
+    4300004: Head
+    4300006: Leather_Legs_01
+    4300008: Leather_Body_01
+    4300010: Leather_Helm_01
+    4300012: Hair female 01
+    4300014: Female_body
+    4300016: Female_legs
+    4300018: Female_head
+    4300020: Female_hair_01
+    4300022: Female_leather_helm_01
+    4300024: Female_pants_01
+    4300026: Female_pants_02
+    4300028: Female_pants_03
+    4300030: Female_pants_04
+    4300032: Female_pants_05
+    4300034: Female_leather_legs_01
+    4300036: Female_leather_body_01
+    4300038: Female_leather_shoulders 01
+    4300040: Female_leather_waist 01
+    4300042: Female_leather_shoulders_01
+    4300044: Female_leather_waist_01
+    4300046: Female_hair_02
+    4300048: Female_hair_03
+    4300050: Female_pants_06
+    4300052: Female_brassiere_01
+    4300054: Female_brassiere_02
+    4300056: Female_brassiere_03
+    4300058: Female_pants_07
+    4300060: Female_brassiere_04
+    4300062: Female_hair_04
+    4300064: Female_leather_legs_02
+    4300066: Female_leather_body_02
+    4300068: Female_leather_helm_02
+    4300070: Female_leather_waist_02
+    4300072: Female_leather_shoulders_02
+    4300074: Female_leather_legs_01.001
+    4300076: leather Body 03
+    4300078: Female_leather_helm_03
+    4300080: Female_leather_body_03
+    4300082: leather Body 03.001
+    4300084: Female_leather_legs_03
+    4300086: Female_leather_shoulders_03
+    4300088: Female_leather_waist_03
+    4300090: Female_leather_body_04
+    4300092: Female_leather_legs_04
+    4300094: Female_leather_shoulders_04
+    4300096: Female_leather_waist_04
+    4300098: Female_leather_helm_04
+    4300100: Female_leather_05_torso
+    4300102: Female_leather_05_helmet
+    4300104: Female_leather_05_legs
+    4300106: Female_leather_05_waist
+    4300108: Female_leather_05_shoulders
+    4300110: FH_armor_cloth_01_torso
+    4300112: FH_armor_cloth_01_legs
+    4300114: FH_armor_cloth_01_helmet
+    4300116: FH_armor_cloth_01_shoulders
+    4300118: FH_armor_cloth_01_waist
+    4300120: FH_armor_leather_01_legs
+    4300122: FH_armor_cloth_02_torso
+    4300124: FH_armor_cloth_02_legs
+    4300126: FH_armor_cloth_02_shoulders
+    4300128: FH_armor_cloth_02_waist
+    4300130: FH_armor_cloth_02_helmet
+    4300132: FH_armor_cloth_03_torso
+    4300134: FH_armor_cloth_03_shoulders
+    4300136: FH_armor_cloth_03_legs
+    4300138: FH_armor_cloth_03_waist
+    4300140: FH_armor_cloth_03_helmet
+    4300142: FH_armor_cloth_04_torso
+    4300144: FH_armor_cloth_04_legs
+    4300146: FH_armor_cloth_04_waist
+    4300148: FH_armor_cloth_04_shoulders
+    4300150: FH_armor_cloth_04_head
+    4300152: FH_armor_cloth_05_torso
+    4300154: FH_armor_cloth_05_helmet
+    4300156: FH_armor_cloth_05_shoulders
+    4300158: FH_armor_cloth_05_legs
+    4300160: FH_armor_cloth_05_waist
+    4300162: FH_body_head
+    4300164: FH_hair_03
+    4300166: FH_hair_01
+    4300168: FH_hair_04
+    4300170: FH_hair_05
+    4300172: FH_armor_plate_01_torso
+    4300174: FH_armor_plate_01_legs
+    4300176: FH_armor_plate_01_head
+    4300178: FH_armor_plate_01_shoulders
+    4300180: FH_armor_plate_01_waist
+    4300182: FH_armor_plate_02_legs
+    4300184: FH_armor_plate_02_head
+    4300186: FH_armor_plate_02_torso
+    4300188: FH_armor_plate_02_shoulders
+    4300190: FH_armor_plate_02_waist
+    4300192: FH_armor_plate_03_torso
+    4300194: FH_armor_plate_03_shoulders
+    4300196: FH_armor_plate_03_head
+    4300198: FH_armor_plate_03_legs
+    4300200: FH_armor_plate_03_waist
+    4300202: FH_armor_plate_04_torso
+    4300204: FH_armor_plate_04_legs
+    4300206: FH_armor_plate_04_waist
+    4300208: FH_armor_leather_01_shoulders
+    4300210: FH_armor_leather_01_helmet
+    4300212: FH_armor_leather_01_torso
+    4300214: FH_armor_leather_01_waist
+    4300216: FH_armor_leather_02_legs
+    4300218: FH_armor_leather_02_torso
+    4300220: FH_armor_leather_02_helmet
+    4300222: FH_armor_leather_02_waist
+    4300224: FH_armor_leather_02_shoulders
+    4300226: FH_armor_leather_03_helmet
+    4300228: FH_armor_leather_03_torso
+    4300230: FH_armor_leather_03_legs
+    4300232: FH_armor_leather_03_shoulders
+    4300234: FH_armor_leather_03_waist
+    4300236: FH_armor_leather_04_torso
+    4300238: FH_armor_leather_04_legs
+    4300240: FH_armor_leather_04_shoulders
+    4300242: FH_armor_leather_04_waist
+    4300244: FH_armor_leather_04_helmet
+    4300246: FH_armor_leather_05_torso
+    4300248: FH_armor_leather_05_helmet
+    4300250: FH_armor_leather_05_legs
+    4300252: FH_armor_leather_05_waist
+    4300254: FH_armor_leather_05_shoulders
+    4300256: FH_armor_plate_01_waist_B
+    4300258: FH_armor_plate_04_shoulders
+    4300260: FH_armor_plate_04_head
+    4300262: FH_armor_plate_05_shoulders
+    4300264: FH_armor_plate_05_legs
+    4300266: FH_armor_plate_05_torso
+    4300268: FH_armor_plate_05_waist
+    4300270: FH_armor_plate_05_head
+    4300272: FH_armor_plate_06_torso
+    4300274: FH_armor_plate_06_shoulders
+    4300276: FH_armor_plate_06_head
+    4300278: FH_armor_plate_06_legs
+    4300280: FH_armor_plate_06_waist
+    4300282: FH_body_torso.001
+    4300284: FH_body_head.001
+    4300286: plate Shoulders 07.001
+    4300288: FH_armor_plate_07_waist
+    4300290: FH_armor_plate_07_torso
+    4300292: FH_armor_plate_07_head
+    4300294: FH_armor_plate_07_shoulders
+    4300296: FH_armor_plate_07_legs
+    4300298: FH_body_torso
+    4300300: FH_body_legs
+    4300302: FH_hair_07
+    4300304: FH_hair_02
+    4300306: FH_hair_06
+    4300308: FH_hair_08
+    4300310: FH_hair_09
+    4300312: FH_hair_10
+    4300314: FH_underwear_brassiere_03
+    4300316: FH_outfit_legs_02
+    4300318: FH_outfit_legs_03
+    4300320: FH_outfit_legs_07
+    4300322: FH_outfit_legs_08
+    4300324: FH_outfit_legs_04
+    4300326: FH_outfit_torso_01
+    4300328: FH_outfit_torso_02
+    4300330: FH_outfit_torso_06
+    4300332: FH_outfit_torso_07
+    4300334: FH_outfit_torso_09
+    4300336: FH_hair_11
+    4300338: FH_armor_cloth_06_helmet
+    4300340: FH_armor_cloth_06_torso
+    4300342: FH_armor_cloth_06_legs
+    4300344: FH_armor_cloth_06_waist
+    4300346: FH_armor_cloth_06_torso.001
+    4300348: FH_armor_cloth_06_shoulders
+    4300350: FH_body_legs.001
+    4300352: FH_armor_leather_06_torso
+    4300354: FH_armor_leather_06_legs
+    4300356: FH_armor_leather_06_helmet
+    4300358: FH_armor_leather_06_shoulders
+    4300360: FH_armor_leather_06_waist
+    4300362: FH_waist
+    4300364: FH_underwear_pants_01
+    4300366: FH_underwear_pants_02
+    4300368: FH_underwear_pants_03
+    4300370: FH_underwear_pants_04
+    4300372: FH_underwear_pants_05
+    4300374: FH_underwear_pants_06
+    4300376: FH_underwear_brassiere_01
+    4300378: FH_underwear_brassiere_02
+    4300380: FH_underwear_brassiere_04
+    4300382: FH_underwear_pants_07
+    4300384: FH_outfit_legs_01
+    4300386: FH_outfit_legs_05
+    4300388: FH_outfit_legs_06
+    4300390: FH_outfit_legs_09
+    4300392: FH_outfit_torso_03
+    4300394: FH_outfit_torso_04
+    4300396: FH_outfit_torso_05
+    4300398: FH_outfit_torso_08
+    4300400: FH_outfit_legs_10
+    4300402: FH_outfit_torso_10
+    4300404: FH_outfit_head_01
+    4300406: FH_outfit_head_02
+    4300408: FH_outfit_head_03
+    4300410: FH_outfit_head_04
+    4300412: FH_outfit_head_05
+    4300414: FH_outfit_head_06
+    4300416: FH_base_body_torso
+    4300418: FH_base_waist
+    4300420: FH_base_body_legs
+    4300422: FH_base_body_head
+    4300424: FH_base_hair
+    4300426: FH_base_body_shoulders
+    4300428: FH_base_body_pants
+    4300430: FH_base_body_brassiere
+    4300432: FH_armor_cloth_04_helmet
+    4300434: FH_armor_plate_01_helmet
+    4300436: FH_armor_plate_02_helmet
+    4300438: FH_armor_plate_03_helmet
+    4300440: FH_armor_plate_04_helmet
+    4300442: FH_armor_plate_05_helmet
+    4300444: FH_armor_plate_06_helmet
+    4300446: FH_armor_plate_07_helmet
+    4300448: FH_hair_12
+    4300450: FH_hair_13
+    4300452: FH_hair_14
+    4300454: FH_hair_15
+    4300456: FH_hair_16
+    4300458: FH_hair_17
+    4300460: FH_armor_cloth_07_torso
+    4300462: FH_armor_cloth_07_legs
+    4300464: FH_armor_cloth_07_waist
+    4300466: FH_armor_cloth_07_head
+    4300468: FH_armor_cloth_07_shoulders
+    4300470: FH_armor_leather_07_torso
+    4300472: FH_armor_leather_07_shoulders
+    4300474: FH_armor_leather_07_waist
+    4300476: FH_armor_leather_07_helmet
+    4300478: FH_armor_leather_07_legs
+    9500000: //RootNode
+    13700000: body
+    13700002: Hair female 01
+    13700004: Head
+    13700006: Leather_Body_01
+    13700008: Leather_Helm_01
+    13700010: Leather_Legs_01
+    13700012: Legs
+    13700014: Female_body
+    13700016: Female_hair_01
+    13700018: Female_head
+    13700020: Female_leather_helm_01
+    13700022: Female_legs
+    13700024: Female_pants_01
+    13700026: Female_pants_02
+    13700028: Female_pants_03
+    13700030: Female_pants_04
+    13700032: Female_pants_05
+    13700034: Female_leather_body_01
+    13700036: Female_leather_legs_01
+    13700038: Female_leather_shoulders 01
+    13700040: Female_leather_waist 01
+    13700042: Female_hair_02
+    13700044: Female_leather_shoulders_01
+    13700046: Female_leather_waist_01
+    13700048: Female_hair_03
+    13700050: Female_brassiere_01
+    13700052: Female_pants_06
+    13700054: Female_brassiere_02
+    13700056: Female_brassiere_03
+    13700058: Female_pants_07
+    13700060: Female_brassiere_04
+    13700062: Female_hair_04
+    13700064: Female_leather_body_02
+    13700066: Female_leather_helm_02
+    13700068: Female_leather_legs_02
+    13700070: Female_leather_shoulders_02
+    13700072: Female_leather_waist_02
+    13700074: Female_leather_legs_01.001
+    13700076: Female_leather_body_03
+    13700078: Female_leather_helm_03
+    13700080: leather Body 03
+    13700082: leather Body 03.001
+    13700084: Female_leather_legs_03
+    13700086: Female_leather_shoulders_03
+    13700088: Female_leather_waist_03
+    13700090: Female_leather_body_04
+    13700092: Female_leather_helm_04
+    13700094: Female_leather_legs_04
+    13700096: Female_leather_shoulders_04
+    13700098: Female_leather_waist_04
+    13700100: Female_leather_05_helmet
+    13700102: Female_leather_05_legs
+    13700104: Female_leather_05_shoulders
+    13700106: Female_leather_05_torso
+    13700108: Female_leather_05_waist
+    13700110: FH_armor_cloth_01_helmet
+    13700112: FH_armor_cloth_01_legs
+    13700114: FH_armor_cloth_01_shoulders
+    13700116: FH_armor_cloth_01_torso
+    13700118: FH_armor_cloth_01_waist
+    13700120: FH_armor_cloth_02_torso
+    13700122: FH_armor_leather_01_legs
+    13700124: FH_armor_cloth_02_helmet
+    13700126: FH_armor_cloth_02_legs
+    13700128: FH_armor_cloth_02_shoulders
+    13700130: FH_armor_cloth_02_waist
+    13700132: FH_armor_cloth_03_helmet
+    13700134: FH_armor_cloth_03_legs
+    13700136: FH_armor_cloth_03_shoulders
+    13700138: FH_armor_cloth_03_torso
+    13700140: FH_armor_cloth_03_waist
+    13700142: FH_armor_cloth_04_head
+    13700144: FH_armor_cloth_04_legs
+    13700146: FH_armor_cloth_04_shoulders
+    13700148: FH_armor_cloth_04_torso
+    13700150: FH_armor_cloth_04_waist
+    13700152: FH_armor_cloth_05_torso
+    13700154: FH_armor_cloth_05_helmet
+    13700156: FH_armor_cloth_05_legs
+    13700158: FH_armor_cloth_05_shoulders
+    13700160: FH_armor_cloth_05_waist
+    13700162: FH_body_head
+    13700164: FH_hair_03
+    13700166: FH_hair_01
+    13700168: FH_hair_04
+    13700170: FH_hair_05
+    13700172: FH_armor_plate_01_head
+    13700174: FH_armor_plate_01_legs
+    13700176: FH_armor_plate_01_shoulders
+    13700178: FH_armor_plate_01_torso
+    13700180: FH_armor_plate_01_waist
+    13700182: FH_armor_plate_02_head
+    13700184: FH_armor_plate_02_legs
+    13700186: FH_armor_plate_02_shoulders
+    13700188: FH_armor_plate_02_torso
+    13700190: FH_armor_plate_02_waist
+    13700192: FH_armor_plate_03_head
+    13700194: FH_armor_plate_03_legs
+    13700196: FH_armor_plate_03_shoulders
+    13700198: FH_armor_plate_03_torso
+    13700200: FH_armor_plate_03_waist
+    13700202: FH_armor_plate_04_torso
+    13700204: FH_armor_plate_04_legs
+    13700206: FH_armor_plate_04_waist
+    13700208: FH_armor_leather_01_helmet
+    13700210: FH_armor_leather_01_shoulders
+    13700212: FH_armor_leather_01_torso
+    13700214: FH_armor_leather_01_waist
+    13700216: FH_armor_leather_02_helmet
+    13700218: FH_armor_leather_02_legs
+    13700220: FH_armor_leather_02_shoulders
+    13700222: FH_armor_leather_02_torso
+    13700224: FH_armor_leather_02_waist
+    13700226: FH_armor_leather_03_helmet
+    13700228: FH_armor_leather_03_legs
+    13700230: FH_armor_leather_03_shoulders
+    13700232: FH_armor_leather_03_torso
+    13700234: FH_armor_leather_03_waist
+    13700236: FH_armor_leather_04_helmet
+    13700238: FH_armor_leather_04_legs
+    13700240: FH_armor_leather_04_shoulders
+    13700242: FH_armor_leather_04_torso
+    13700244: FH_armor_leather_04_waist
+    13700246: FH_armor_leather_05_helmet
+    13700248: FH_armor_leather_05_legs
+    13700250: FH_armor_leather_05_shoulders
+    13700252: FH_armor_leather_05_torso
+    13700254: FH_armor_leather_05_waist
+    13700256: FH_armor_plate_01_waist_B
+    13700258: FH_armor_plate_04_head
+    13700260: FH_armor_plate_04_shoulders
+    13700262: FH_armor_plate_05_head
+    13700264: FH_armor_plate_05_legs
+    13700266: FH_armor_plate_05_shoulders
+    13700268: FH_armor_plate_05_torso
+    13700270: FH_armor_plate_05_waist
+    13700272: FH_armor_plate_06_torso
+    13700274: FH_armor_plate_06_head
+    13700276: FH_armor_plate_06_shoulders
+    13700278: FH_armor_plate_06_legs
+    13700280: FH_armor_plate_06_waist
+    13700282: FH_body_torso.001
+    13700284: FH_body_head.001
+    13700286: plate Shoulders 07.001
+    13700288: FH_armor_plate_07_head
+    13700290: FH_armor_plate_07_legs
+    13700292: FH_armor_plate_07_shoulders
+    13700294: FH_armor_plate_07_torso
+    13700296: FH_armor_plate_07_waist
+    13700298: FH_body_legs
+    13700300: FH_body_torso
+    13700302: FH_hair_07
+    13700304: FH_hair_02
+    13700306: FH_hair_06
+    13700308: FH_hair_08
+    13700310: FH_hair_09
+    13700312: FH_hair_10
+    13700314: FH_outfit_legs_02
+    13700316: FH_underwear_brassiere_03
+    13700318: FH_outfit_legs_03
+    13700320: FH_outfit_legs_07
+    13700322: FH_outfit_legs_08
+    13700324: FH_outfit_legs_04
+    13700326: FH_outfit_torso_01
+    13700328: FH_outfit_torso_02
+    13700330: FH_outfit_torso_06
+    13700332: FH_outfit_torso_07
+    13700334: FH_outfit_torso_09
+    13700336: FH_armor_cloth_06_helmet
+    13700338: FH_armor_cloth_06_legs
+    13700340: FH_armor_cloth_06_torso
+    13700342: FH_armor_cloth_06_torso.001
+    13700344: FH_armor_cloth_06_waist
+    13700346: FH_hair_11
+    13700348: FH_armor_cloth_06_shoulders
+    13700350: FH_body_legs.001
+    13700352: FH_armor_leather_06_helmet
+    13700354: FH_armor_leather_06_legs
+    13700356: FH_armor_leather_06_shoulders
+    13700358: FH_armor_leather_06_torso
+    13700360: FH_armor_leather_06_waist
+    13700362: FH_outfit_head_01
+    13700364: FH_outfit_head_02
+    13700366: FH_outfit_head_03
+    13700368: FH_outfit_head_04
+    13700370: FH_outfit_head_05
+    13700372: FH_outfit_head_06
+    13700374: FH_outfit_legs_01
+    13700376: FH_outfit_legs_05
+    13700378: FH_outfit_legs_06
+    13700380: FH_outfit_legs_09
+    13700382: FH_outfit_legs_10
+    13700384: FH_outfit_torso_03
+    13700386: FH_outfit_torso_04
+    13700388: FH_outfit_torso_05
+    13700390: FH_outfit_torso_08
+    13700392: FH_outfit_torso_10
+    13700394: FH_underwear_brassiere_01
+    13700396: FH_underwear_brassiere_02
+    13700398: FH_underwear_brassiere_04
+    13700400: FH_underwear_pants_01
+    13700402: FH_underwear_pants_02
+    13700404: FH_underwear_pants_03
+    13700406: FH_underwear_pants_04
+    13700408: FH_underwear_pants_05
+    13700410: FH_underwear_pants_06
+    13700412: FH_underwear_pants_07
+    13700414: FH_waist
+    13700416: FH_base_body_head
+    13700418: FH_base_body_legs
+    13700420: FH_base_body_shoulders
+    13700422: FH_base_body_torso
+    13700424: FH_base_hair
+    13700426: FH_base_waist
+    13700428: FH_base_body_brassiere
+    13700430: FH_base_body_pants
+    13700432: FH_armor_cloth_04_helmet
+    13700434: FH_armor_plate_01_helmet
+    13700436: FH_armor_plate_02_helmet
+    13700438: FH_armor_plate_03_helmet
+    13700440: FH_armor_plate_04_helmet
+    13700442: FH_armor_plate_05_helmet
+    13700444: FH_armor_plate_06_helmet
+    13700446: FH_armor_plate_07_helmet
+    13700448: FH_hair_12
+    13700450: FH_armor_cloth_07_head
+    13700452: FH_armor_cloth_07_legs
+    13700454: FH_armor_cloth_07_shoulders
+    13700456: FH_armor_cloth_07_torso
+    13700458: FH_armor_cloth_07_waist
+    13700460: FH_armor_leather_07_helmet
+    13700462: FH_armor_leather_07_legs
+    13700464: FH_armor_leather_07_shoulders
+    13700466: FH_armor_leather_07_torso
+    13700468: FH_armor_leather_07_waist
+    13700470: FH_hair_13
+    13700472: FH_hair_14
+    13700474: FH_hair_15
+    13700476: FH_hair_16
+    13700478: FH_hair_17
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armor
+    second: {fileID: 2100000, guid: ff13a291a587f9b479fc7f289ec269ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 926af4c9d06dbae4fb2b8bd36d84aa95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: colors
+    second: {fileID: 2100000, guid: ff13a291a587f9b479fc7f289ec269ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair
+    second: {fileID: 2100000, guid: 8774a357cbddb3242b775c5730a9eb99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pants
+    second: {fileID: 2100000, guid: ac0a0d1c81ebc9c49bae7e01e46641d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: underwear
+    second: {fileID: 2100000, guid: ac0a0d1c81ebc9c49bae7e01e46641d8, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: spine
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thigh.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thigh.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shin.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shin.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine.001
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine.002
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine.005
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shoulder.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shoulder.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_arm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_arm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: forearm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: forearm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.01.L
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.02.L
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.03.L
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.01.L
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.02.L
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.03.L
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.01.L
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.02.L
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.03.L
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.01.L
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.02.L
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.03.L
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.01.L
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.02.L
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.03.L
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.01.R
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.02.R
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.03.R
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.01.R
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.02.R
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.03.R
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.01.R
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.02.R
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.03.R
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.01.R
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.02.R
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.03.R
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.01.R
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.02.R
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.03.R
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine.003
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: ModularFemale(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FH_armor_cloth_02_helmet
+      parentName: ModularFemale(Clone)
+      position: {x: -0, y: -0.0026559678, z: 0.0013870008}
+      rotation: {x: -0.00000003774895, y: -1.1102233e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FH_armor_cloth_02_legs
+      parentName: ModularFemale(Clone)
+      position: {x: -0, y: -0.0026559678, z: 0.0013870008}
+      rotation: {x: -0.00000003774895, y: -1.1102233e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FH_armor_cloth_02_shoulders
+      parentName: ModularFemale(Clone)
+      position: {x: 0.000000029802322, y: -0.0026559678, z: 0.0013870008}
+      rotation: {x: -0.000000037748954, y: -1.1102236e-16, z: 1.1102236e-16, w: 1}
+      scale: {x: 0.9499999, y: 0.9499999, z: 0.9499999}
+    - name: FH_armor_cloth_02_torso
+      parentName: ModularFemale(Clone)
+      position: {x: -0, y: -0.0026559678, z: 0.0013870008}
+      rotation: {x: -0.00000003774895, y: -1.1102233e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FH_armor_cloth_02_waist
+      parentName: ModularFemale(Clone)
+      position: {x: -0, y: -0.0026559678, z: 0.0013870008}
+      rotation: {x: -0.000000037748954, y: -1.1102236e-16, z: 1.1102236e-16, w: 1}
+      scale: {x: 0.9499999, y: 0.9499999, z: 0.9499999}
+    - name: metarig
+      parentName: ModularFemale(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine
+      parentName: metarig
+      position: {x: -0, y: 0.037095793, z: 0.7640399}
+      rotation: {x: 0.79045546, y: -0.00000007301804, z: -0.00000009422966, w: 0.6125195}
+      scale: {x: 1, y: 0.999999, z: 0.9999992}
+    - name: spine.001
+      parentName: spine
+      position: {x: 1.9984014e-15, y: 0.115161665, z: -0.0000000027939677}
+      rotation: {x: -0.08691764, y: 0.00000011875819, z: 0.000000010361406, w: 0.9962155}
+      scale: {x: 1, y: 0.9999994, z: 0.9999993}
+    - name: spine.002
+      parentName: spine.001
+      position: {x: -9.595295e-23, y: 0.102903076, z: -0.0000000033760443}
+      rotation: {x: -0.05500776, y: -2.8421713e-14, z: 1.776357e-15, w: 0.998486}
+      scale: {x: 1, y: 0.9999993, z: 0.99999934}
+    - name: spine.003
+      parentName: spine.002
+      position: {x: -8.186494e-23, y: 0.13079806, z: 4.656613e-10}
+      rotation: {x: -0.03649536, y: -0.00000011912988, z: 0.00000000435057, w: 0.99933386}
+      scale: {x: 1, y: 1.0000005, z: 1.0000007}
+    - name: spine.004
+      parentName: spine.003
+      position: {x: 1.3501335e-15, y: 0.14643964, z: 0.0000000018626451}
+      rotation: {x: 0.045284715, y: 0.000000119086984, z: -0.0000000053983404, w: 0.99897414}
+      scale: {x: 1, y: 1.0000005, z: 1}
+    - name: spine.005
+      parentName: spine.004
+      position: {x: 2.2499313e-22, y: 0.028056558, z: -6.9849193e-10}
+      rotation: {x: 0.0010135473, y: -0.00000011920924, z: -1.2083261e-10, w: 0.9999995}
+      scale: {x: 1, y: 1.0000002, z: 1.0000006}
+    - name: head
+      parentName: spine.005
+      position: {x: -3.091802e-16, y: 0.03159567, z: 4.656613e-10}
+      rotation: {x: 0.0050500324, y: 0.00000011920777, z: -6.020047e-10, w: 0.99998724}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: tail_1.1
+      parentName: head
+      position: {x: -9.305133e-15, y: 0.18126749, z: -0.073061265}
+      rotation: {x: -0.58055156, y: 1.4210851e-14, z: 5.1902913e-14, w: 0.8142235}
+      scale: {x: 1, y: 1.0000024, z: 1.0000026}
+    - name: tail_1.2
+      parentName: tail_1.1
+      position: {x: -8.36445e-21, y: 0.105942905, z: -0.000000044703484}
+      rotation: {x: -0.0021758077, y: 3.4949854e-15, z: 1.9771064e-14, w: 0.9999976}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: tail_1.3
+      parentName: tail_1.2
+      position: {x: -7.940934e-22, y: 0.10317063, z: 0.000000014901161}
+      rotation: {x: 0.0009969187, y: -1.7410977e-15, z: -9.8841825e-15, w: 0.9999996}
+      scale: {x: 1, y: 1.0000033, z: 1.0000033}
+    - name: tail_1.4
+      parentName: tail_1.3
+      position: {x: 2.170522e-21, y: 0.09933671, z: 0.00000011175871}
+      rotation: {x: -0.004112702, y: -5.5647333e-15, z: -4.0165536e-15, w: 0.99999154}
+      scale: {x: 1, y: 0.99999857, z: 0.9999989}
+    - name: tail_2.1
+      parentName: head
+      position: {x: -7.9843e-15, y: 0.12886213, z: -0.062993854}
+      rotation: {x: -0.8088736, y: 1.4210851e-14, z: 8.162913e-14, w: 0.5879827}
+      scale: {x: 1, y: 1.0000088, z: 1.0000083}
+    - name: tail_2.2
+      parentName: tail_2.1
+      position: {x: 2.5410988e-21, y: 0.10594289, z: 0.00000011920929}
+      rotation: {x: -0.0021752708, y: -1.29350384e-14, z: 1.840659e-14, w: 0.9999976}
+      scale: {x: 1, y: 1.0000008, z: 1.0000013}
+    - name: tail_2.3
+      parentName: tail_2.2
+      position: {x: 2.7793269e-21, y: 0.10317063, z: 0.000000037252903}
+      rotation: {x: 0.0009962928, y: -7.7355264e-17, z: -7.061078e-17, w: 0.9999996}
+      scale: {x: 1, y: 1.0000027, z: 1.000003}
+    - name: tail_2.4
+      parentName: tail_2.3
+      position: {x: 8.4703295e-22, y: 0.09933671, z: 0}
+      rotation: {x: -0.004112315, y: 1.3382253e-14, z: -1.7957351e-14, w: 0.99999154}
+      scale: {x: 1, y: 0.9999986, z: 0.99999845}
+    - name: tail_2.5
+      parentName: tail_2.4
+      position: {x: 2.1837568e-20, y: 0.10346832, z: 0.00000011920929}
+      rotation: {x: 0.0035233358, y: 6.684112e-14, z: -4.649526e-15, w: 0.99999386}
+      scale: {x: 1, y: 1.0000042, z: 1.0000045}
+    - name: shoulder.L
+      parentName: spine.003
+      position: {x: -0.019110335, y: 0.11820868, z: 0.008482861}
+      rotation: {x: 0.59495276, y: -0.37578157, z: -0.48985147, w: -0.5146504}
+      scale: {x: 1.0000008, y: 0.99999964, z: 1.0000012}
+    - name: upper_arm.L
+      parentName: shoulder.L
+      position: {x: 0.002750501, y: 0.11442684, z: 0.00048821932}
+      rotation: {x: -0.14200975, y: 0.69781816, z: -0.026285276, w: -0.701564}
+      scale: {x: 1.000003, y: 1.0000043, z: 1.0000019}
+    - name: forearm.L
+      parentName: upper_arm.L
+      position: {x: 0.0000000018626451, y: 0.20899084, z: 0.00000000858563}
+      rotation: {x: 0.03423413, y: -0.11508006, z: -0.0032246553, w: 0.9927609}
+      scale: {x: 1.000006, y: 1.0000048, z: 0.99999994}
+    - name: hand.L
+      parentName: forearm.L
+      position: {x: 0.000000037252903, y: 0.16519563, z: 0.000000026077032}
+      rotation: {x: 0.011097406, y: 0.026424991, z: 0.03168069, w: 0.99908704}
+      scale: {x: 1.0000033, y: 1.000002, z: 0.99999976}
+    - name: palm.01.L
+      parentName: hand.L
+      position: {x: 0.0025502478, y: 0.03552904, z: 0.028450893}
+      rotation: {x: 0.010528011, y: -0.74302864, z: -0.016789338, w: 0.6689663}
+      scale: {x: 1.0000036, y: 1.0000095, z: 1.0000054}
+    - name: f_index.01.L
+      parentName: palm.01.L
+      position: {x: -0.000000018626451, y: 0.05661487, z: 0.000000058673322}
+      rotation: {x: 0.044635907, y: 0.012161875, z: 0.009084237, w: 0.99888796}
+      scale: {x: 1.0000019, y: 1.0000007, z: 1.0000008}
+    - name: f_index.02.L
+      parentName: f_index.01.L
+      position: {x: 0.000000003608875, y: 0.03653707, z: -0.0000000041909516}
+      rotation: {x: 0.037731785, y: 0.0105130235, z: 0.008537885, w: 0.9991962}
+      scale: {x: 1.0000014, y: 1.0000048, z: 1.0000005}
+    - name: f_index.03.L
+      parentName: f_index.02.L
+      position: {x: 0.0000000018626451, y: 0.024889898, z: -0.000000020023435}
+      rotation: {x: 0.11718848, y: 0.030600753, z: -0.0028671294, w: 0.99263406}
+      scale: {x: 1.0000023, y: 1.0000087, z: 1.0000042}
+    - name: thumb.01.L
+      parentName: palm.01.L
+      position: {x: 0.008260338, y: -0.0070139435, z: 0.019707402}
+      rotation: {x: -0.2836306, y: -0.65584177, z: -0.24468485, w: 0.65540415}
+      scale: {x: 1.000002, y: 1.0000038, z: 1.0000015}
+    - name: thumb.02.L
+      parentName: thumb.01.L
+      position: {x: -0, y: 0.03722474, z: -0.000000026077032}
+      rotation: {x: 0.031608887, y: 0.10878012, z: -0.004497214, w: 0.99355304}
+      scale: {x: 0.9999944, y: 0.99999124, z: 1.0000223}
+    - name: thumb.03.L
+      parentName: thumb.02.L
+      position: {x: -0.000000028871, y: 0.025521418, z: 0.000000011175871}
+      rotation: {x: 0.090635926, y: 0.032517705, z: -0.0027840836, w: 0.99534917}
+      scale: {x: 0.999999, y: 1.0000006, z: 0.9999978}
+    - name: palm.02.L
+      parentName: hand.L
+      position: {x: 0.0035464887, y: 0.035309557, z: 0.010968674}
+      rotation: {x: -0.023005756, y: -0.72038704, z: 0.0110542, w: 0.69310266}
+      scale: {x: 1.0000046, y: 1.000007, z: 1.0000051}
+    - name: f_middle.01.L
+      parentName: palm.02.L
+      position: {x: 0.000000004656613, y: 0.055444714, z: -4.0745363e-10}
+      rotation: {x: 0.05316593, y: 0.019145418, z: -0.04489129, w: 0.9973924}
+      scale: {x: 1.0000021, y: 1.0000005, z: 1.0000019}
+    - name: f_middle.02.L
+      parentName: f_middle.01.L
+      position: {x: -0.0000000027939677, y: 0.040283088, z: -0.000000023515895}
+      rotation: {x: 0.03755327, y: 0.048458233, z: 0.0023327766, w: 0.9981163}
+      scale: {x: 1.0000019, y: 1.0000033, z: 1.0000011}
+    - name: f_middle.03.L
+      parentName: f_middle.02.L
+      position: {x: 0.0000000018626451, y: 0.026179444, z: 0.000000025262125}
+      rotation: {x: 0.058756463, y: 0.032403078, z: 0.019111952, w: 0.99756324}
+      scale: {x: 1.0000024, y: 1.0000048, z: 1.000004}
+    - name: palm.03.L
+      parentName: hand.L
+      position: {x: 0.0020900671, y: 0.031714447, z: -0.0042168777}
+      rotation: {x: -0.07657675, y: -0.67769575, z: 0.049218386, w: 0.7296863}
+      scale: {x: 1.0000031, y: 1.0000055, z: 1.000003}
+    - name: f_ring.01.L
+      parentName: palm.03.L
+      position: {x: -0.0000000013969839, y: 0.056754325, z: -0.00000001891749}
+      rotation: {x: 0.07126385, y: 0.03668891, z: -0.10555929, w: 0.99117744}
+      scale: {x: 1.0000031, y: 1.0000024, z: 1.000002}
+    - name: f_ring.02.L
+      parentName: f_ring.01.L
+      position: {x: -0.0000000023283064, y: 0.03644179, z: 0.000000021143933}
+      rotation: {x: 0.038509913, y: 0.031021126, z: 0.009935469, w: 0.99872714}
+      scale: {x: 1.0000001, y: 1.0000036, z: 1.0000021}
+    - name: f_ring.03.L
+      parentName: f_ring.02.L
+      position: {x: -0, y: 0.025858229, z: -0.0000000015133992}
+      rotation: {x: 0.15668842, y: 0.052528888, z: 0.03693229, w: 0.98555845}
+      scale: {x: 1.0000023, y: 1.0000062, z: 1.0000037}
+    - name: palm.04.L
+      parentName: hand.L
+      position: {x: 0.0026710548, y: 0.026328377, z: -0.0152959805}
+      rotation: {x: -0.107348375, y: -0.65393806, z: 0.104967095, w: 0.74150085}
+      scale: {x: 1.0000026, y: 1.0000026, z: 1.000003}
+    - name: f_pinky.01.L
+      parentName: palm.04.L
+      position: {x: -0.0022998936, y: 0.061884686, z: 0.0029547955}
+      rotation: {x: 0.07249499, y: 0.10464934, z: -0.1646913, w: 0.97809494}
+      scale: {x: 1.0000011, y: 1.000001, z: 1.0000024}
+    - name: f_pinky.02.L
+      parentName: f_pinky.01.L
+      position: {x: -0.000000007450581, y: 0.022667013, z: 0.000000007916242}
+      rotation: {x: 0.038571067, y: 0.015280208, z: 0.014744322, w: 0.9990303}
+      scale: {x: 1.0000023, y: 1.0000035, z: 1.0000033}
+    - name: f_pinky.03.L
+      parentName: f_pinky.02.L
+      position: {x: -0, y: 0.018370844, z: 0.000000054948032}
+      rotation: {x: 0.086201586, y: 0.012412131, z: 0.01601593, w: 0.9960717}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000018}
+    - name: shulder.L
+      parentName: upper_arm.L
+      position: {x: 0.026184402, y: -0.02563281, z: -0.0006298914}
+      rotation: {x: 0.063145585, y: -0.00022986528, z: -0.72856206, w: 0.682063}
+      scale: {x: 1.0000008, y: 1.0000012, z: 1.0000002}
+    - name: shoulder.R
+      parentName: spine.003
+      position: {x: 0.019110339, y: 0.11820868, z: 0.008482852}
+      rotation: {x: 0.59495264, y: 0.37578154, z: 0.4898513, w: -0.5146507}
+      scale: {x: 1.0000024, y: 1.0000023, z: 1.000003}
+    - name: upper_arm.R
+      parentName: shoulder.R
+      position: {x: -0.0027505085, y: 0.114426866, z: 0.0004882207}
+      rotation: {x: 0.14200908, y: 0.6978184, z: -0.026285453, w: 0.7015639}
+      scale: {x: 1.0000014, y: 1.0000045, z: 1.0000002}
+    - name: forearm.R
+      parentName: upper_arm.R
+      position: {x: -0.00000004004687, y: 0.20899057, z: 0.0000000033469405}
+      rotation: {x: 0.034234975, y: 0.115079865, z: 0.00322511, w: 0.9927609}
+      scale: {x: 1.000005, y: 1.0000049, z: 1.0000006}
+    - name: hand.R
+      parentName: forearm.R
+      position: {x: 0.000000021187589, y: 0.16519564, z: 0.000000007450581}
+      rotation: {x: 0.011097341, y: -0.026424889, z: -0.031680766, w: 0.99908704}
+      scale: {x: 1.0000021, y: 1.0000014, z: 0.9999997}
+    - name: palm.01.R
+      parentName: hand.R
+      position: {x: -0.0025501586, y: 0.035529032, z: 0.028450884}
+      rotation: {x: -0.010527682, y: -0.7430286, z: -0.016789418, w: -0.66896623}
+      scale: {x: 1.0000031, y: 1.0000067, z: 1.000005}
+    - name: f_index.01.R
+      parentName: palm.01.R
+      position: {x: -0.0000000055879354, y: 0.056614775, z: 0.000000028871}
+      rotation: {x: 0.044637304, y: -0.012161461, z: -0.00908429, w: 0.99888796}
+      scale: {x: 1.0000036, y: 1.0000052, z: 1.0000017}
+    - name: f_index.02.R
+      parentName: f_index.01.R
+      position: {x: 0.0000000018335413, y: 0.036537077, z: 0.00000006193295}
+      rotation: {x: 0.037732385, y: -0.010512817, z: -0.008537853, w: 0.9991961}
+      scale: {x: 0.9999989, y: 1.0000014, z: 0.999998}
+    - name: f_index.03.R
+      parentName: f_index.02.R
+      position: {x: 0.0000000037252903, y: 0.024889862, z: -0.000000009313226}
+      rotation: {x: 0.117188744, y: -0.030600857, z: 0.0028671438, w: 0.992634}
+      scale: {x: 1.0000017, y: 1.0000046, z: 0.99999887}
+    - name: thumb.01.R
+      parentName: palm.01.R
+      position: {x: -0.008260349, y: -0.0070140534, z: 0.019707358}
+      rotation: {x: -0.28362888, y: 0.6558427, z: 0.24468648, w: 0.6554033}
+      scale: {x: 1.0000032, y: 1.0000056, z: 0.999998}
+    - name: thumb.02.R
+      parentName: thumb.01.R
+      position: {x: -0.000000048428774, y: 0.037224814, z: -0.000000011175871}
+      rotation: {x: 0.031608775, y: -0.10877979, z: 0.0044959486, w: 0.99355304}
+      scale: {x: 0.9999944, y: 0.99999326, z: 1.0000182}
+    - name: thumb.03.R
+      parentName: thumb.02.R
+      position: {x: 0.000000006519258, y: 0.025521394, z: -0.000000014901161}
+      rotation: {x: 0.09063576, y: -0.032517783, z: 0.0027841628, w: 0.9953492}
+      scale: {x: 0.99999934, y: 1.0000076, z: 1.0000042}
+    - name: palm.02.R
+      parentName: hand.R
+      position: {x: -0.003546429, y: 0.035309557, z: 0.0109686535}
+      rotation: {x: 0.023005942, y: -0.720387, z: 0.011054088, w: -0.6931026}
+      scale: {x: 1.0000057, y: 1.0000083, z: 1.0000061}
+    - name: f_middle.01.R
+      parentName: palm.02.R
+      position: {x: 0.0000000055879354, y: 0.05544478, z: -8.1490725e-10}
+      rotation: {x: 0.053165894, y: -0.019145392, z: 0.04489123, w: 0.9973924}
+      scale: {x: 1.0000029, y: 1.000004, z: 1.0000006}
+    - name: f_middle.02.R
+      parentName: f_middle.01.R
+      position: {x: 0.0000000027939677, y: 0.040283002, z: 0.000000038417056}
+      rotation: {x: 0.037556976, y: -0.048457768, z: -0.0023342015, w: 0.99811614}
+      scale: {x: 1.0000007, y: 1.0000025, z: 0.99999565}
+    - name: f_middle.03.R
+      parentName: f_middle.02.R
+      position: {x: -0.000000006519258, y: 0.026179386, z: -0.000000013213139}
+      rotation: {x: -0.058751307, y: 0.03240286, z: 0.019112064, w: -0.9975636}
+      scale: {x: 1.0000013, y: 1.0000044, z: 1.0000021}
+    - name: palm.03.R
+      parentName: hand.R
+      position: {x: -0.002090008, y: 0.031714447, z: -0.0042168815}
+      rotation: {x: -0.07657774, y: 0.6776958, z: -0.04921736, w: 0.72968614}
+      scale: {x: 1.0000037, y: 1.000004, z: 1.0000018}
+    - name: f_ring.01.R
+      parentName: palm.03.R
+      position: {x: -0.0000000038417056, y: 0.05675433, z: -0.000000049127266}
+      rotation: {x: 0.07126399, y: -0.036689457, z: 0.105557814, w: 0.9911775}
+      scale: {x: 1.0000014, y: 1.0000033, z: 1.000001}
+    - name: f_ring.02.R
+      parentName: f_ring.01.R
+      position: {x: -0.0000000027939677, y: 0.036441777, z: 0.000000037442078}
+      rotation: {x: 0.038508616, y: -0.031020984, z: -0.009932, w: 0.9987273}
+      scale: {x: 1.0000029, y: 1.0000038, z: 1.0000011}
+    - name: f_ring.03.R
+      parentName: f_ring.02.R
+      position: {x: 0.0000000013969839, y: 0.025858242, z: -0.000000014784746}
+      rotation: {x: 0.15668964, y: -0.052528873, z: -0.03693229, w: 0.98555833}
+      scale: {x: 1.0000026, y: 1.000011, z: 1.0000006}
+    - name: palm.04.R
+      parentName: hand.R
+      position: {x: -0.0026709656, y: 0.026328377, z: -0.015295984}
+      rotation: {x: -0.10734882, y: 0.65393806, z: -0.10496678, w: 0.7415007}
+      scale: {x: 1.0000048, y: 1.0000035, z: 1.0000024}
+    - name: f_pinky.01.R
+      parentName: palm.04.R
+      position: {x: 0.0022998936, y: 0.061884757, z: 0.0029547366}
+      rotation: {x: 0.07249596, y: -0.10464953, z: 0.16469057, w: 0.97809505}
+      scale: {x: 1.0000012, y: 1.0000031, z: 1.0000011}
+    - name: f_pinky.02.R
+      parentName: f_pinky.01.R
+      position: {x: -0.0000000037252903, y: 0.02266715, z: -0.000000013969839}
+      rotation: {x: 0.038579624, y: -0.015280306, z: -0.0147474175, w: 0.9990298}
+      scale: {x: 1.0000027, y: 1.0000074, z: 1.0000033}
+    - name: f_pinky.03.R
+      parentName: f_pinky.02.R
+      position: {x: 0.000000007450581, y: 0.018370766, z: -0.000000019557774}
+      rotation: {x: 0.08620142, y: -0.012411951, z: -0.016015712, w: 0.99607164}
+      scale: {x: 1.000001, y: 1.0000019, z: 0.9999997}
+    - name: shulder.R
+      parentName: upper_arm.R
+      position: {x: -0.026184384, y: -0.025633072, z: -0.00062990596}
+      rotation: {x: -0.06314551, y: -0.00022980568, z: -0.7285623, w: -0.68206286}
+      scale: {x: 1.0000006, y: 0.9999996, z: 1.0000008}
+    - name: breast.L
+      parentName: spine.003
+      position: {x: -0.053174697, y: 0.008860909, z: 0.074971355}
+      rotation: {x: -0.06592211, y: 0.6658357, z: 0.73956466, w: 0.073221475}
+      scale: {x: 1.0000061, y: 1.0000043, z: 1.0000045}
+    - name: breast.R
+      parentName: spine.003
+      position: {x: 0.053174734, y: 0.008860909, z: 0.074971326}
+      rotation: {x: 0.06592225, y: 0.66583574, z: 0.7395646, w: -0.0732216}
+      scale: {x: 1.0000069, y: 1.0000052, z: 1.0000046}
+    - name: back_1.1
+      parentName: spine.003
+      position: {x: -0.000000022012186, y: 0.14882523, z: -0.092325784}
+      rotation: {x: 0.98487276, y: -0.000000020656456, z: -0.000000117405904, w: -0.17327905}
+      scale: {x: 1, y: 1.0000033, z: 1.0000013}
+    - name: back_1.2
+      parentName: back_1.1
+      position: {x: -5.8233515e-21, y: 0.092739046, z: 0.000000029802322}
+      rotation: {x: -0.023044646, y: -0.000000119177955, z: 0.0000000027470948, w: 0.9997345}
+      scale: {x: 1, y: 1.0000039, z: 1.0000037}
+    - name: back_1.3
+      parentName: back_1.2
+      position: {x: 6.561242e-15, y: 0.0935772, z: -0.000000014901161}
+      rotation: {x: -0.0018128604, y: 0.00000071525676, z: -8.642349e-10, w: 0.9999984}
+      scale: {x: 1, y: 1.0000044, z: 1.0000045}
+    - name: back_1.4
+      parentName: back_1.3
+      position: {x: 2.792236e-14, y: 0.10096033, z: 0.000000014901161}
+      rotation: {x: -0.0092976205, y: -0.00000011920501, z: -0.000000009975338, w: 0.99995685}
+      scale: {x: 1, y: 1.0000017, z: 1.000002}
+    - name: attachBone_2
+      parentName: spine
+      position: {x: -0.10288681, y: 0.11222675, z: -0.09169646}
+      rotation: {x: -0.685604, y: 0.2901895, z: 0.20852868, w: 0.6342343}
+      scale: {x: 1.0000004, y: 1.0000023, z: 1.0000025}
+    - name: waist_F.1
+      parentName: spine
+      position: {x: 0.000000028023194, y: 0.17152438, z: 0.11753775}
+      rotation: {x: 0.9905049, y: 3.552714e-15, z: -0.00000023615455, w: 0.13747738}
+      scale: {x: 1, y: 1.0000011, z: 0.99999976}
+    - name: waist_F.2
+      parentName: waist_F.1
+      position: {x: 2.6933318e-17, y: 0.10290314, z: 0.000000009313226}
+      rotation: {x: -0.0026556998, y: 0.00000011920953, z: 3.1653258e-10, w: 0.99999654}
+      scale: {x: 1, y: 1.0000045, z: 1.0000044}
+    - name: waist_F.3
+      parentName: waist_F.2
+      position: {x: -1.8422967e-20, y: 0.10544682, z: 0.000000009313226}
+      rotation: {x: -0.00000013434327, y: -0.00000011921036, z: 5.3650403e-14, w: 1}
+      scale: {x: 1, y: 1.0000049, z: 1.000005}
+    - name: waist_F.4
+      parentName: waist_F.3
+      position: {x: 4.820009e-16, y: 0.11384515, z: -0.0000000037252903}
+      rotation: {x: -0.0051017636, y: 0.00000023841615, z: -7.39393e-14, w: 0.99998707}
+      scale: {x: 1, y: 1.0000098, z: 1.0000097}
+    - name: waist_F.5
+      parentName: waist_F.4
+      position: {x: 2.603006e-15, y: 0.11196067, z: 0.0000000018626451}
+      rotation: {x: 0.0033061488, y: -0.00000023841918, z: 7.274943e-14, w: 0.9999946}
+      scale: {x: 1, y: 1.0000052, z: 1.0000051}
+    - name: waist_B.1
+      parentName: spine
+      position: {x: -0.00000002692508, y: 0.111786254, z: -0.11293195}
+      rotation: {x: 0.99913895, y: 3.1974423e-14, z: -0.00000023820438, w: 0.04148954}
+      scale: {x: 1, y: 1.0000024, z: 0.999964}
+    - name: waist_B.2
+      parentName: waist_B.1
+      position: {x: 8.2516425e-15, y: 0.10421063, z: 0.000000014901161}
+      rotation: {x: 0.0036225768, y: 0.00000023840582, z: -6.146195e-13, w: 0.99999344}
+      scale: {x: 1, y: 1.0000015, z: 1.0000015}
+    - name: waist_B.3
+      parentName: waist_B.2
+      position: {x: 4.3189515e-15, y: 0.10695432, z: -0.000000007450581}
+      rotation: {x: -0.0104949325, y: -0.00000023840613, z: 8.059598e-13, w: 0.9999449}
+      scale: {x: 1, y: 1.000002, z: 1.000002}
+    - name: waist_B.4
+      parentName: waist_B.3
+      position: {x: -9.590192e-16, y: 0.11506724, z: 0.000000029802322}
+      rotation: {x: -0.0037708806, y: 1.1908697e-11, z: 8.9909996e-10, w: 0.9999929}
+      scale: {x: 1, y: 1.0000064, z: 1.0000066}
+    - name: waist_B.5
+      parentName: waist_B.4
+      position: {x: 2.241602e-15, y: 0.10571235, z: 0.000000014901161}
+      rotation: {x: -0.007575917, y: 0.00000011920032, z: 9.024832e-10, w: 0.9999714}
+      scale: {x: 1, y: 1.0000058, z: 1.0000057}
+    - name: waist_L.1
+      parentName: spine
+      position: {x: -0.15109019, y: 0.13725787, z: 0.006974077}
+      rotation: {x: 0.9817919, y: -0.14945222, z: 0.024752673, w: 0.11461272}
+      scale: {x: 0.9999983, y: 1.0000044, z: 1.0000045}
+    - name: waist_L.2
+      parentName: waist_L.1
+      position: {x: 0.000000005493348, y: 0.0976671, z: 5.820766e-10}
+      rotation: {x: -0.039783895, y: -0.70962465, z: -0.025103733, w: 0.70300776}
+      scale: {x: 0.9999994, y: 0.9999999, z: 1.0000018}
+    - name: waist_L.3
+      parentName: waist_L.2
+      position: {x: -3.0087222e-10, y: 0.108610414, z: -0.0000000020462774}
+      rotation: {x: 0.095842056, y: 0.0000006854535, z: 0.000000115484006, w: 0.99539655}
+      scale: {x: 1.0000017, y: 1.0000039, z: 1.0000032}
+    - name: waist_L.4
+      parentName: waist_L.3
+      position: {x: -3.137215e-10, y: 0.115391016, z: 0.0000000028442715}
+      rotation: {x: -0.09870607, y: 0.0000018986043, z: -0.00000033629038, w: 0.9951167}
+      scale: {x: 1.0000023, y: 1.0000037, z: 1.0000018}
+    - name: waist_L.5
+      parentName: waist_L.4
+      position: {x: -8.526513e-11, y: 0.11346145, z: -0.00000001522225}
+      rotation: {x: 0.050784487, y: -0.0000016080585, z: 0.00000019414118, w: 0.9987096}
+      scale: {x: 1.0000019, y: 1.0000033, z: 1.0000025}
+    - name: waist_R.1
+      parentName: spine
+      position: {x: 0.15109019, y: 0.13725781, z: 0.006974018}
+      rotation: {x: 0.98179173, y: 0.14945246, z: -0.024754185, w: 0.11461289}
+      scale: {x: 1.0000007, y: 1.0000067, z: 1.0000094}
+    - name: waist_R.2
+      parentName: waist_R.1
+      position: {x: 0.000000024392648, y: 0.097667076, z: -6.9849193e-10}
+      rotation: {x: -0.039783813, y: 0.7096254, z: 0.025103778, w: 0.703007}
+      scale: {x: 1.0000017, y: 1.0000066, z: 1.0000033}
+    - name: waist_R.3
+      parentName: waist_R.2
+      position: {x: -1.4486545e-10, y: 0.10861037, z: -0.0000000319194}
+      rotation: {x: -0.038616948, y: 0.00000035762787, z: -0.000000018626451, w: 0.9992541}
+      scale: {x: 1.0000025, y: 1.0000058, z: 1.000003}
+    - name: waist_R.4
+      parentName: waist_R.3
+      position: {x: -3.5546677e-11, y: 0.11539098, z: 0.000000007305688}
+      rotation: {x: -0.08299467, y: -0.0000016482893, z: 0.00000019732245, w: 0.99655}
+      scale: {x: 1.0000006, y: 1.000003, z: 0.9999985}
+    - name: waist_R.5
+      parentName: waist_R.4
+      position: {x: -1.4883028e-10, y: 0.11346138, z: -0.000000010798868}
+      rotation: {x: 0.066100135, y: 0.0000014700813, z: -0.00000016200138, w: 0.99781305}
+      scale: {x: 1.0000038, y: 1.0000048, z: 1.0000054}
+    - name: attachBone_1
+      parentName: spine
+      position: {x: -0.081940845, y: 0.16561969, z: 0.11663715}
+      rotation: {x: -0.13360654, y: 0.80122757, z: 0.5558242, w: 0.17675738}
+      scale: {x: 1.0000052, y: 1.000003, z: 1.0000038}
+    - name: pelvis.L
+      parentName: spine
+      position: {x: 2.6645353e-15, y: 0.000000015832484, z: -0.0000000037252903}
+      rotation: {x: -0.15245515, y: 0.79333085, z: 0.28550392, w: 0.51562697}
+      scale: {x: 1.0000052, y: 1.0000008, z: 1.000004}
+    - name: pelvis.R
+      parentName: spine
+      position: {x: 2.6645353e-15, y: 0.000000015832484, z: -0.0000000037252903}
+      rotation: {x: -0.15245529, y: -0.7933307, z: -0.28550386, w: 0.5156272}
+      scale: {x: 1.0000014, y: 1.0000005, z: 1.0000017}
+    - name: thigh.L
+      parentName: spine
+      position: {x: -0.07638147, y: 0.05357775, z: 0.019626647}
+      rotation: {x: 0.99053013, y: -0.076644816, z: 0.01684591, w: 0.1126581}
+      scale: {x: 0.9999976, y: 1.0000012, z: 0.99999934}
+    - name: shin.L
+      parentName: thigh.L
+      position: {x: 0.000000019048457, y: 0.34737346, z: 0.0000000013969839}
+      rotation: {x: 0.059823487, y: -0.012838268, z: -0.026646396, w: 0.99777067}
+      scale: {x: 1.0000006, y: 1.0000015, z: 1.0000001}
+    - name: foot.L
+      parentName: shin.L
+      position: {x: -0.0000000084983185, y: 0.41007274, z: -0.0000000017462298}
+      rotation: {x: -0.54693586, y: 0.025275681, z: -0.044108253, w: 0.83562964}
+      scale: {x: 0.9999995, y: 1.0000026, z: 1.000004}
+    - name: toe.L
+      parentName: foot.L
+      position: {x: -1.0612977e-10, y: 0.09778099, z: -0.0000000037725503}
+      rotation: {x: 0.00000038370493, y: 0.9612492, z: -0.2756812, w: -0.00000043027106}
+      scale: {x: 1.0000072, y: 1.0000067, z: 0.99999833}
+    - name: heel.02.L
+      parentName: foot.L
+      position: {x: 7.5900175e-10, y: 0.00000001707366, z: -0.000000013551437}
+      rotation: {x: -0.51897395, y: 0.48027992, z: 0.51896906, w: -0.48027954}
+      scale: {x: 0.9999997, y: 1.0000029, z: 1.0000007}
+    - name: thigh.R
+      parentName: spine
+      position: {x: 0.07638148, y: 0.05357775, z: 0.01962661}
+      rotation: {x: 0.99053013, y: 0.07664486, z: -0.016846038, w: 0.11265798}
+      scale: {x: 0.9999976, y: 1.0000018, z: 0.99999946}
+    - name: shin.R
+      parentName: thigh.R
+      position: {x: -0.0000000021391315, y: 0.34737346, z: 0}
+      rotation: {x: 0.05982339, y: 0.012838194, z: 0.026646404, w: 0.99777067}
+      scale: {x: 1.0000005, y: 1.000002, z: 1.0000008}
+    - name: foot.R
+      parentName: shin.R
+      position: {x: 0.0000000013387762, y: 0.4100728, z: -0.0000000023283064}
+      rotation: {x: -0.5469358, y: -0.025275702, z: 0.04410841, w: 0.83562964}
+      scale: {x: 0.9999997, y: 1.0000036, z: 1.0000052}
+    - name: toe.R
+      parentName: foot.R
+      position: {x: -0.0000000045825486, y: 0.09778099, z: -0.000000003515801}
+      rotation: {x: -0.00000046566132, y: 0.9612491, z: -0.27568126, w: 0.0000004284084}
+      scale: {x: 1.0000044, y: 1.0000064, z: 0.99999523}
+    - name: heel.02.R
+      parentName: foot.R
+      position: {x: -0.0000000049923585, y: -0.000000004170147, z: -0.000000014691672}
+      rotation: {x: 0.5189742, y: 0.48028004, z: 0.51896876, w: 0.48027942}
+      scale: {x: 1.0000005, y: 1.000004, z: 1.0000008}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199421
+  packageName: POLYART-Modular Fantasy Humans
+  packageVersion: 4.5.0
+  assetPath: Assets/Modular RPG Character Polyart/Modular Character Female/Models/ModularFemale.fbx
+  uploadId: 534279

@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0dc3aa786a1d22bfd9c5ed76bb9b62d6e91caaa3b4e59711783dfd6d3aa8ce74
-size 405
+# Changelog
+
+## [1.0.4] - 2024-03-27
+
+### Fixed
+
+- Fixed sample player input controls not re-enabling
+
+## [1.0.3] - 2024-03-20
+
+### Fixed
+
+- Fixed package import hierarchy
+
+## [1.0.2] - 2024-03-15
+
+### Added
+
+- Added Root motion animations
+- Added Vertical Root motion jump animations
+
+## [1.0.1] - 2024-02-09
+
+### Fixed
+
+- Fixed DemoChr_Sprint_ToCrouch offset
+
+## [1.0.0] - 2024-02-08
+
+- Initial Release

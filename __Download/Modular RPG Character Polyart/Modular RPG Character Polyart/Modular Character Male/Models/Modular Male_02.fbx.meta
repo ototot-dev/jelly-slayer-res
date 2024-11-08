@@ -1,3 +1,1922 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f13bebfc0f69879a6b036d8fde7921aa88c294d9b1f619add87ea80dfd699acb
-size 86873
+fileFormatVersion: 2
+guid: bc97826deecf206478e3d280afb020f7
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armor
+    second: {fileID: 2100000, guid: d8776383e8402e2489d8b1d6ac697697, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: df4af3ccccb4e064f918a010c51b884a, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: spine
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thigh.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thigh.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shin.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shin.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine.001
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine.002
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shoulder.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shoulder.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_arm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: upper_arm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: forearm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: forearm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.01.L
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.02.L
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.03.L
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.01.L
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.02.L
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.03.L
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.01.L
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.02.L
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.03.L
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.01.L
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.02.L
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.03.L
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.01.L
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.02.L
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.03.L
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.01.R
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.02.R
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb.03.R
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.01.R
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.02.R
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_index.03.R
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.01.R
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.02.R
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_middle.03.R
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.01.R
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.02.R
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_ring.03.R
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.01.R
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.02.R
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: f_pinky.03.R
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine.003
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Modular Male(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: metarig
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.7963685, y: 0.7963685, z: 0.7963685}
+    - name: spine
+      parentName: metarig
+      position: {x: -0, y: 0.049032833, z: 1.0099}
+      rotation: {x: 0.79045546, y: -0.00000007301802, z: -0.00000009422964, w: 0.6125195}
+      scale: {x: 1, y: 0.99999905, z: 0.99999905}
+    - name: spine.001
+      parentName: spine
+      position: {x: -3.330669e-15, y: 0.15221952, z: -0.000000016763806}
+      rotation: {x: -0.030860156, y: 0.00000011915252, z: 0.000000003678799, w: 0.99952376}
+      scale: {x: 1, y: 0.9999915, z: 0.9999915}
+    - name: spine.002
+      parentName: spine.001
+      position: {x: -6.352747e-22, y: 0.13810004, z: 0.0000000027939677}
+      rotation: {x: -0.1109688, y: -0.000000118473075, z: 0.000000013228544, w: 0.9938239}
+      scale: {x: 1, y: 0.99997056, z: 0.99997056}
+    - name: spine.003
+      parentName: spine.002
+      position: {x: 4.7988313e-16, y: 0.17288755, z: -0.0000000018626451}
+      rotation: {x: -0.081811674, y: 2.842171e-14, z: 0.000000019505407, w: 0.99664783}
+      scale: {x: 1, y: 1.0000278, z: 1.0000237}
+    - name: neck
+      parentName: spine.003
+      position: {x: 1.307305e-10, y: 0.18323138, z: 0.0005482994}
+      rotation: {x: 0.09595484, y: -2.6947798e-14, z: -0.000000022877416, w: 0.9953857}
+      scale: {x: 1, y: 0.99999374, z: 0.9999884}
+    - name: head
+      parentName: neck
+      position: {x: 5.1347815e-16, y: 0.100924596, z: 0.0000000013969839}
+      rotation: {x: -0.00094529986, y: 0.000000119209275, z: 1.12664544e-10, w: 0.99999964}
+      scale: {x: 1, y: 1.0000428, z: 1.0000405}
+    - name: tail_1.1
+      parentName: head
+      position: {x: -4.3690544e-15, y: 0.21637525, z: -0.10198046}
+      rotation: {x: -0.5792412, y: -1.4210853e-14, z: 7.6404154e-14, w: 0.81515616}
+      scale: {x: 1, y: 0.99995935, z: 1.0000758}
+    - name: tail_1.2
+      parentName: tail_1.1
+      position: {x: -7.19978e-21, y: 0.13303256, z: -0.000000007450581}
+      rotation: {x: -0.0021786687, y: 2.5812226e-15, z: -1.5611976e-14, w: 0.9999976}
+      scale: {x: 1, y: 1.0000241, z: 1.0000248}
+    - name: tail_1.3
+      parentName: tail_1.2
+      position: {x: -3.8116483e-21, y: 0.12955117, z: 0.000000037252903}
+      rotation: {x: 0.000998111, y: -1.6968609e-15, z: -9.95911e-15, w: 0.9999995}
+      scale: {x: 1, y: 1.0000414, z: 1.0000432}
+    - name: tail_1.4
+      parentName: tail_1.3
+      position: {x: -1.1329066e-20, y: 0.1247372, z: -0.000000029802322}
+      rotation: {x: -0.004112734, y: 1.4832045e-16, z: 1.8160104e-16, w: 0.9999916}
+      scale: {x: 1, y: 1.0000037, z: 0.9999983}
+    - name: tail_2.1
+      parentName: head
+      position: {x: -5.530639e-15, y: 0.13857603, z: -0.12931144}
+      rotation: {x: -0.8079281, y: -2.8421706e-14, z: 6.3858634e-14, w: 0.58928114}
+      scale: {x: 1, y: 1.0001513, z: 1.0000341}
+    - name: tail_2.2
+      parentName: tail_2.1
+      position: {x: 9.3173624e-21, y: 0.13303244, z: 0.000000074505806}
+      rotation: {x: -0.002175242, y: -3.0586074e-15, z: 1.9991971e-14, w: 0.9999977}
+      scale: {x: 1, y: 0.99996424, z: 0.9999686}
+    - name: tail_2.3
+      parentName: tail_2.2
+      position: {x: 7.305659e-21, y: 0.1295512, z: 0.00000013411045}
+      rotation: {x: 0.0009960547, y: 5.6986767e-15, z: -4.233584e-15, w: 0.9999995}
+      scale: {x: 1, y: 1.000082, z: 1.0000777}
+    - name: tail_2.4
+      parentName: tail_2.3
+      position: {x: -8.787967e-21, y: 0.12473714, z: 0.000000029802322}
+      rotation: {x: -0.004112524, y: 1.7621208e-15, z: -9.708371e-15, w: 0.99999154}
+      scale: {x: 1, y: 1.0000402, z: 1.0000552}
+    - name: tail_2.5
+      parentName: tail_2.4
+      position: {x: -4.1292856e-21, y: 0.12992528, z: 0.000000014901161}
+      rotation: {x: -0.006317421, y: 5.5558104e-14, z: 4.2269417e-15, w: 0.99998003}
+      scale: {x: 1, y: 0.99998844, z: 0.9999883}
+    - name: helmet_1
+      parentName: head
+      position: {x: -1.6136986e-15, y: 0.27262995, z: -0.037236497}
+      rotation: {x: -0.47325507, y: -4.263256e-14, z: 4.2424394e-14, w: 0.8809255}
+      scale: {x: 1, y: 0.99994826, z: 1.0001247}
+    - name: helmet_2
+      parentName: helmet_1
+      position: {x: -4.9763186e-21, y: 0.13303223, z: -0.000000052154064}
+      rotation: {x: -0.002173781, y: 7.98451e-15, z: 3.4610097e-16, w: 0.9999976}
+      scale: {x: 1, y: 0.99999285, z: 0.9999961}
+    - name: helmet_3
+      parentName: helmet_2
+      position: {x: 2.752857e-21, y: 0.1295516, z: 0.00000020861626}
+      rotation: {x: 0.000994922, y: 9.60446e-15, z: -2.9130018e-15, w: 0.9999996}
+      scale: {x: 1, y: 1.0000062, z: 1.0000049}
+    - name: helmet_4
+      parentName: helmet_3
+      position: {x: -8.4703295e-22, y: 0.124737084, z: 0.000000014901161}
+      rotation: {x: -0.004112047, y: -1.2421918e-14, z: -6.630123e-15, w: 0.99999154}
+      scale: {x: 1, y: 1.0000434, z: 1.0000376}
+    - name: beard_01
+      parentName: head
+      position: {x: 5.9079095e-15, y: -0.026828313, z: 0.13475685}
+      rotation: {x: 0.92328954, y: -0.000000045788816, z: -0.00000011006475, w: 0.38410473}
+      scale: {x: 1, y: 1.0000253, z: 1.0002182}
+    - name: beard_02
+      parentName: beard_01
+      position: {x: 5.646032e-15, y: 0.13303244, z: -0.000000014901161}
+      rotation: {x: -0.0021764634, y: -0.0000002384179, z: 0.0000000010378612, w: 0.9999976}
+      scale: {x: 1, y: 1.0001945, z: 1.0001844}
+    - name: beard_03
+      parentName: beard_02
+      position: {x: 1.2463798e-14, y: 0.1295515, z: -0.000000044703484}
+      rotation: {x: 0.0009936702, y: 0.00000023841841, z: -4.738225e-10, w: 0.9999996}
+      scale: {x: 1, y: 1.0001769, z: 1.0001702}
+    - name: mustache_1.L
+      parentName: head
+      position: {x: -0.02361709, y: 0.03647613, z: 0.15819271}
+      rotation: {x: -0.49840108, y: 0.4980085, z: 0.5006423, w: 0.50293267}
+      scale: {x: 1.0000749, y: 1.0001146, z: 1.0000436}
+    - name: mustache_2.L
+      parentName: mustache_1.L
+      position: {x: 0.000000021711458, y: 0.0872373, z: -0.00000015475962}
+      rotation: {x: -0.0007165372, y: 0.00079664576, z: 0.0009959041, w: 0.9999989}
+      scale: {x: 1.0000048, y: 0.9999572, z: 0.99996066}
+    - name: mustache_1.R
+      parentName: head
+      position: {x: 0.02361709, y: 0.03647613, z: 0.15819271}
+      rotation: {x: -0.4984011, y: -0.4980084, z: -0.5006423, w: 0.50293267}
+      scale: {x: 1.000143, y: 1.0000566, z: 1.0000836}
+    - name: mustache_2.R
+      parentName: mustache_1.R
+      position: {x: -0.000000021711458, y: 0.0872373, z: -0.00000015475962}
+      rotation: {x: -0.0007164776, y: -0.00079661596, z: -0.0009959488, w: 0.999999}
+      scale: {x: 0.9999695, y: 0.9999467, z: 0.99995005}
+    - name: shoulder.L
+      parentName: spine.003
+      position: {x: -0.025259813, y: 0.16349515, z: 0.01334585}
+      rotation: {x: -0.5302868, y: 0.2742697, z: 0.5071972, w: 0.62154895}
+      scale: {x: 1.0000509, y: 1.0001136, z: 1.0000869}
+    - name: upper_arm.L
+      parentName: shoulder.L
+      position: {x: -0.013746522, y: 0.16599035, z: 0.0031471374}
+      rotation: {x: 0.17278728, y: -0.6051561, z: 0.083803706, w: 0.772598}
+      scale: {x: 0.99959505, y: 1.0000484, z: 1.000259}
+    - name: forearm.L
+      parentName: upper_arm.L
+      position: {x: 0.000000007450581, y: 0.29835656, z: 0.0000000037252903}
+      rotation: {x: 0.035377353, y: -0.11530173, z: -0.0023203562, w: 0.9926976}
+      scale: {x: 1.000318, y: 1.0007433, z: 0.9992895}
+    - name: hand.L
+      parentName: forearm.L
+      position: {x: 0.00000005424954, y: 0.21835408, z: 0.000000014901161}
+      rotation: {x: 0.011097458, y: 0.026424842, z: 0.031680893, w: 0.99908704}
+      scale: {x: 1.0004184, y: 1.0005949, z: 0.99930304}
+    - name: palm.01.L
+      parentName: hand.L
+      position: {x: 0.003370832, y: 0.046962023, z: 0.03760609}
+      rotation: {x: 0.01052798, y: -0.7430287, z: -0.016789364, w: 0.6689661}
+      scale: {x: 1.0016135, y: 1.0002358, z: 0.99857557}
+    - name: f_index.01.L
+      parentName: palm.01.L
+      position: {x: -0.0000000037252903, y: 0.07483293, z: 0.00000004284084}
+      rotation: {x: 0.045098174, y: 0.012108144, z: 0.009253334, w: 0.9988663}
+      scale: {x: 1.0022392, y: 1.0025034, z: 0.99591196}
+    - name: f_index.02.L
+      parentName: f_index.01.L
+      position: {x: -0, y: 0.048294384, z: -0.0000000121071935}
+      rotation: {x: 0.038616102, y: 0.010492981, z: 0.008645892, w: 0.9991616}
+      scale: {x: 0.9993388, y: 1.0184902, z: 0.9827025}
+    - name: f_index.03.L
+      parentName: f_index.02.L
+      position: {x: -0.000000009778887, y: 0.032899097, z: 0.000000027474016}
+      rotation: {x: 0.11718953, y: 0.030601092, z: -0.002867211, w: 0.9926339}
+      scale: {x: 0.9997879, y: 1.0574503, z: 0.95133317}
+    - name: thumb.01.L
+      parentName: palm.01.L
+      position: {x: 0.010918463, y: -0.0092711, z: 0.026048996}
+      rotation: {x: -0.27613777, y: -0.65798485, z: -0.25268605, w: 0.65341693}
+      scale: {x: 0.9971024, y: 1.0095601, z: 0.9935813}
+    - name: thumb.02.L
+      parentName: thumb.01.L
+      position: {x: -0.0000000037252903, y: 0.049203437, z: -0.00000008195639}
+      rotation: {x: 0.034951534, y: 0.10875864, z: -0.0049061324, w: 0.99344146}
+      scale: {x: 0.9910066, y: 0.9826811, z: 1.0291827}
+    - name: thumb.03.L
+      parentName: thumb.02.L
+      position: {x: -0.000000018626451, y: 0.033733796, z: -0.000000007450581}
+      rotation: {x: 0.09063588, y: 0.03251771, z: -0.0027842466, w: 0.9953492}
+      scale: {x: 1.0042186, y: 1.1031929, z: 0.90361786}
+    - name: palm.02.L
+      parentName: hand.L
+      position: {x: 0.0046877307, y: 0.046671756, z: 0.014498282}
+      rotation: {x: -0.023005422, y: -0.720387, z: 0.011054344, w: 0.6931026}
+      scale: {x: 1.0008509, y: 0.9998213, z: 0.9996912}
+    - name: f_middle.01.L
+      parentName: palm.02.L
+      position: {x: -0.0000000037252903, y: 0.073286355, z: 0.00000014272518}
+      rotation: {x: 0.053407185, y: 0.01909804, z: -0.04475083, w: 0.99738675}
+      scale: {x: 0.99967974, y: 1.0048553, z: 0.9959666}
+    - name: f_middle.02.L
+      parentName: f_middle.01.L
+      position: {x: -0.0000000055879354, y: 0.053245537, z: 0.000000049592927}
+      rotation: {x: 0.038744546, y: 0.048448257, z: 0.0023926802, w: 0.9980711}
+      scale: {x: 0.9979982, y: 1.013416, z: 0.9891499}
+    - name: f_middle.03.L
+      parentName: f_middle.02.L
+      position: {x: 0.0000000037252903, y: 0.034603715, z: -0.00000002986053}
+      rotation: {x: 0.0587382, y: 0.032402925, z: 0.019112458, w: 0.9975643}
+      scale: {x: 0.99810237, y: 1.0318246, z: 0.9725693}
+    - name: palm.03.L
+      parentName: hand.L
+      position: {x: 0.0027626636, y: 0.04191982, z: -0.0055738054}
+      rotation: {x: -0.0765799, y: -0.67769605, z: 0.049215086, w: 0.7296859}
+      scale: {x: 0.9991111, y: 0.99940056, z: 1.0019685}
+    - name: f_ring.01.L
+      parentName: palm.03.L
+      position: {x: -0.0000000018626451, y: 0.07501728, z: 0.000000051775714}
+      rotation: {x: 0.07091693, y: 0.036764495, z: -0.10541616, w: 0.99121475}
+      scale: {x: 0.9998533, y: 1.0017154, z: 0.99869925}
+    - name: f_ring.02.L
+      parentName: f_ring.01.L
+      position: {x: 4.656613e-10, y: 0.04816833, z: 0.000000018218998}
+      rotation: {x: 0.03863035, y: 0.031013384, z: 0.009968263, w: 0.99872243}
+      scale: {x: 0.99631715, y: 0.99333334, z: 1.0105101}
+    - name: f_ring.03.L
+      parentName: f_ring.02.L
+      position: {x: -9.313226e-10, y: 0.03417923, z: -0.000000040861778}
+      rotation: {x: 0.15669166, y: 0.05252879, z: 0.03693247, w: 0.985558}
+      scale: {x: 0.99179125, y: 0.9992926, z: 1.0097784}
+    - name: palm.04.L
+      parentName: hand.L
+      position: {x: 0.0035305598, y: 0.034800526, z: -0.020218048}
+      rotation: {x: -0.10734918, y: -0.65393823, z: 0.104966104, w: 0.74150056}
+      scale: {x: 0.9985145, y: 0.99971783, z: 1.0025178}
+    - name: f_pinky.01.L
+      parentName: palm.04.L
+      position: {x: -0.0030400008, y: 0.08179856, z: 0.0039055983}
+      rotation: {x: 0.07204081, y: 0.10481886, z: -0.16452242, w: 0.9781388}
+      scale: {x: 0.9945949, y: 1.0000483, z: 1.0053245}
+    - name: f_pinky.02.L
+      parentName: f_pinky.01.L
+      position: {x: 0.0000000037252903, y: 0.029961016, z: -0.000000016763806}
+      rotation: {x: 0.038297955, y: 0.015278347, z: 0.014661982, w: 0.999042}
+      scale: {x: 0.9963643, y: 0.9945567, z: 1.0093148}
+    - name: f_pinky.03.L
+      parentName: f_pinky.02.L
+      position: {x: 0.0000000037252903, y: 0.024282342, z: 0.000000020489097}
+      rotation: {x: 0.08620184, y: 0.012412274, z: 0.01601583, w: 0.99607164}
+      scale: {x: 0.9959989, y: 0.98457307, z: 1.0205396}
+    - name: shulder.L
+      parentName: upper_arm.L
+      position: {x: 0.049715362, y: 0.013362819, z: 0.0035017356}
+      rotation: {x: 0.06349463, y: 0.0011619627, z: -0.7740106, w: 0.62997997}
+      scale: {x: 0.99976045, y: 1.0007224, z: 0.9997395}
+    - name: shoulder.R
+      parentName: spine.003
+      position: {x: 0.02525982, y: 0.16349515, z: 0.013345842}
+      rotation: {x: -0.5302869, y: -0.27426958, z: -0.5071969, w: 0.6215492}
+      scale: {x: 1.0000861, y: 1.0001881, z: 1.0001588}
+    - name: upper_arm.R
+      parentName: shoulder.R
+      position: {x: 0.013746548, y: 0.16599034, z: 0.0031471332}
+      rotation: {x: -0.17278755, y: -0.6051606, z: 0.08380195, w: -0.77259463}
+      scale: {x: 0.9996398, y: 1.0001366, z: 1.0002718}
+    - name: forearm.R
+      parentName: upper_arm.R
+      position: {x: -0.0000000018626451, y: 0.29835668, z: 0.000000015832484}
+      rotation: {x: 0.035390586, y: 0.11530231, z: 0.0023166235, w: 0.9926972}
+      scale: {x: 1.0005078, y: 1.0011246, z: 0.9988575}
+    - name: hand.R
+      parentName: forearm.R
+      position: {x: -0.00000002537854, y: 0.218354, z: 0.0000000018626451}
+      rotation: {x: 0.011097533, y: -0.026424894, z: -0.03168103, w: 0.99908704}
+      scale: {x: 1.0000974, y: 1.0004802, z: 0.99931216}
+    - name: palm.01.R
+      parentName: hand.R
+      position: {x: -0.0033707432, y: 0.046962056, z: 0.037606094}
+      rotation: {x: -0.010527494, y: -0.7430287, z: -0.016789712, w: -0.6689661}
+      scale: {x: 1.0013709, y: 1.0002539, z: 0.998331}
+    - name: f_index.01.R
+      parentName: palm.01.R
+      position: {x: -0.000000007450581, y: 0.07483292, z: -0.000000024680048}
+      rotation: {x: 0.045221943, y: -0.012099171, z: -0.009325056, w: 0.9988602}
+      scale: {x: 1.0036952, y: 1.0012629, z: 0.99576616}
+    - name: f_index.02.R
+      parentName: f_index.01.R
+      position: {x: 4.656613e-10, y: 0.04829436, z: -0.00000003632158}
+      rotation: {x: 0.03856905, y: -0.010487955, z: -0.008619384, w: 0.9991638}
+      scale: {x: 0.99907666, y: 1.0227734, z: 0.9786663}
+    - name: f_index.03.R
+      parentName: f_index.02.R
+      position: {x: -0.000000007450581, y: 0.032899197, z: 0.0000000037252903}
+      rotation: {x: 0.117189154, y: -0.030600749, z: 0.0028670242, w: 0.9926339}
+      scale: {x: 0.99974257, y: 1.0601354, z: 0.95010304}
+    - name: thumb.01.R
+      parentName: palm.01.R
+      position: {x: -0.0109184645, y: -0.00927102, z: 0.026048899}
+      rotation: {x: -0.27621856, y: 0.658023, z: 0.2527836, w: 0.6533066}
+      scale: {x: 0.9991281, y: 1.0122699, z: 0.98923904}
+    - name: thumb.02.R
+      parentName: thumb.01.R
+      position: {x: 0.000000014901161, y: 0.049203474, z: 0.000000040978193}
+      rotation: {x: 0.03644306, y: -0.10879724, z: 0.004826468, w: 0.993384}
+      scale: {x: 0.985432, y: 0.9708644, z: 1.050209}
+    - name: thumb.03.R
+      parentName: thumb.02.R
+      position: {x: 0.0000000037252903, y: 0.033733908, z: -0.000000014901161}
+      rotation: {x: 0.09063617, y: -0.032517802, z: 0.0027840806, w: 0.9953492}
+      scale: {x: 1.011208, y: 1.1521565, z: 0.86041576}
+    - name: palm.02.R
+      parentName: hand.R
+      position: {x: -0.0046876133, y: 0.046671897, z: 0.014498288}
+      rotation: {x: 0.023006056, y: -0.72038704, z: 0.011053916, w: -0.6931025}
+      scale: {x: 1.001218, y: 0.99935037, z: 0.9995731}
+    - name: f_middle.01.R
+      parentName: palm.02.R
+      position: {x: -0.000000015832484, y: 0.07328626, z: -0.000000008905772}
+      rotation: {x: 0.053426534, y: -0.019088885, z: 0.044727903, w: 0.99738693}
+      scale: {x: 0.99974096, y: 1.0048276, z: 0.9958533}
+    - name: f_middle.02.R
+      parentName: f_middle.01.R
+      position: {x: -0.000000009313226, y: 0.053245522, z: 4.656613e-10}
+      rotation: {x: 0.038763903, y: -0.048447825, z: -0.002393802, w: 0.9980704}
+      scale: {x: 0.9982882, y: 1.0148673, z: 0.98758644}
+    - name: f_middle.03.R
+      parentName: f_middle.02.R
+      position: {x: -0.000000007450581, y: 0.034603816, z: 0.000000013969839}
+      rotation: {x: -0.058750823, y: 0.032403156, z: 0.019112134, w: -0.99756366}
+      scale: {x: 0.99852246, y: 1.0329956, z: 0.97145075}
+    - name: palm.03.R
+      parentName: hand.R
+      position: {x: -0.002762547, y: 0.041919842, z: -0.005573811}
+      rotation: {x: -0.076579176, y: 0.67769593, z: -0.049216073, w: 0.729686}
+      scale: {x: 1.0003273, y: 0.99802727, z: 1.0020095}
+    - name: f_ring.01.R
+      parentName: palm.03.R
+      position: {x: -4.656613e-10, y: 0.07501736, z: 0.000000050786184}
+      rotation: {x: 0.070696495, y: -0.03681944, z: 0.105378814, w: 0.9912324}
+      scale: {x: 0.99983835, y: 1.0011111, z: 0.99925905}
+    - name: f_ring.02.R
+      parentName: f_ring.01.R
+      position: {x: -4.656613e-10, y: 0.048168316, z: -0.000000028718205}
+      rotation: {x: 0.03847992, y: -0.0310314, z: -0.009924518, w: 0.99872816}
+      scale: {x: 0.995762, y: 0.9878066, z: 1.0166974}
+    - name: f_ring.03.R
+      parentName: f_ring.02.R
+      position: {x: -0, y: 0.034179218, z: -0.00000001990702}
+      rotation: {x: 0.15668996, y: -0.052529067, z: -0.036932334, w: 0.9855583}
+      scale: {x: 0.9930517, y: 0.9840731, z: 1.026511}
+    - name: palm.04.R
+      parentName: hand.R
+      position: {x: -0.003530474, y: 0.03480055, z: -0.020218063}
+      rotation: {x: -0.10734891, y: 0.65393806, z: -0.10496665, w: 0.74150074}
+      scale: {x: 1.0003566, y: 0.99752325, z: 1.0026075}
+    - name: f_pinky.01.R
+      parentName: palm.04.R
+      position: {x: 0.0030399896, y: 0.08179845, z: 0.0039055655}
+      rotation: {x: 0.07160203, y: -0.1050075, z: 0.16446292, w: 0.97816074}
+      scale: {x: 0.99370825, y: 0.9999918, z: 1.0069771}
+    - name: f_pinky.02.R
+      parentName: f_pinky.01.R
+      position: {x: 0.0000000037252903, y: 0.02996113, z: -0.000000006519258}
+      rotation: {x: 0.03817902, y: -0.0152851865, z: -0.014619792, w: 0.9990471}
+      scale: {x: 0.99640715, y: 0.9871511, z: 1.0171442}
+    - name: f_pinky.03.R
+      parentName: f_pinky.02.R
+      position: {x: -0, y: 0.024282204, z: -9.313226e-10}
+      rotation: {x: 0.08620168, y: -0.012412013, z: -0.016015783, w: 0.99607164}
+      scale: {x: 0.99610424, y: 0.96900827, z: 1.0379025}
+    - name: shulder.R
+      parentName: upper_arm.R
+      position: {x: -0.049715415, y: 0.013362953, z: 0.0035017626}
+      rotation: {x: -0.06349465, y: 0.0011619625, z: -0.7740108, w: -0.62997967}
+      scale: {x: 0.99991035, y: 1.0007455, z: 0.99958724}
+    - name: breast.L
+      parentName: spine.003
+      position: {x: -0.096198216, y: 0.045242015, z: -0.050292138}
+      rotation: {x: 0.00000006036802, y: 0.63467354, z: 0.77278036, w: -0.00000012357552}
+      scale: {x: 1.0001425, y: 1.0000308, z: 1.0000368}
+    - name: breast.R
+      parentName: spine.003
+      position: {x: 0.09619819, y: 0.04524202, z: -0.050292183}
+      rotation: {x: 0.00000006036802, y: 0.63467354, z: 0.77278036, w: -0.00000012357552}
+      scale: {x: 1.0001425, y: 1.0000308, z: 1.0000368}
+    - name: back_1.1
+      parentName: spine.003
+      position: {x: -0.000000025890357, y: 0.20291252, z: -0.10859202}
+      rotation: {x: 0.9702202, y: -0.000000028875464, z: -0.000000115659375, w: -0.24222481}
+      scale: {x: 1, y: 1.0003083, z: 1.0002948}
+    - name: back_1.2
+      parentName: back_1.1
+      position: {x: -1.1646703e-21, y: 0.11913256, z: 0.000000059604645}
+      rotation: {x: -0.05465672, y: -2.1760368e-14, z: 7.1054265e-15, w: 0.99850523}
+      scale: {x: 1, y: 1.0001092, z: 1.0001938}
+    - name: back_1.3
+      parentName: back_1.2
+      position: {x: 6.617445e-24, y: 0.12337839, z: 0.000000029802322}
+      rotation: {x: -0.026645167, y: 0.0000005958354, z: -0.000000015881891, w: 0.999645}
+      scale: {x: 1, y: 1.0001855, z: 1.0001972}
+    - name: back_1.4
+      parentName: back_1.3
+      position: {x: -2.8450302e-14, y: 0.13374147, z: 0.000000014901161}
+      rotation: {x: -0.0033366694, y: -0.00000035762613, z: -0.0000000027842775, w: 0.9999945}
+      scale: {x: 1, y: 1.0000668, z: 1.0000783}
+    - name: attachBone_2
+      parentName: spine
+      position: {x: -0.12707996, y: 0.20713751, z: -0.1369439}
+      rotation: {x: -0.75100535, y: 0.19892061, z: 0.1648003, w: 0.6076698}
+      scale: {x: 1.0000019, y: 1.0001066, z: 1.0001245}
+    - name: waist_F.1
+      parentName: spine
+      position: {x: 0.000000039677907, y: 0.22971828, z: 0.16642128}
+      rotation: {x: 0.99238384, y: -3.9079854e-14, z: -0.00000023660263, w: 0.12318427}
+      scale: {x: 1, y: 1.0000466, z: 1.0000466}
+    - name: waist_F.2
+      parentName: waist_F.1
+      position: {x: -1.952873e-15, y: 0.13601628, z: -0.0000000027939677}
+      rotation: {x: -0.0026560128, y: 0.00000011920882, z: 3.1658587e-10, w: 0.9999965}
+      scale: {x: 1, y: 0.99998724, z: 0.9999869}
+    - name: waist_F.3
+      parentName: waist_F.2
+      position: {x: -6.4189216e-22, y: 0.13937853, z: 0}
+      rotation: {x: -0, y: -4.2632564e-14, z: 1.6653345e-15, w: 1}
+      scale: {x: 1, y: 1.0000095, z: 1.000009}
+    - name: waist_F.4
+      parentName: waist_F.3
+      position: {x: -4.2009304e-23, y: 0.15047936, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1.0000083, z: 1.0000082}
+    - name: waist_F.5
+      parentName: waist_F.4
+      position: {x: 2.1176152e-22, y: 0.14801244, z: 0}
+      rotation: {x: 0.01828514, y: -7.143005e-15, z: 2.8289609e-15, w: 0.99983287}
+      scale: {x: 1, y: 1.0001652, z: 1.0001656}
+    - name: waist_B.1
+      parentName: spine
+      position: {x: -0.0000000331344, y: 0.15041253, z: -0.13897574}
+      rotation: {x: 0.99913895, y: -3.5527137e-14, z: -0.0000002382198, w: 0.041489452}
+      scale: {x: 1, y: 1.0000708, z: 1.0000983}
+    - name: waist_B.2
+      parentName: waist_B.1
+      position: {x: -9.9240904e-15, y: 0.13774444, z: 0}
+      rotation: {x: 0.0036226064, y: 0.00000023842352, z: 4.4586557e-13, w: 0.99999344}
+      scale: {x: 1, y: 0.99993104, z: 0.9999328}
+    - name: waist_B.3
+      parentName: waist_B.2
+      position: {x: -2.9913117e-15, y: 0.14137095, z: 0}
+      rotation: {x: -0.036161527, y: -0.00000023826267, z: -8.749532e-13, w: 0.99934596}
+      scale: {x: 1, y: 1.0000108, z: 1.0000248}
+    - name: waist_B.4
+      parentName: waist_B.3
+      position: {x: -6.00729e-15, y: 0.15107766, z: -0.000000007450581}
+      rotation: {x: -0.0032001399, y: -6.4233063e-12, z: 7.6295414e-10, w: 0.99999493}
+      scale: {x: 1, y: 1.0001426, z: 1.0001428}
+    - name: waist_B.5
+      parentName: waist_B.4
+      position: {x: -2.4710636e-15, y: 0.14850459, z: 0.000000007450581}
+      rotation: {x: -0.021781564, y: 0.000000119184236, z: 0.0000000025974696, w: 0.99976283}
+      scale: {x: 1, y: 1.0001651, z: 1.00023}
+    - name: waist_L.1
+      parentName: spine
+      position: {x: -0.17672901, y: 0.18142584, z: 0.0092183035}
+      rotation: {x: -0.6179307, y: 0.16607307, z: 0.7679977, w: 0.02758689}
+      scale: {x: 1.0001017, y: 1.0001594, z: 1.0000567}
+    - name: waist_L.2
+      parentName: waist_L.1
+      position: {x: -0.000000003958121, y: 0.12714349, z: -0.0000000012223609}
+      rotation: {x: -0.016094863, y: 0.018856592, z: 0.014827691, w: 0.9995827}
+      scale: {x: 1.0001597, y: 1.0002657, z: 1.0001192}
+    - name: waist_L.3
+      parentName: waist_L.2
+      position: {x: -0.0000000016298145, y: 0.14355998, z: -0.000000009720679}
+      rotation: {x: -0.013220341, y: 0.013484604, z: 0.0026613858, w: 0.99981815}
+      scale: {x: 1.0001088, y: 1.0002087, z: 1.0000281}
+    - name: waist_L.4
+      parentName: waist_L.3
+      position: {x: -0.000000003259629, y: 0.15400645, z: -0.000000041531166}
+      rotation: {x: -0.026522968, y: 0.02684993, z: 0.004234368, w: 0.9992786}
+      scale: {x: 0.9999775, y: 1.0000098, z: 0.9998723}
+    - name: waist_L.5
+      parentName: waist_L.4
+      position: {x: 4.656613e-10, y: 0.14997204, z: 0.000000009255018}
+      rotation: {x: -0.007049217, y: 0.0071041165, z: 0.00088103587, w: 0.9999496}
+      scale: {x: 1.0002092, y: 1.000382, z: 1.0000395}
+    - name: waist_R.1
+      parentName: spine
+      position: {x: 0.17672901, y: 0.18142584, z: 0.00921822}
+      rotation: {x: 0.6179306, y: 0.16607326, z: 0.76799774, w: -0.027587313}
+      scale: {x: 1.0001354, y: 1.0002613, z: 1.0001334}
+    - name: waist_R.2
+      parentName: waist_R.1
+      position: {x: 0.0000000146683306, y: 0.12714368, z: -0.00000004400499}
+      rotation: {x: -0.01609475, y: -0.01885664, z: -0.014827644, w: 0.99958265}
+      scale: {x: 1.000041, y: 0.9999089, z: 0.9999739}
+    - name: waist_R.3
+      parentName: waist_R.2
+      position: {x: 0.00000000721775, y: 0.14356013, z: -0.000000037718564}
+      rotation: {x: -0.013220109, y: -0.013484526, z: -0.0026614186, w: 0.9998182}
+      scale: {x: 1.0000901, y: 1.0001807, z: 1.0000458}
+    - name: waist_R.4
+      parentName: waist_R.3
+      position: {x: -0.0000000067520887, y: 0.15400654, z: -0.000000009982614}
+      rotation: {x: -0.026522558, y: -0.026849993, z: -0.0042342534, w: 0.9992786}
+      scale: {x: 1.0000436, y: 1.0001687, z: 0.99991244}
+    - name: waist_R.5
+      parentName: waist_R.4
+      position: {x: -0.000000002561137, y: 0.14997217, z: -0.000000018888386}
+      rotation: {x: -0.0070489855, y: -0.007104136, z: -0.0008810723, w: 0.9999495}
+      scale: {x: 1.0000156, y: 0.9999602, z: 0.9999246}
+    - name: attachBone_1
+      parentName: spine
+      position: {x: -0.106175646, y: 0.27491498, z: 0.14047308}
+      rotation: {x: -0.16028757, y: 0.771142, z: 0.5888255, w: 0.18147297}
+      scale: {x: 1.0001065, y: 1.0000231, z: 1.0000589}
+    - name: pelvis.L
+      parentName: spine
+      position: {x: -3.5527137e-15, y: 9.313226e-10, z: 0.0000000037252903}
+      rotation: {x: -0.15245529, y: 0.7933307, z: 0.28550398, w: 0.51562697}
+      scale: {x: 0.99999696, y: 1.0000004, z: 0.99999523}
+    - name: pelvis.R
+      parentName: spine
+      position: {x: -3.5527137e-15, y: 9.313226e-10, z: 0.0000000037252903}
+      rotation: {x: -0.15245527, y: -0.7933307, z: -0.285504, w: 0.515627}
+      scale: {x: 1.0001032, y: 1.0000007, z: 1.0000839}
+    - name: thigh.L
+      parentName: spine
+      position: {x: -0.10096023, y: 0.0708185, z: 0.025942301}
+      rotation: {x: 0.99053013, y: -0.07664502, z: 0.01684666, w: 0.1126581}
+      scale: {x: 1.0000019, y: 1.0001947, z: 1.0002025}
+    - name: shin.L
+      parentName: thigh.L
+      position: {x: 0.000000019703293, y: 0.45915475, z: -2.3283064e-10}
+      rotation: {x: 0.05982351, y: -0.0128382165, z: -0.02664647, w: 0.99777067}
+      scale: {x: 1.000005, y: 1.0000895, z: 1.0000354}
+    - name: foot.L
+      parentName: shin.L
+      position: {x: -0.0000000019208528, y: 0.54203, z: -0.000000011525117}
+      rotation: {x: -0.54693526, y: 0.025275646, z: -0.04410718, w: 0.83563006}
+      scale: {x: 0.9998381, y: 1.0002605, z: 1.000097}
+    - name: toe.L
+      parentName: foot.L
+      position: {x: -7.3886186e-10, y: 0.12924556, z: 0.0000000030852902}
+      rotation: {x: -0.00000009499492, y: 0.96124876, z: -0.27568245, w: -0.00000041164463}
+      scale: {x: 1.0000073, y: 1.0007436, z: 0.99905753}
+    - name: heel.02.L
+      parentName: foot.L
+      position: {x: 0.03800004, y: 0.019970376, z: 0.08799039}
+      rotation: {x: -0.6797056, y: 0.67970544, z: -0.19493672, w: -0.19493732}
+      scale: {x: 1.0008488, y: 1.000045, z: 0.99916685}
+    - name: thigh.R
+      parentName: spine
+      position: {x: 0.10096025, y: 0.070818506, z: 0.025942255}
+      rotation: {x: 0.99053013, y: 0.07664503, z: -0.016846739, w: 0.11265807}
+      scale: {x: 1.0000007, y: 1.0001835, z: 1.0001944}
+    - name: shin.R
+      parentName: thigh.R
+      position: {x: -0.0000000048603397, y: 0.45915473, z: 9.313226e-10}
+      rotation: {x: 0.059823494, y: 0.012838207, z: 0.026646445, w: 0.99777067}
+      scale: {x: 1.0000075, y: 1.0000896, z: 1.00004}
+    - name: foot.R
+      parentName: shin.R
+      position: {x: -0.0000000040163286, y: 0.54203, z: 0.0000000023283064}
+      rotation: {x: -0.54693544, y: -0.025275672, z: 0.044107202, w: 0.83562994}
+      scale: {x: 0.9998477, y: 1.0001999, z: 1.0000854}
+    - name: toe.R
+      parentName: foot.R
+      position: {x: 0.000000015451347, y: 0.12924556, z: -0.000000006303736}
+      rotation: {x: 0.0000000987202, y: 0.9612489, z: -0.27568215, w: 0.0000004190952}
+      scale: {x: 1.0000832, y: 1.0007856, z: 0.9990796}
+    - name: heel.02.R
+      parentName: foot.R
+      position: {x: -0.03800004, y: 0.019970352, z: 0.087990366}
+      rotation: {x: -0.67970574, y: -0.6797054, z: 0.19493651, w: -0.19493708}
+      scale: {x: 1.0008451, y: 1.0000046, z: 0.99912786}
+    - name: MH_hair_01
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_02
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_01_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_01_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_01_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_01_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_01_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_body_head
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_01_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_01_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_01_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_01_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_02_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_02_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_02_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_02_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_body_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_underwear_pants_01
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_underwear_pants_02
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_body_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_01_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_01_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_01_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_02_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_07_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_02_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_02_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_02_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_02_helmetB
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_02_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_02_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_02_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_03_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_03_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_03_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_03_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_torso_01
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_torso_04
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_torso_02
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_torso_03
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_torso_05
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_legs_03
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_legs_01
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_legs_04
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_legs_02
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_04_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_04_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_04_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_04_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_05_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_05_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_05_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_05_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_06_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_06_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_06_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_06_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_07_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_07_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_07_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_02_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_03_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_03_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_03_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_03_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_04_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_04_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_04_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_04_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_03_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_03_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_03_helmetB
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_03_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_03_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_legs_05
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_torso_05B
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_03
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_04
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_05
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_06
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_07
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_08
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_02
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_01
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_03
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_02
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_04
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_head_01
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_head_02
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_head_03
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_outfit_head_05
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_02_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_03_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_02_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_03_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_04_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_01_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_02_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_03_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_04_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_05_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_06_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_plate_07_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_01_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_01_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_09
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_01
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_03
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_05
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_04
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_05
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_06
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_04_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_04_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_04_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_04_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_04_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_05_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_05_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_05_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_05_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_05_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_05_shouldersB
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_10
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_11
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_12
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_07
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_06
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_07
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_05_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_05_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_05_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_05_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_05_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_hair
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_13
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_14
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_08
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_09
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_beard_10
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_08
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_hair_15
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_09
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_underwear_pants_03
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_pants
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_beard
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_mustache
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_base_body_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_10
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_mustache_11
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_06_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_06_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_06_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_06_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_cloth_06_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_06_torso
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_06_helmet
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_06_legs
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_06_shoulders
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: MH_armor_leather_06_waist
+      parentName: Modular Male(Clone)
+      position: {x: -0, y: -0.0027957552, z: 0.0014600006}
+      rotation: {x: 0.000000021855696, y: -1.1102232e-16, z: 1.1102232e-16, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 82df85cd9bf9f784a885eccceabe7f90,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 199421
+  packageName: POLYART-Modular Fantasy Humans
+  packageVersion: 4.5.0
+  assetPath: Assets/Modular RPG Character Polyart/Modular Character Male/Models/Modular
+    Male_02.fbx
+  uploadId: 534279

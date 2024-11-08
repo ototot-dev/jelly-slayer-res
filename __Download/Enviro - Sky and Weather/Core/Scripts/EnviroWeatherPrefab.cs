@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f276448062d9947cf57e72ea55d30b9135f92886ced95686236e8652576c63c
-size 356
+﻿using UnityEngine;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class EnviroWeatherPrefab : MonoBehaviour 
+{
+	public EnviroWeatherPreset weatherPreset;
+	[HideInInspector]public List<ParticleSystem> effectSystems = new List<ParticleSystem>();
+	[HideInInspector]public List<float> effectEmmisionRates = new List<float>();
+}
+

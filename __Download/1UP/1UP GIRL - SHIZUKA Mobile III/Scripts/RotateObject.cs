@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f6c4ebb208e9d0ffa47f26440bb506b219b6fb2f7c15213deeebfa0e131158ac
-size 380
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RotateObject : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Rotate(Vector3.up,30.0f * Time.deltaTime,Space.Self);
+    }
+}

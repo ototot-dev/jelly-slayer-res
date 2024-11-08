@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:497ee3215832784b26daab0ae3627179a52ffc63a3ce44e837864c96d1cab04b
-size 577
+using UnityEngine;
+using System.Collections;
+
+// Cartoon FX  - (c) 2015, Jean Moreno
+
+public class CFX_Demo_Translate : MonoBehaviour
+{
+	public float speed = 30.0f;
+	public Vector3 rotation = Vector3.forward;
+	public Vector3 axis = Vector3.forward;
+	public bool gravity;
+	private Vector3 dir;
+	
+	void Start ()
+	{
+		dir = new Vector3(Random.Range(0.0f,360.0f),Random.Range(0.0f,360.0f),Random.Range(0.0f,360.0f));
+		dir.Scale(rotation);
+		this.transform.localEulerAngles = dir;
+	}
+	
+	void Update ()
+	{
+		this.transform.Translate(axis * speed * Time.deltaTime, Space.Self);
+	}
+}

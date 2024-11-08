@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74de861b4358c7755075057f7051ad8ab0c28f4296fa7fc6b09a35cded4ae308
-size 589
+﻿using UnityEngine;
+using UnityEditor;
+
+public class YourClassAsset
+{
+	[MenuItem("POLYSOFT/Humans/Items/item")]
+	public static void CreateItemAsset ()
+	{
+		ScriptableObjectUtility.CreateItemAsset<polysoft_Item> ();
+	}
+    [MenuItem("POLYSOFT/Humans/Items/hair")]
+    public static void CreateHairAsset()
+    {
+        ScriptableObjectUtility.CreateHairAsset<polysoft_Hair>();
+    }
+    [MenuItem("POLYSOFT/Humans/Items/underwear")]
+    public static void CreateUnderwearAsset()
+    {
+        ScriptableObjectUtility.CreateUnderwearAsset<polysoft_Underwear>();
+    }
+}

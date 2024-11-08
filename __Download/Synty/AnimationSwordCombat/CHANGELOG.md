@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:434e84984779b563e80a69b81a8944d12681f31118997bf464b1da45256c3d46
-size 278
+# Changelog
+
+## [1.0.1] - 2024-08-22
+
+### Fixed
+
+- Fixed a bug where the Prop Bone Tool would fail set up when ANIMATION - Swords Combat was moved from its default location.
+
+## [1.0.0] - 2024-08-05
+
+### Added
+
+- Initial release of animations
+- Initial release of Prop Bone Tool

@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0a3402440fef70c0b6f891338cfc192ef27bb3319b279ab7ff026b956abcfd6b
-size 597
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+#if ENVIRO_GLOBALSNOW_SUPPORT
+using GlobalSnowEffect;
+#endif
+[AddComponentMenu("Enviro/Integration/Global Snow")]
+public class GlobalSnowIntegration : MonoBehaviour
+{
+#if ENVIRO_GLOBALSNOW_SUPPORT
+    public float snowIntensityMult = 1f;
+
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        if(GlobalSnow.instance != null)
+           GlobalSnow.instance.snowAmount = Mathf.Clamp(EnviroSkyMgr.instance.GetSnowIntensity() * snowIntensityMult, 0f,2f);        
+    }
+#endif
+}

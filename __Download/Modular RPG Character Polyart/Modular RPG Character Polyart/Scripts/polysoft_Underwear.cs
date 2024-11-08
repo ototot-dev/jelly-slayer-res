@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:07d2df188a6a20e62764cd46bb44a7c5ccb4d1f56379b6aa41cc21adcf126da6
-size 632
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+[Serializable]
+public class polysoft_Underwear : ScriptableObject {
+    public Inventory.Gender gender;
+    public enum underwearType {pants, brassiere}
+    public string _name;
+    public underwearType itemType;
+    public SkinnedMeshRenderer ItemMeshRenderer;
+    [Serializable]
+    public class _boneChainOptions
+    {
+        public BoneManager.BoneChain.boneChainType BoneUsed;
+        public int boneLength;
+    }
+    public _boneChainOptions[] BoneChainOptions;
+    [TextArea]
+    public string description;
+}

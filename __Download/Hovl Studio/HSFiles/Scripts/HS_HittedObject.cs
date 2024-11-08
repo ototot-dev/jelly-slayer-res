@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:284cb058a279843e581c3b4276a93ec06e0bb9d6d1c5320bd131666cebedd1dd
-size 629
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HS_HittedObject : MonoBehaviour {
+
+    public float startHealth = 100;
+    private float health;
+    public Image healthBar;
+	// Use this for initialization
+	void Start () {
+        health = startHealth;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        healthBar.fillAmount = health / startHealth;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+}

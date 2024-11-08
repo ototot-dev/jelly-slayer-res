@@ -1,0 +1,1 @@
+In order for the effects to be visible in the URP render, select the "Settings" folder and the "UniversalRP-HighQuality" file, then make the "Depth Texture" checkbox active.

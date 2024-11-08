@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:092bc116818ea976d7e6b143e5fe0fb151d49cca34d81f739c9a55460380f202
-size 722
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(HingeJoint))]
+public class SpoolController : MonoBehaviour {
+
+    HingeJoint joint;
+    public float speed = 80;
+
+	// Use this for initialization
+	void Start () {
+        joint = GetComponent<HingeJoint>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        JointMotor motor = joint.motor;
+
+        if (Input.GetKey(KeyCode.DownArrow)){
+            motor.targetVelocity = -speed;
+        }else if (Input.GetKey(KeyCode.UpArrow)){
+            motor.targetVelocity = speed;
+        }else{
+            motor.targetVelocity = 0;
+        }
+        joint.motor = motor;
+	}
+}

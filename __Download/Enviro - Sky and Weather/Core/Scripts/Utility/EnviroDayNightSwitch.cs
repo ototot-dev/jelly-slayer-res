@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:68ca300179bf7fc89cc741a6b896fe38019e99cf3a89b28002e5b9b3419d81fc
-size 717
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnviroDayNightSwitch : MonoBehaviour {
+
+	private Light[] lightsArray;
+
+	void Start () {
+
+		lightsArray = GetComponentsInChildren<Light> ();
+
+        EnviroSkyMgr.instance.OnDayTime += () =>
+		{
+			Deactivate () ;
+		};
+
+		EnviroSkyMgr.instance.OnNightTime += () =>
+		{
+			Activate () ;
+		};
+
+		if (EnviroSkyMgr.instance.IsNight())
+			Activate ();
+		else
+			Deactivate ();
+	}
+	
+
+	void Activate () 
+	{
+		for (int i = 0; i < lightsArray.Length; i++) {
+			lightsArray [i].enabled = true;
+		}
+
+	}
+
+	void Deactivate () 
+	{
+		for (int i = 0; i < lightsArray.Length; i++) {
+			lightsArray [i].enabled = false;
+		}
+	}
+
+}

@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a412e0d9d6cebfa304e5779a893e37667f43c29d4260a7d88712ca9d7ed20369
-size 642
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace AllIn1SpriteShader
+{
+    public class DemoRepositionExpositor : MonoBehaviour
+    {
+        [SerializeField] private float paddingX = 10f;
+
+        [ContextMenu("RepositionExpositor")]
+        private void RepositionExpositor()
+        {
+            int i = 0;
+            Vector3 tempLocalPos = Vector3.zero;
+            foreach (Transform child in transform)
+            {
+                tempLocalPos.x = i * paddingX;
+                child.localPosition = tempLocalPos;
+                i++;
+            }
+        }
+    }
+}

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:17ca7dc0d9ffb3af42e1fca157458ee2cde703c5b922ad6b11af65309336741a
-size 350
+using UnityEngine;
+using System.Collections;
+
+public class LookAtTarget : MonoBehaviour
+{
+	[SerializeField]
+	Transform _target = null;
+
+	[SerializeField]
+	float _speed = 0.5f;
+
+	Vector3 _lookAtTarget;
+
+	void Update()
+	{
+		_lookAtTarget = Vector3.Lerp(_lookAtTarget, _target.position, Time.deltaTime * _speed);
+		transform.LookAt(_lookAtTarget);
+	}
+}

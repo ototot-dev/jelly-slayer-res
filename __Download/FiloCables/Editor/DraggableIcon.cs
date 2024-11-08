@@ -1,3 +1,73 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a58e1f600dbb1495d17ca90491c044ce8969928b31dfea778d31e27e050c546
-size 2103
+﻿using UnityEngine;
+using UnityEditor;
+using System.Collections;
+
+namespace Filo{
+
+public class DraggableIcon {
+    
+    public static bool Draw(bool selected, int id, ref Vector2 position, Color color){
+
+        Texture texture = Resources.Load<Texture2D>("DraggableIcon");
+
+        int controlID = GUIUtility.GetControlID(id,FocusType.Passive);      
+
+        // select vertex on mouse click:
+        switch (Event.current.GetTypeForControl(controlID)){
+            
+        case EventType.MouseDown: 
+            
+            Rect area = new Rect (position.x-texture.height*0.5f, position.y-texture.height*0.5f, texture.height*2, texture.height*2);
+
+            if (area.Contains(Event.current.mousePosition)){
+                selected = true;
+                GUIUtility.hotControl = controlID;
+                Event.current.Use();
+            }else if ((Event.current.modifiers & EventModifiers.Shift) == 0 && (Event.current.modifiers & EventModifiers.Command) == 0){
+                
+                selected = false;
+
+            }
+            
+            break;
+            
+        case EventType.MouseDrag:
+            
+            if (GUIUtility.hotControl == controlID){
+                
+                position = Event.current.mousePosition;
+                GUI.changed = true;
+
+                Event.current.Use();
+
+            }
+            
+            break;
+            
+        case EventType.MouseUp:
+            
+            if (GUIUtility.hotControl == controlID){
+                
+                GUIUtility.hotControl = 0;
+                Event.current.Use();
+
+            }
+            
+            break;
+
+        case EventType.Repaint:
+    
+                Color oldColor = GUI.color;
+                GUI.color = color;
+                Rect rect = new Rect (position.x-texture.height*0.5f, position.y-texture.height*0.5f, texture.height, texture.height);
+                GUI.DrawTextureWithTexCoords (rect,texture,new Rect(selected?0.5f:0,0,0.5f,1));
+                GUI.color = oldColor;
+
+            break;
+            
+        }
+
+        return selected;    
+    }
+}
+}

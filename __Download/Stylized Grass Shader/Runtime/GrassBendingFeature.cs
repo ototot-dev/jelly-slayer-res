@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4a4063aa64bc489afdc8898efb760271db565051a3d39c025296c1740ce9a769
-size 298
+﻿//Obsolete!
+
+//Asset store package cannot track renamed/moved files. This file must be emptied in order for the change to update in projects
+
+//Will be removed in a later update (now April 2023)
+namespace StylizedGrass { public class GrassBendingFeature : UnityEngine.ScriptableObject { } }

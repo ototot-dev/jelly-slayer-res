@@ -1,3 +1,87 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b8ecfa5fa6db38c0d178b1e4111bc68a766f2e334c223a5c050a14512f771be
-size 1859
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnviroTrigger : MonoBehaviour {
+
+	public EnviroInterior myZone;
+	public string Name;
+
+	//public bool entered = false;
+
+	void Start () 
+	{
+		
+	}
+	
+
+	void Update () 
+	{
+		
+	}
+	void OnTriggerEnter (Collider col)
+	{
+		if (EnviroSkyMgr.instance.GetUseWeatherTag())
+        {
+			if (col.gameObject.tag == EnviroSkyMgr.instance.GetEnviroSkyTag()) {
+				EnterExit ();
+			}
+		}
+        else
+        {
+			if (EnviroSkyMgr.instance.IsEnviroSkyAttached(col.gameObject)) {
+				EnterExit ();
+			}
+		}
+	}
+
+	void OnTriggerExit (Collider col)
+	{
+
+        if (myZone.zoneTriggerType == EnviroInterior.ZoneTriggerType.Zone)
+        {
+            if (EnviroSkyMgr.instance.GetUseWeatherTag())
+            {
+                if (col.gameObject.tag == EnviroSkyMgr.instance.GetEnviroSkyTag())
+                {
+                    EnterExit();
+                }
+            }
+            else
+            {
+                if (EnviroSkyMgr.instance.IsEnviroSkyAttached(col.gameObject))
+                {
+                    EnterExit();
+                }
+            }
+        }
+	}
+		
+
+
+
+	void EnterExit ()
+	{
+        if (EnviroSkyMgr.instance.lastInteriorZone != myZone)
+        {
+            if (EnviroSkyMgr.instance.lastInteriorZone != null)
+                EnviroSkyMgr.instance.lastInteriorZone.StopAllFading();
+
+            myZone.Enter();
+        }
+        else
+        {
+            if (!EnviroSkyMgr.instance.IsInterior())
+                myZone.Enter();
+            else
+                myZone.Exit();
+        }
+	}
+
+	void OnDrawGizmos () 
+	{
+		Gizmos.matrix = transform.localToWorldMatrix;
+		Gizmos.color = new Color(0.2f,0.2f,1f,0.5f);
+		Gizmos.DrawCube (Vector3.zero,Vector3.one);
+	}
+}

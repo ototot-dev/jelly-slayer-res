@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d997a8d069d9aa6814ffc17a3e9718fb1d47f226f8b919430cbee67a9e53ce23
-size 457
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlatformController : MonoBehaviour {
+	
+    public float speed = 2;
+
+	void Update () {
+        if (Input.GetKey(KeyCode.DownArrow)){
+            transform.Translate(0,-speed*Time.deltaTime,0,Space.World);
+        }
+        if (Input.GetKey(KeyCode.UpArrow)){
+            transform.Translate(0,speed*Time.deltaTime,0,Space.World);
+        }
+	}
+}

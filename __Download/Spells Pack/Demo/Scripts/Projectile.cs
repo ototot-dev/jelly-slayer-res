@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e86a89eeb8d9abf7109be729e1b74285bd9fd205cef204c06bafd0342540a191
-size 820
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Projectile : MonoBehaviour {
+    public GameObject ExplosionPrefab;
+    public float DestroyExplosion = 4.0f;
+    public float DestroyChildren = 2.0f;
+    public Vector2 Velocity;
+
+    Rigidbody rb;
+    void Start () {
+        rb = gameObject.GetComponent<Rigidbody>();
+        rb.linearVelocity = Velocity;
+
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        var exp = Instantiate(ExplosionPrefab, transform.position, ExplosionPrefab.transform.rotation);
+        Destroy(exp, DestroyExplosion);
+        Transform child;
+        child = transform.GetChild(0);
+        transform.DetachChildren();
+        Destroy(child.gameObject, DestroyChildren);
+        Destroy(gameObject);
+    }
+}

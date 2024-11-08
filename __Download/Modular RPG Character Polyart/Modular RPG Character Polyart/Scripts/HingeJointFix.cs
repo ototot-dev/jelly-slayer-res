@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1c5eabcd2f47a9048b11684f64fb52f41a5b89d2fd9505cf7fee5526cf362dc4
-size 448
+﻿using UnityEngine;
+
+public class HingeJointFix : MonoBehaviour
+{
+    private Quaternion StartLocalRotation;
+    private Vector3 StartLocalPosition;
+
+    void Awake()
+    {
+        StartLocalRotation = transform.localRotation;
+        StartLocalPosition = transform.localPosition;
+    }
+    void OnDisable()
+    {
+        transform.localRotation = StartLocalRotation;
+        transform.localPosition = StartLocalPosition;
+    }
+}

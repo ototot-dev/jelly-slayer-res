@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a120b4d0d5773cf330605b0a814e6cf2ec1f57825d49aac704140825a1f4c7b
-size 262
+﻿//Obsolete!
+
+//Asset store package cannot track renamed/moved files. This file must be emptied in order for the change to update in projects
+
+//Will be removed in a later update (now April 2023)
+namespace StylizedGrass { public class ColorMapEditor { } }

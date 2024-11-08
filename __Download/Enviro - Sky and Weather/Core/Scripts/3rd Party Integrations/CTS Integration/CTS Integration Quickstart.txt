@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a7f8cd9b01bd15130cb4a7ebd1545673ab0aa37f0496bf90bbd35730cc0b69a
-size 482
+Get CTS Terrain Shader here: https://www.assetstore.unity3d.com/en/#!/content/91938
+
+Once imported the EnviroCTSIntegration component can be used to synchronize enviro with CTS.
+
+1. Add the CTS Weather Manager to your scene. "Component" -> "CTS" -> "Add Weather Manager"
+2. Now add the EnviroCTSIntegration component to the EnviroSky object in your scene.
+"Component" -> "Enviro" -> "Integrations" -> "CTS Integration"
+3. Enable the features you want to synchronize with CTS.
