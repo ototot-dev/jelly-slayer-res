@@ -22,7 +22,7 @@ namespace Synty.Tools.SyntyPropBoneTool
     public static class PropBoneBinderEditorUtil
     {
         // Path where the prop bone binder tool stores the default config file.
-        private const string CONFIG_ASSET_NAME_DEFAULT = "AnimationSwordCombat_PropBoneBindingConfig_Default.asset";
+        private const string CONFIG_ASSET_NAME_DEFAULT = "Animation_PropBoneBindingConfig_Default.asset";
         private const string CONFIG_ASSET_PATH_DEFAULT = FOLDER_PATH_DEFAULT + CONFIG_ASSET_NAME_DEFAULT;
 
         // Folder path where the prop bone binder tool stores config files by default.
