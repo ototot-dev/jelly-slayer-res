@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UniRx;
 using UnityEngine;
 using UnityExtension;
 
@@ -19,6 +20,9 @@ using UnityExtension;
 
         [SerializeField, Range(0, 4), Header("Settings")]
         public float m_stiffnessForce = 1.0f;
+
+        //* stiffness 글로벌 증가량
+        public static float stiffnessMultiplier = 3f;
 
         [SerializeField, Range(0, 2)]
         public float m_gravityPower = 0;
@@ -285,7 +289,7 @@ using UnityExtension;
                 }
             }
 
-            var stiffness = m_stiffnessForce * Time.deltaTime;
+            var stiffness = stiffnessMultiplier * m_stiffnessForce * Time.deltaTime;
             var external = m_gravityDir * (m_gravityPower * Time.deltaTime);
 
             foreach (var verlet in m_verlet)
