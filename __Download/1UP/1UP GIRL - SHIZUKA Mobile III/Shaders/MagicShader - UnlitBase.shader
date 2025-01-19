@@ -303,6 +303,12 @@
 			float4 frag(vertexOutput i) : COLOR {
 				// discard;
 				float2 screenCoord = i.pos.xy / _ScreenParams.xy;
+
+				//In view of the difference of graphic rendering behavior between platform and shader language semantics, 
+				//the problem of texture flipping in UV coordinate system of the corresponding platform is dealt with in the following ways.
+				if(_ProjectionParams.x >0)
+					screenCoord.y =1-screenCoord.y;
+
 				float2 noise = rand(screenCoord);
 				noise.x = saturate(noise.x);
 				// float depth = readEyeDepth(screenCoord);

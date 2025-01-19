@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 
-    #if UNITY_5_5_OR_NEWER
+namespace G1UP
+{
+
+#if UNITY_5_5_OR_NEWER
     [DefaultExecutionOrder(11001)]
-    #endif
+#endif
     public class BoneColliderGroup : MonoBehaviour
     {
         [Serializable]
@@ -41,3 +44,4 @@ using UnityEngine;
             }
         }
     }
+}

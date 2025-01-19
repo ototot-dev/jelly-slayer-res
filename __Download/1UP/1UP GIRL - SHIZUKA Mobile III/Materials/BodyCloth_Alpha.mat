@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BodyCloth_Alpha
-  m_Shader: {fileID: 4800000, guid: 5c935ff84578d42bfa3ed22962e708dd, type: 3}
-  m_ShaderKeywords: _AoEnable _DiffuseEnable _GRAY_NONE _MatCapEnable _OutlineEnable
-    _ReflectEnable _ShadowEnable _UV_CHANNEL_UV0 _UseCubeMap
+  m_Shader: {fileID: 4800000, guid: d505e3158b4a34e449b7d1438f90b87f, type: 3}
+  m_ShaderKeywords: _AoEnable _DiffuseEnable _GRAY_NONE _MatCapEnable _ReflectEnable
+    _ShadowEnable _UV_CHANNEL_UV0 _UseCubeMap
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -117,8 +117,8 @@ Material:
     - _Mode: 0
     - _OUTLINE: 1
     - _OcclusionStrength: 1
-    - _OutlineEnable: 1
-    - _OutlineWidth: 0.02
+    - _OutlineEnable: 0
+    - _OutlineWidth: 0
     - _Parallax: 0.02
     - _REFLECT: 1
     - _ReflectEnable: 1
@@ -131,8 +131,8 @@ Material:
     - _ShadowFixOffset: 0.04
     - _ShadowNoise: 0
     - _ShadowOffset0: 0
-    - _ShadowOffset1: 0
-    - _ShadowOffset2: 0.54
+    - _ShadowOffset1: 0.54
+    - _ShadowOffset2: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -148,5 +148,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _LightPos: {r: 100, g: 100, b: 100, a: 0}
     - _MaterialColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0.07058824, g: 0.4117647, b: 0.49803922, a: 1}
+    - _OutlineColor: {r: 1, g: 0, b: 0.010436535, a: 1}
     - _ShadowColor: {r: 1, g: 0.5896226, b: 0.5896226, a: 1}

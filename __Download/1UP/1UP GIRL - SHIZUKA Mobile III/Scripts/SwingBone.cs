@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
-using UniRx;
 using UnityEngine;
-using UnityExtension;
+using G1UP.UnityExtension;
 
-    #if UNITY_5_5_OR_NEWER
+namespace G1UP
+{
+#if UNITY_5_5_OR_NEWER
     [DefaultExecutionOrder(11000)]
-    #endif
+#endif
     public class SwingBone : MonoBehaviour
     {
         [SerializeField]
@@ -20,9 +21,6 @@ using UnityExtension;
 
         [SerializeField, Range(0, 4), Header("Settings")]
         public float m_stiffnessForce = 1.0f;
-
-        //* stiffness 글로벌 증가량
-        public static float stiffnessMultiplier = 3f;
 
         [SerializeField, Range(0, 2)]
         public float m_gravityPower = 0;
@@ -46,7 +44,7 @@ using UnityExtension;
         [SerializeField]
         public BoneColliderGroup[] ColliderGroups;
 
-        public class VRMSpringBoneLogic
+        public class SwingBoneLogic
         {
             Transform m_transform;
             public Transform Head
@@ -72,11 +70,11 @@ using UnityExtension;
 
             public float Radius { get; set; }
 
-            public VRMSpringBoneLogic(Transform center, Transform transform, Vector3 localChildPosition)
+            public SwingBoneLogic(Transform center, Transform transform, Vector3 localChildPosition)
             {
                 m_transform = transform;
                 var worldChildPosition = m_transform.TransformPoint(localChildPosition);
-                m_currentTail = center!= null
+                m_currentTail = center != null
                     ? center.InverseTransformPoint(worldChildPosition)
                     : worldChildPosition
                     ;
@@ -101,30 +99,30 @@ using UnityExtension;
                 float stiffnessForce, float dragForce, Vector3 external,
                 List<SphereCollider> colliders)
             {
-                var currentTail = center!=null
+                var currentTail = center != null
                     ? center.TransformPoint(m_currentTail)
                     : m_currentTail
                     ;
-                var prevTail = center!=null
+                var prevTail = center != null
                     ? center.TransformPoint(m_prevTail)
                     : m_prevTail
                     ;
 
                 var nextTail = currentTail
-                    + (currentTail - prevTail) * (1.0f - dragForce) 
-                    + ParentRotation * m_localRotation * m_boneAxis * stiffnessForce 
-                    + external 
+                    + (currentTail - prevTail) * (1.0f - dragForce)
+                    + ParentRotation * m_localRotation * m_boneAxis * stiffnessForce
+                    + external
                     ;
 
                 nextTail = m_transform.position + (nextTail - m_transform.position).normalized * m_length;
 
                 nextTail = Collision(colliders, nextTail);
 
-                m_prevTail = center!=null
+                m_prevTail = center != null
                     ? center.InverseTransformPoint(currentTail)
                     : currentTail
                     ;
-                m_currentTail = center!=null
+                m_currentTail = center != null
                     ? center.InverseTransformPoint(nextTail)
                     : nextTail
                     ;
@@ -135,7 +133,7 @@ using UnityExtension;
             protected virtual Quaternion ApplyRotation(Vector3 nextTail)
             {
                 var rotation = ParentRotation * m_localRotation;
-                return Quaternion.FromToRotation(rotation * m_boneAxis, 
+                return Quaternion.FromToRotation(rotation * m_boneAxis,
                     nextTail - m_transform.position) * rotation;
             }
 
@@ -156,7 +154,7 @@ using UnityExtension;
 
             public void DrawGizmo(Transform center, float radius, Color color)
             {
-                var currentTail = center!=null
+                var currentTail = center != null
                     ? center.TransformPoint(m_currentTail)
                     : m_currentTail
                     ;
@@ -174,7 +172,7 @@ using UnityExtension;
                 Gizmos.DrawWireSphere(currentTail, radius);
             }
         }
-        List<VRMSpringBoneLogic> m_verlet = new List<VRMSpringBoneLogic>();
+        List<SwingBoneLogic> m_verlet = new List<SwingBoneLogic>();
 
         void Awake()
         {
@@ -182,7 +180,7 @@ using UnityExtension;
         }
 
         [ContextMenu("Reset bones")]
-        public void Setup(bool force=false)
+        public void Setup(bool force = false)
         {
             if (RootBones != null)
             {
@@ -192,7 +190,7 @@ using UnityExtension;
                 }
                 else
                 {
-                    foreach(var kv in m_initialLocalRotationMap)
+                    foreach (var kv in m_initialLocalRotationMap)
                     {
                         kv.Key.localRotation = kv.Value;
                     }
@@ -204,7 +202,7 @@ using UnityExtension;
                 {
                     if (go != null)
                     {
-                        foreach(var x in go.transform.Traverse())
+                        foreach (var x in go.transform.Traverse())
                         {
                             m_initialLocalRotationMap[x] = x.localRotation;
                         }
@@ -217,7 +215,7 @@ using UnityExtension;
 
         static IEnumerable<Transform> GetChildren(Transform parent)
         {
-            for(int i=0; i<parent.childCount; ++i)
+            for (int i = 0; i < parent.childCount; ++i)
             {
                 yield return parent.GetChild(i);
             }
@@ -229,14 +227,14 @@ using UnityExtension;
             {
                 var delta = parent.position - parent.parent.position;
                 var childPosition = parent.position + delta.normalized * 0.07f;
-                m_verlet.Add(new VRMSpringBoneLogic(center, parent, parent.worldToLocalMatrix.MultiplyPoint(childPosition)));
+                m_verlet.Add(new SwingBoneLogic(center, parent, parent.worldToLocalMatrix.MultiplyPoint(childPosition)));
             }
             else
             {
                 var firstChild = GetChildren(parent).First();
                 var localPosition = firstChild.localPosition;
                 var scale = firstChild.lossyScale;
-                m_verlet.Add(new VRMSpringBoneLogic(center, parent,
+                m_verlet.Add(new SwingBoneLogic(center, parent,
                     new Vector3(
                         localPosition.x * scale.x,
                         localPosition.y * scale.y,
@@ -289,7 +287,7 @@ using UnityExtension;
                 }
             }
 
-            var stiffness = stiffnessMultiplier * m_stiffnessForce * Time.deltaTime;
+            var stiffness = m_stiffnessForce * Time.deltaTime;
             var external = m_gravityDir * (m_gravityPower * Time.deltaTime);
 
             foreach (var verlet in m_verlet)
@@ -315,3 +313,4 @@ using UnityExtension;
             }
         }
     }
+}
