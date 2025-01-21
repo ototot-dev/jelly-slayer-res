@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: GSF Walter et all
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.6.3\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19603\nNode;AmplifyShaderEditor.CommentaryNode;157;-1680,-80;Inherit;False;147.3326;128.2139;NdotV;1;164;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;158;-1680,80;Inherit;False;147.3333;131.6667;NdotL;1;163;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;170;128,-112;Inherit;False;183.5;273;Out;1;171;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;55;-1488,-160;Inherit;False;214;101;Vectorized;;0,0,0,0.5019608;to
+    simplify and Optimize the Algorithm;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;57;-1408,176;Inherit;False;193;100;Roughness;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.OneMinusNode;21;-1184,-96;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;25;-976,-96;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.RangedFloatNode;29;-832,48;Inherit;False;Constant;_One;One;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;27;-688,-64;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SqrtOpNode;30;-576,-64;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;35;-288,-64;Inherit;False;2;0;FLOAT;2;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;32;-448,32;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;56;-1184,96;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;54;-1328,-32;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.DynamicAppendNode;52;-1488,-32;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;53;-144,-64;Inherit;False;FLOAT2;1;0;FLOAT2;0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;38;-32,-64;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;164;-1648,-32;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;163;-1648,128;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;23;-832,-64;Inherit;False;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.RangedFloatNode;37;-448,-64;Inherit;False;Constant;_Two;Two;0;0;Create;True;0;0;0;False;0;False;2;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;19;-1376,96;Inherit;False;Roughness;1;2;False;1;0;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;167;-512,-512;Inherit;False;518.7335;130.6915;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;168;-512,-368;Inherit;False;512.9414;237.8893;;;0,0,0,0.5019608;The
+    common form of the GGX GSF, Walter et al. created this function to be used with
+    any NDF. $$Walter et al. felt that the GSF \"has relatively little effect on
+    the shape of the BSDF [Bi-Directional Scattering Distribution Function], except
+    near grazing angles or for very rough surfaces, but is needed to maintain energy
+    conservation.$$With this in mind, they created a GSF that respected this principle,
+    using Roughness as a driving force for the GSF$$;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;169;128,-240;Inherit;False;284.987;111.6268;;;0,0,0,1;The
+    common form of the GGX GSF, Walter et al. created this function to be used with
+    any NDF $;0;0\nNode;AmplifyShaderEditor.RelayNode;171;144,-64;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;159;-1984,-32;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;161;-1984,128;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;159;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;160;-2176,48;Inherit;False;NdotV;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;162;-2176,208;Inherit;False;NdotL;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;165;-2240,-32;Inherit;False;NdotV;-1;;6;7af3d63ace2395a48ade6e07349269e2;4,469,1,27,0,452,0,451,0;3;467;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionNode;166;-2240,128;Inherit;False;NdotL;-1;;7;646db54ad2ce0c84190b8571094b3a16;5,476,1,27,0,460,0,461,0,463,0;4;474;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;1;FLOAT;111\nNode;AmplifyShaderEditor.FunctionOutput;0;352,-64;Inherit;False;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;21;0;54;0\nWireConnection;25;0;21;0\nWireConnection;25;1;56;0\nWireConnection;27;0;23;0\nWireConnection;27;1;29;0\nWireConnection;30;0;27;0\nWireConnection;35;0;37;0\nWireConnection;35;1;32;0\nWireConnection;32;0;30;0\nWireConnection;32;1;29;0\nWireConnection;56;0;19;0\nWireConnection;56;1;19;0\nWireConnection;54;0;52;0\nWireConnection;54;1;52;0\nWireConnection;52;0;164;0\nWireConnection;52;1;163;0\nWireConnection;53;0;35;0\nWireConnection;38;0;53;0\nWireConnection;38;1;53;1\nWireConnection;164;0;159;0\nWireConnection;163;0;161;0\nWireConnection;23;0;25;0\nWireConnection;23;1;54;0\nWireConnection;171;0;38;0\nWireConnection;159;0;165;23\nWireConnection;159;1;160;0\nWireConnection;161;0;166;111\nWireConnection;161;1;162;0\nWireConnection;0;0;171;0\nASEEND*/\n//CHKSM=1CFE3CB73843AC22E92334ECEBBD42611A65EB32"
+  m_functionName: 
+  m_description: 'GSF Walter et all
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Diffuse Fresnel
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.6.3\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19603\nNode;AmplifyShaderEditor.CommentaryNode;113;-199.5,-82;Inherit;False;202.5;279.5;Out;1;112;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;94;-1152,-80;Inherit;False;158;144;NdotH;1;108;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;99;-1920,384;Inherit;False;192.2733;100;Smoothness;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;101;-1312,704;Inherit;False;204.94;100;Bias;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;53;-1376,224;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;9;False;2;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;81;-1136,144;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;2;False;2;FLOAT;-1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;20;-912,144;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SaturateNode;26;-352,-32;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;83;-1552,304;Inherit;False;Square;-1;;6;fea980a1f68019543b2cd91d506986e8;0;1;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;74;-1376,368;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0.25;False;2;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;77;-1376,496;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;-0.25;False;2;FLOAT;0.75;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;82;-960,256;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PowerNode;16;-736,-32;Inherit;False;False;2;0;FLOAT;0;False;1;FLOAT;5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;25;-912,-32;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;27;-576,-32;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;1;False;2;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;75;-624,352;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;97;-624,80;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;76;-1120,368;Inherit;False;Bias;False;1;3;0;Scaling;Scale_Inv;Custom;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;96;-656,384;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;111;-624,272;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;45;-864,304;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;78;-1312,624;Inherit;False;Bias;1;2;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FaceVariableNode;18;-1280,144;Inherit;False;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;108;-1120,-32;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;110;-1728,-32;Inherit;False;NdotH;-1;;15;fadb6690f179c1448859861f76ebb061;7,482,1,27,0,451,0,463,0,460,0,461,0,452,0;6;480;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;1;FLOAT;109\nNode;AmplifyShaderEditor.FunctionInput;89;-1664,48;Inherit;False;NdotH;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SaturateNode;42;-1712,304;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;35;-1920,304;Inherit;False;Smoothness;1;1;False;1;0;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;90;-1472,-32;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;112;-176,-32;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;114;-896,-256;Inherit;False;539.8491;136.1796;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy;0;0\nNode;AmplifyShaderEditor.FunctionOutput;0;32,-32;Inherit;False;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;53;0;83;0\nWireConnection;81;0;18;0\nWireConnection;20;0;81;0\nWireConnection;20;1;82;0\nWireConnection;26;0;27;0\nWireConnection;83;2;42;0\nWireConnection;74;0;83;0\nWireConnection;77;0;83;0\nWireConnection;82;0;53;0\nWireConnection;16;0;25;0\nWireConnection;16;1;20;0\nWireConnection;25;0;108;0\nWireConnection;27;0;16;0\nWireConnection;27;1;111;0\nWireConnection;27;2;97;0\nWireConnection;75;0;96;0\nWireConnection;97;0;75;0\nWireConnection;76;0;74;0\nWireConnection;76;1;77;0\nWireConnection;76;2;78;0\nWireConnection;96;0;76;0\nWireConnection;111;0;45;0\nWireConnection;45;0;83;0\nWireConnection;45;1;76;0\nWireConnection;108;0;90;0\nWireConnection;42;0;35;0\nWireConnection;90;0;110;109\nWireConnection;90;1;89;0\nWireConnection;112;0;26;0\nWireConnection;0;0;112;0\nASEEND*/\n//CHKSM=C9BC6825F47D55176434FE03C087E61333784045"
+  m_functionName: 
+  m_description: 'Diffuse Fresnel
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

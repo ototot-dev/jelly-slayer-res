@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: NDF BlinnPhong
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.6.3\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19603\nNode;AmplifyShaderEditor.CommentaryNode;280;-672,-1856;Inherit;False;181.3333;269.5659;Out;1;346;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;282;-3152,-2064;Inherit;False;147.3326;128.2139;RdotV;1;326;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;283;-3168,-1872;Inherit;False;147.3333;131.6667;NdotH;1;325;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;285;-1392,-1856;Inherit;False;180.4401;271.7538;Specular;1;314;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;286;-1280,-2144;Inherit;False;543.478;137.6793;Blinn-Phong;;0,0,0,0.5019608;Blinn
+    approximation of Phong specularity was created as an optimization of the Phong
+    Specular Model. Blinn decided that it was faster to produce the dot product of
+    the normal and half vector, than it was to calculate the reflect vector of light
+    every frame. The algorithms do produce much different results, with Blinn being
+    softer than Phong $$;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;287;-1280,-1984;Inherit;False;542.0883;100;Phong;;0,0,0,0.5019608;Phong
+    algorithm is another non-physical algorithm, but it produces much finer results
+    than the above Blinn approximation$;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;288;-2544,-2160;Inherit;False;545.7516;151.6388;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;289;-944,-1696;Inherit;False;219.3184;138.862;Blinn
+    the Phong;;0,0,0,0.5019608;Switch between Phong and Blinn-Phong methods$$-- BlinnPhong$--
+    Phong;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;290;-2864,-1888;Inherit;False;161.5098;100;Gloss;;0,0,0,1;The
+    surface Glossiness value.;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;293;-2480,-1936;Inherit;False;162.7015;100.6667;Specular
+    Power;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.WireNode;294;-2306.583,-1675.901;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;303;-2306.583,-1771.901;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;304;-1778.583,-1947.901;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;305;-1778.583,-1787.901;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;310;-1890.583,-1723.901;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;311;-1906.583,-1739.901;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;314;-1376,-1808;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;315;-672,-1968;Inherit;False;180.1745;101.3333;Specular;;0,0,0,1;The
+    specular distribution term;0;0\nNode;AmplifyShaderEditor.RelayNode;326;-3120,-2016;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;218;-3520,-2016;Inherit;False;Custom
+    Dot Products;True;0;2;3;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;219;-3680,-1936;Inherit;False;RdotV;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;228;-3744,-2064;Inherit;False;RdotV;-1;;13;57d3b3f789fb88e41aad491f72c6ab43;6,483,1,27,0,454,0,463,0,464,0,466,0;5;230;FLOAT3;0,0,1;False;446;FLOAT3;0,0,0;False;465;FLOAT3;0,0,0;False;457;FLOAT3;0,0,0;False;481;FLOAT;1E-37;False;3;FLOAT;298;FLOAT3;430;FLOAT3;433\nNode;AmplifyShaderEditor.FunctionInput;345;-2864,-1776;Inherit;False;Gloss;1;2;False;1;0;FLOAT;0.98;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;357;-2480,-1824;Inherit;False;Specular
+    Power;1;3;False;1;0;FLOAT;36;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;356;-2256,-1840;Inherit;False;Custom
+    Specular Power;True;0;2;4;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleNode;353;-2624,-1680;Inherit;False;40;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PowerNode;309;-1936,-2016;Inherit;False;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;325;-3136,-1840;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;221;-3680,-1760;Inherit;False;NdotH;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;220;-3520,-1840;Inherit;False;Option;False;0;2;3;In
+    0;In 1;Instance;218;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;229;-3744,-1840;Inherit;False;NdotH;-1;;14;fadb6690f179c1448859861f76ebb061;7,482,1,27,0,451,0,463,0,460,0,461,0,452,0;6;480;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;1;FLOAT;109\nNode;AmplifyShaderEditor.TauNode;351;-1840,-1600;Inherit;False;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;306;-1696,-1696;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;307;-1840,-1696;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;2;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;350;-2016,-1696;Inherit;False;Constant;_Two1;Two;0;0;Create;True;0;0;0;False;0;False;2;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;354;-2432,-1680;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;308;-1728,-1808;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;312;-1552,-1808;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;344;-2960,-2016;Inherit;False;Option;False;1;2;0;In
+    0;In 1;Instance;358;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;346;-656,-1808;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;358;-960,-1808;Inherit;False;Blinn
+    the Phong;False;1;2;0;BlinnPhong;Phong;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSubtitle;318;-1168,-1808;Inherit;False;BlinnPhong;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSubtitle;319;-1168,-1728;Inherit;False;Phong;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;-448,-1808;Inherit;False;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;294;0;354;0\nWireConnection;303;0;294;0\nWireConnection;304;0;309;0\nWireConnection;305;0;304;0\nWireConnection;310;0;311;0\nWireConnection;311;0;345;0\nWireConnection;314;0;312;0\nWireConnection;326;0;218;0\nWireConnection;218;0;228;298\nWireConnection;218;1;219;0\nWireConnection;356;0;303;0\nWireConnection;356;1;357;0\nWireConnection;353;0;345;0\nWireConnection;309;0;344;0\nWireConnection;309;1;356;0\nWireConnection;325;0;220;0\nWireConnection;220;0;229;109\nWireConnection;220;1;221;0\nWireConnection;306;0;307;0\nWireConnection;306;1;351;0\nWireConnection;307;0;310;0\nWireConnection;307;1;350;0\nWireConnection;354;0;353;0\nWireConnection;308;0;305;0\nWireConnection;308;1;345;0\nWireConnection;312;0;308;0\nWireConnection;312;1;306;0\nWireConnection;344;0;326;0\nWireConnection;344;1;325;0\nWireConnection;346;0;358;0\nWireConnection;358;0;318;0\nWireConnection;358;1;319;0\nWireConnection;318;0;314;0\nWireConnection;319;0;314;0\nWireConnection;0;0;346;0\nASEEND*/\n//CHKSM=04AEBEBECC7B7B6B9A61CF0FDF51D6E5AE8FA9B6"
+  m_functionName: 
+  m_description: 'NDF BlinnPhong
+
+
+    Mode
+
+    --Phong
+
+    --BlinnPhong'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

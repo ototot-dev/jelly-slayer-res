@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: NDF Trowbridge Reitz Anisotropic
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.6.3\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19603\nNode;AmplifyShaderEditor.CommentaryNode;380;-1024,-320;Inherit;False;151.4252;133.4144;HdotY;1;378;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;366;-1024,-640;Inherit;False;147.3326;128.2139;NdotH;1;373;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;367;-1024,-480;Inherit;False;147.3333;131.6667;HdotX;1;372;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;477;256,-640;Inherit;False;183.3224;286.42;Specular;1;478;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;47;-2064,48;Inherit;False;243.5407;114.053;Anisotropic
+    Value Range;;0,0,0,0.5019608;Range of -20 to 1$$The Anisotropic value;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;354;-1824,-112;Inherit;False;194.8724;100;Smoothness
+    ;;0,0,0,1;The surface Glossiness value;0;0\nNode;AmplifyShaderEditor.ScaleNode;38;-928,0;Inherit;False;5;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleNode;39;-928,96;Inherit;False;5;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;24;-1056,0;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0.001;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;25;-1056,96;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0.001;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;23;-1248,96;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;22;-1248,0;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;59;-1280,208;Inherit;False;Constant;_NonZero;Non
+    Zero;0;0;Create;True;0;0;0;False;0;False;0.001;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;79;-1424,0;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SqrtOpNode;18;-1392,96;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;20;-1584,0;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;80;-1584,96;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;81;-1776,96;Half;False;Constant;_1h;1h;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;16;-1776,176;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;28;-768,-432;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;77;-768,-592;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;75;-608,-432;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;36;-384,-592;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;78;-256,-592;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;41;-64,-592;Inherit;False;4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;61;-128,-496;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;60;-112,-464;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PiNode;35;-320,-448;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;33;-768,-272;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;76;-608,-272;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;19;-1792,0;Inherit;False;Smoothness
+    ;1;4;False;1;0;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;58;-1952,256;Half;False;Constant;_09h;0.9h;0;0;Create;True;0;0;0;False;0;False;0.9;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.ReciprocalOpNode;56;96,-592;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;373;-992,-592;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;372;-992,-432;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;378;-992,-272;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;369;-2640,-512;Inherit;False;NdotH;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;371;-2640,-352;Inherit;False;HdotX;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;370;-2480,-432;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;368;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;376;-2480,-272;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;368;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;377;-2640,-192;Inherit;False;HdotY;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;381;-2704,-592;Inherit;False;NdotH;-1;;16;fadb6690f179c1448859861f76ebb061;7,482,1,27,0,451,0,463,0,460,0,461,0,452,0;6;480;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;1;FLOAT;109\nNode;AmplifyShaderEditor.FunctionNode;382;-2640,-432;Inherit;False;HdotX;-1;;17;e4a7c169e85b67f408600ac15b2fd149;5,443,0,444,0,121,0,445,0,446,0;5;440;FLOAT3;0,0,0;False;439;FLOAT3;0,0,0;False;130;FLOAT3;0,0,0;False;441;FLOAT3;0,0,0;False;447;FLOAT3;0,0,0;False;1;FLOAT;299\nNode;AmplifyShaderEditor.FunctionNode;383;-2640,-272;Inherit;False;HdotY;-1;;18;1c82aeabcbdbf7041b87a9a5449f37a1;5,453,0,462,0,463,0,454,0,465,0;5;445;FLOAT3;0,0,0;False;464;FLOAT3;0,0,0;False;456;FLOAT3;0,0,0;False;455;FLOAT3;0,0,0;False;466;FLOAT3;0,0,0;False;1;FLOAT;300\nNode;AmplifyShaderEditor.FunctionSwitch;368;-2480,-592;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;478;272,-592;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;351;-160,32;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;352;-128,16;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;350;-144,128;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;353;-112,112;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;15;-1952,176;Inherit;False;Anistropic;1;3;False;1;0;FLOAT;0.9;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;481;256,-832;Inherit;False;379.988;151.9665;Discription;;0,0,0,1;Anisotropic
+    NDF functions produce the normal distribution Anisotropically. $$This allows
+    for us to create surface effects that mimic brushed metals and other finely faceted/anisotropic
+    surfaces $;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;482;-1024,-896;Inherit;False;546.5838;152.2236;Credits;;0,0,0,1;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy;0;0\nNode;AmplifyShaderEditor.FunctionOutput;0;480,-592;Inherit;False;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;38;0;24;0\nWireConnection;39;0;25;0\nWireConnection;24;0;22;0\nWireConnection;24;1;59;0\nWireConnection;25;0;23;0\nWireConnection;25;1;59;0\nWireConnection;23;0;18;0\nWireConnection;23;1;79;0\nWireConnection;22;0;79;0\nWireConnection;22;1;18;0\nWireConnection;79;0;20;0\nWireConnection;79;1;20;0\nWireConnection;18;0;80;0\nWireConnection;20;0;19;0\nWireConnection;80;0;81;0\nWireConnection;80;1;16;0\nWireConnection;16;0;15;0\nWireConnection;16;1;58;0\nWireConnection;28;0;372;0\nWireConnection;28;1;38;0\nWireConnection;77;0;373;0\nWireConnection;77;1;373;0\nWireConnection;75;0;28;0\nWireConnection;75;1;28;0\nWireConnection;36;0;77;0\nWireConnection;36;1;75;0\nWireConnection;36;2;76;0\nWireConnection;78;0;36;0\nWireConnection;78;1;36;0\nWireConnection;41;0;78;0\nWireConnection;41;1;61;0\nWireConnection;41;2;60;0\nWireConnection;41;3;35;0\nWireConnection;61;0;352;0\nWireConnection;60;0;353;0\nWireConnection;33;0;378;0\nWireConnection;33;1;39;0\nWireConnection;76;0;33;0\nWireConnection;76;1;33;0\nWireConnection;56;0;41;0\nWireConnection;373;0;368;0\nWireConnection;372;0;370;0\nWireConnection;378;0;376;0\nWireConnection;370;0;382;299\nWireConnection;370;1;371;0\nWireConnection;376;0;383;300\nWireConnection;376;1;377;0\nWireConnection;368;0;381;109\nWireConnection;368;1;369;0\nWireConnection;478;0;56;0\nWireConnection;351;0;38;0\nWireConnection;352;0;351;0\nWireConnection;350;0;39;0\nWireConnection;353;0;350;0\nWireConnection;0;0;478;0\nASEEND*/\n//CHKSM=A8F175F1B512564A3A892985CDC1A0A0ED73F72A"
+  m_functionName: 
+  m_description: 'NDF Trowbridge Reitz Anisotropic
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

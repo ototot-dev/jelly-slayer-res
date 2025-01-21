@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: GSF CookTorrance
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.6.3\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19603\nNode;AmplifyShaderEditor.CommentaryNode;341;-1105.333,2656;Inherit;False;153.0001;130.6667;VdotH;1;355;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;340;-1306,2496;Inherit;False;154.6667;126.3335;NdotL;1;354;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;339;-1310.17,2336;Inherit;False;155.1699;132.7178;NdotH;1;353;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;338;-1309.333,2176;Inherit;False;160.0972;126.4829;NdotV;1;352;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;362;-480,2176;Inherit;False;185;266.5;Out;1;363;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;128;-1088,2384;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;352;-1280,2224;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;277;-1632,2384;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;337;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;353;-1280,2384;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;354;-1280,2544;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;355;-1072,2704;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;357;-1856,2384;Inherit;False;HdotH;-1;;20;5a7122eeb769dd14a8594b4846b9c1ef;5,393,1,443,0,445,0,121,0,447,0;5;422;FLOAT;1E-37;False;440;FLOAT3;0,0,0;False;439;FLOAT3;0,0,0;False;130;FLOAT3;0,0,0;False;446;FLOAT3;0,0,0;False;1;FLOAT;296\nNode;AmplifyShaderEditor.FunctionInput;333;-1792,2464;Inherit;False;NdotH;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;358;-1856,2544;Inherit;False;NdotL;-1;;21;646db54ad2ce0c84190b8571094b3a16;5,476,1,27,0,460,0,461,0,463,0;4;474;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;1;FLOAT;111\nNode;AmplifyShaderEditor.FunctionSwitch;272;-1632,2544;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;337;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;274;-1792,2624;Inherit;False;NdotL;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;337;-1632,2704;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;359;-1856,2704;Inherit;False;VdotH;-1;;22;5ee37da568218c84d89574d39ddf424e;5,477,1,452,0,451,0,460,0,461,0;5;475;FLOAT;1E-37;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;1;FLOAT;108\nNode;AmplifyShaderEditor.FunctionInput;275;-1792,2784;Inherit;False;VdotH;1;3;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;273;-1792,2304;Inherit;False;NdotV;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;271;-1632,2224;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;337;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;356;-1856,2224;Inherit;False;NdotV;-1;;23;7af3d63ace2395a48ade6e07349269e2;4,469,1,27,0,452,0,451,0;3;467;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;1;FLOAT;23\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;127;-1088,2224;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;129;-896,2384;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;123;-896,2224;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMinOpNode;124;-720,2224;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;347;-768,2144;Inherit;False;Constant;_One;One;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;133;-1280,2096;Inherit;False;Constant;_two;two;0;0;Create;True;0;0;0;False;0;False;2;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;360;-1280,1920;Inherit;False;543.8523;130.3396;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;361;-480,1968;Inherit;False;446.4383;187.0728;;;0,0,0,1;The
+    Cook-Torrance GSF was created to solve three cases of Geometric attenuation.$$The
+    first case states that the light is reflected without interference, the second
+    case states that some reflected light is blocked after reflection, and the third
+    case states that some light is blocked before reaching the next microfacet;0;0\nNode;AmplifyShaderEditor.SimpleMinOpNode;132;-592,2224;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;363;-464,2224;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;224;-256,2224;Inherit;False;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;128;0;353;0\nWireConnection;128;1;354;0\nWireConnection;128;2;133;0\nWireConnection;352;0;271;0\nWireConnection;277;0;357;296\nWireConnection;277;1;333;0\nWireConnection;353;0;277;0\nWireConnection;354;0;272;0\nWireConnection;355;0;337;0\nWireConnection;272;0;358;111\nWireConnection;272;1;274;0\nWireConnection;337;0;359;108\nWireConnection;337;1;275;0\nWireConnection;271;0;356;23\nWireConnection;271;1;273;0\nWireConnection;127;0;352;0\nWireConnection;127;1;353;0\nWireConnection;127;2;133;0\nWireConnection;129;0;128;0\nWireConnection;129;1;355;0\nWireConnection;123;0;127;0\nWireConnection;123;1;355;0\nWireConnection;124;0;123;0\nWireConnection;124;1;129;0\nWireConnection;132;0;124;0\nWireConnection;132;1;347;0\nWireConnection;363;0;132;0\nWireConnection;224;0;363;0\nASEEND*/\n//CHKSM=BBD946424EE644201588409F5A27DED51E3D7231"
+  m_functionName: 
+  m_description: 'GSF CookTorrance
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

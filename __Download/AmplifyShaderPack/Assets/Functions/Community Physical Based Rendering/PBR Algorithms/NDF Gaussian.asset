@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: NDF Gaussian
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.6.3\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19603\nNode;AmplifyShaderEditor.CommentaryNode;430;-2871.925,2096;Inherit;False;143.1221;134.9558;NdotH;1;437;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;485;-1920,2096;Inherit;False;185.899;269;Specular;1;487;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;263;-2816,2336;Inherit;False;165.5;100;Roughness;;0,0,0,1;The
+    surface Roughness value;0;0\nNode;AmplifyShaderEditor.ACosOpNode;96;-2688,2144;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;60;-2560,2144;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.NegateNode;95;-2400,2144;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ExpOpNode;58;-2048,2144;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;57;-2208,2144;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;426;-2560,2256;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;428;-2368,2352;Inherit;False;223;100;Max
+    .0001;;0,0,0,0.5019608;prevents the Specular dot from \"disappearing\" at 'Low/Zero
+    Roughness\";0;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;429;-2368,2256;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0.0001;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;437;-2848,2144;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;487;-1904,2144;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;226;-2816,2256;Inherit;False;Roughness;1;1;False;1;0;FLOAT;0.35;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;440;-3424,2144;Inherit;False;NdotH;-1;;8;fadb6690f179c1448859861f76ebb061;7,482,1,27,0,451,0,463,0,460,0,461,0,452,0;6;480;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;1;FLOAT;109\nNode;AmplifyShaderEditor.FunctionInput;433;-3360,2224;Inherit;False;NdotH;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;500;-2576,1920;Inherit;False;532.73;134.644;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;501;-1920,1920;Inherit;False;290.6873;159.5968;;;0,0,0,1;The
+    Gaussian Normal Distribution model is not as popular as some of the other models,
+    as it tends to produce much softer specular highlights than can be desired at
+    higher smoothness values $;0;0\nNode;AmplifyShaderEditor.FunctionSwitch;432;-3168,2144;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSubtitle;488;-1696,2144;Inherit;False;NDF
+    Gaussian;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;213;-1504,2144;Inherit;False;True;-1;Out;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;96;0;437;0\nWireConnection;60;0;96;0\nWireConnection;60;1;96;0\nWireConnection;95;0;60;0\nWireConnection;58;0;57;0\nWireConnection;57;0;95;0\nWireConnection;57;1;429;0\nWireConnection;426;0;226;0\nWireConnection;426;1;226;0\nWireConnection;429;0;426;0\nWireConnection;437;0;432;0\nWireConnection;487;0;58;0\nWireConnection;432;0;440;109\nWireConnection;432;1;433;0\nWireConnection;488;0;487;0\nWireConnection;213;0;488;0\nASEEND*/\n//CHKSM=AD639F35E040C84EAFADAE4009B810730F63CC88"
+  m_functionName: 
+  m_description: 'NDF Gaussian
+
+
+    Mode
+
+    --NDF Gaussian'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

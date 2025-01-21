@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: GSF Ashikhmin Premoze
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.6.3\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19603\nNode;AmplifyShaderEditor.CommentaryNode;426;-992,2336;Inherit;False;180.5;270;Out;1;444;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;427;-1629.883,2534.701;Inherit;False;156.3334;129.3332;NdotL;1;436;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;428;-1629.883,2342.701;Inherit;False;151.9999;134.3332;NdotV;1;435;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;429;-992,2208;Inherit;False;187.5876;110.0416;;;0,0,0,1;The
+    Ashikhmin-Premoze GSF is designed for use with Isotropic NDF;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;434;-1664,2176;Inherit;False;541.6597;130.1795;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$;0;0\nNode;AmplifyShaderEditor.RelayNode;444;-976,2384;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;339;-1920,2384;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;341;-2112,2464;Inherit;False;NdotV;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;435;-1600,2384;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RelayNode;436;-1600,2576;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;340;-1920,2576;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;339;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;342;-2112,2656;Inherit;False;NdotL;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;424;-2176,2384;Inherit;False;NdotV;-1;;14;7af3d63ace2395a48ade6e07349269e2;4,469,1,27,0,452,0,451,0;3;467;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionNode;421;-2176,2576;Inherit;False;NdotL;-1;;15;646db54ad2ce0c84190b8571094b3a16;5,476,1,27,0,460,0,461,0,463,0;4;474;FLOAT;1E-37;False;230;FLOAT3;0,0,1;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;1;FLOAT;111\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;431;-1440,2384;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;430;-1440,2496;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;433;-1120,2384;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;432;-1280,2448;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;445;-768,2384;Inherit;False;True;-1;Out;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;444;0;433;0\nWireConnection;339;0;424;23\nWireConnection;339;1;341;0\nWireConnection;435;0;339;0\nWireConnection;436;0;340;0\nWireConnection;340;0;421;111\nWireConnection;340;1;342;0\nWireConnection;431;0;435;0\nWireConnection;431;1;436;0\nWireConnection;430;0;436;0\nWireConnection;430;1;435;0\nWireConnection;433;0;431;0\nWireConnection;433;1;432;0\nWireConnection;432;0;430;0\nWireConnection;432;1;431;0\nWireConnection;445;0;444;0\nASEEND*/\n//CHKSM=88CF3D5F0D2575E02456CFC3CA53C28FFBC96B8D"
+  m_functionName: 
+  m_description: 'GSF Ashikhmin Premoze
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 
