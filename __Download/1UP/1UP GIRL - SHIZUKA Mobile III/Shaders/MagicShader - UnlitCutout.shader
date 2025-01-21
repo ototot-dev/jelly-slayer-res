@@ -2,6 +2,11 @@ Shader "1UP/Magic Shader/Unlit Cutout"
 {
 	Properties
 	{
+		[HideInInspector] _OUTLINE("FolderTag", float) = 1.0
+		[Toggle(_OutlineEnable)] _OutlineEnable("Enable Outline Function", Float) = 0
+		_OutlineColor("Outline Color", Color) = (1, 0, 0, 1)
+		_OutlineWidth("Outline Width", Range(0, 1)) = 0.0
+		
 		[HideInInspector] _AO("FolderTag", float) = 1.0
 		[Toggle(_AoEnable)] _AoEnable("Enable AO Function", Float) = 0
 		_AoColor("AO Color", Color) = (0, 0, 0, 1)
@@ -228,6 +233,12 @@ Shader "1UP/Magic Shader/Unlit Cutout"
 			{
 				// discard;
 				float2 screenCoord = i.pos.xy / _ScreenParams.xy;
+
+				//In view of the difference of graphic rendering behavior between platform and shader language semantics, 
+				//the problem of texture flipping in UV coordinate system of the corresponding platform is dealt with in the following ways.
+				if(_ProjectionParams.x >0)
+					screenCoord.y =1-screenCoord.y;
+				
 				float2 noise = rand(screenCoord);
 				noise.x = saturate(noise.x);
 				// float depth = readEyeDepth(screenCoord);
@@ -246,25 +257,25 @@ Shader "1UP/Magic Shader/Unlit Cutout"
 					float4 diffuseTexCol = tex2D(_DiffuseUvTex, i.uv.xy);
 					clip(diffuseTexCol.a - _DiffuseAlphaCutout);
 					diffuseColor = float4(lerp(diffuseTexCol.rgb,
-						_DiffuseColor.rgb * diffuseTexCol.rgb, 
-						_DiffuseColor.a), 1.0);
+					_DiffuseColor.rgb * diffuseTexCol.rgb, 
+					_DiffuseColor.a), 1.0);
 				#endif
 
 				float3 matColor = float3(1.0, 1.0, 1.0);
 				#ifdef _MatCapEnable
 					float3 matTexCol = tex2D(_MaterialTex, i.uv.zw).rgb;
-						matTexCol.rgb += _MaterialColorLevel;
+					matTexCol.rgb += _MaterialColorLevel;
 
 					// GRAY_NONE
 					#if _GRAY_OPENCV
 						float grayValue = (matTexCol.r * 0.299 + 
-							matTexCol.g * 0.587 +
-							matTexCol.b * 0.114);
+						matTexCol.g * 0.587 +
+						matTexCol.b * 0.114);
 						matTexCol = float3(grayValue, grayValue, grayValue);
 					#elif _GRAY_LINEAR
 						float grayValue = 
-							(matTexCol.r + matTexCol.g + matTexCol.b) / 3.0;
-							matTexCol = float3(grayValue, grayValue, grayValue);
+						(matTexCol.r + matTexCol.g + matTexCol.b) / 3.0;
+						matTexCol = float3(grayValue, grayValue, grayValue);
 					#endif
 
 					matColor = matTexCol.rgb * _MaterialColor.rgb;
@@ -295,57 +306,109 @@ Shader "1UP/Magic Shader/Unlit Cutout"
 						matCapStep *= 3.0;
 						float3 reflectedDir = reflect(i.viewDir, normalize(i.normalDir));
 						float4 reflectColor1 = texCUBE(_CubeMap, 
-							reflectedDir + _ReflectRoughness * 
+						reflectedDir + _ReflectRoughness * 
 						float3(-matCapStep, matCapStep, matCapStep));
 						float4 reflectColor2 = texCUBE(_CubeMap, 
-							reflectedDir + _ReflectRoughness * 
+						reflectedDir + _ReflectRoughness * 
 						float3(matCapStep, -matCapStep, matCapStep));
 						float4 reflectColor3 = texCUBE(_CubeMap, 
-							reflectedDir + _ReflectRoughness * 
+						reflectedDir + _ReflectRoughness * 
 						float3(matCapStep, matCapStep, -matCapStep));
 						float4 reflectColor4 = texCUBE(_CubeMap, 
-							reflectedDir + _ReflectRoughness * 
+						reflectedDir + _ReflectRoughness * 
 						float3(-matCapStep, matCapStep, -matCapStep));
 					#else
 						float4 reflectColor1 = tex2D(_ReflectTex, 
-							i.uv.zw + _ReflectRoughness * 
+						i.uv.zw + _ReflectRoughness * 
 						float2(matCapStep, matCapStep));
 						float4 reflectColor2 = tex2D(_ReflectTex, 
-							i.uv.zw + _ReflectRoughness * 
+						i.uv.zw + _ReflectRoughness * 
 						float2(matCapStep, -matCapStep));
 						float4 reflectColor3 = tex2D(_ReflectTex, 
-							i.uv.zw + _ReflectRoughness * 
+						i.uv.zw + _ReflectRoughness * 
 						float2(-matCapStep, -matCapStep));
 						float4 reflectColor4 = tex2D(_ReflectTex, 
-							i.uv.zw + _ReflectRoughness * 
+						i.uv.zw + _ReflectRoughness * 
 						float2(-matCapStep, matCapStep));
 					#endif
 
 					reflectColor = (reflectColor1 + reflectColor2 + 
-						reflectColor3 + reflectColor4) / 4.0;
+					reflectColor3 + reflectColor4) / 4.0;
 				#endif
 
 				float4 finalColor = float4(color, 1.0);
 
 				#ifdef _ReflectEnable
 					finalColor = lerp(finalColor, 
-						finalColor * reflectColor,
-						_ReflectIntensity);
+					finalColor * reflectColor,
+					_ReflectIntensity);
 				#endif
 
 				#ifdef _DiffuseEnable
 					finalColor.rgb = lerp(finalColor, 
-						finalColor * diffuseColor + diffuseColor * _DiffuseColorLevel, 
-						_DiffuseIntensity).rgb;
+					finalColor * diffuseColor + diffuseColor * _DiffuseColorLevel, 
+					_DiffuseIntensity).rgb;
 				#endif
 
 				#ifdef _AoEnable
 					finalColor.rgb = min(finalColor.rgb, 
-						finalColor.rgb * aoColor.rgb);
+					finalColor.rgb * aoColor.rgb);
 				#endif
 
 				return finalColor;
 			}
+			ENDCG
+		}
+
+		Pass
+		{
+			Name "Outline Pass"
+			Tags {}
+			Cull Front
+			Blend SrcAlpha OneMinusSrcAlpha
+			
+			CGPROGRAM
+			#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			#pragma shader_feature _OutlineEnable
+			
+			fixed4 _OutlineColor;
+			fixed _OutlineWidth;
+			
+			struct customData
+			{
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+			};
+			struct v2f
+			{
+				float4 pos : POSITION;
+				float4 color : COLOR;
+			};
+			
+			v2f vert(customData v)
+			{           
+				v2f o;
+				o.pos = UnityObjectToClipPos(v.vertex);
+				#ifdef _OutlineEnable
+					float3 vertexOutline = fixed3(0, 0, 0);
+					vertexOutline = v.vertex.xyz + normalize(v.normal) * _OutlineWidth / 20.0;
+					o.pos = UnityObjectToClipPos(float4(vertexOutline, 1.0));
+					o.color = _OutlineColor;
+				#endif
+				return o;
+			}
+			
+			half4 frag(v2f i) :COLOR
+			{          
+				float4 col = float4(0, 0, 0, 0);
+				#ifdef _OutlineEnable
+					col = i.color;
+				#endif
+				return col;
+			}
+			
 			ENDCG
 		}
 	}

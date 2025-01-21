@@ -21,6 +21,8 @@ ModelImporter:
     100030: RabbitEarBone.012_end
     100032: RabbitLeftEarBone
     100034: RabbitRightEarBone
+    100036: RabbitEarBone.004_end_end
+    100038: RabbitEarBone.012_end_end
     400000: Armature
     400002: Rabbit Ear
     400004: //RootNode
@@ -39,11 +41,18 @@ ModelImporter:
     400030: RabbitEarBone.012_end
     400032: RabbitLeftEarBone
     400034: RabbitRightEarBone
+    400036: RabbitEarBone.004_end_end
+    400038: RabbitEarBone.012_end_end
     2100000: RabbitEar
     4300000: Rabbit Ear
     9500000: //RootNode
     13700000: Rabbit Ear
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RabbitEar
+    second: {fileID: 2100000, guid: 32ac2d732e1b74e52b875826f14e139a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -131,8 +140,9 @@ ModelImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 182430
-  packageName: 1UP GIRL - KIMIKO Mobile III
-  packageVersion: 1.0
-  assetPath: Assets/1UP/1UP GIRL - SHIZUKA Mobile III/Meshes/Rabbit Ear.fbx
-  uploadId: 399212
+  productId: 210864
+  packageName: 1UP GIRL - Premium Edition
+  packageVersion: 1.0.4
+  assetPath: Assets/__SubModule/__Download/1UP/1UP GIRL - SHIZUKA Mobile III/Meshes/Rabbit
+    Ear.fbx
+  uploadId: 497079
