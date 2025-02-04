@@ -1,0 +1,39 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/PampelGames/BloodFactory/Demo/Assets/BloodFactoryDemoUSS.uss?fileID=7433441132597879392&amp;guid=b34bbd1cedfcdbf449a7a2dfb66d197a&amp;type=3#BloodFactoryDemoUSS" />
+    <ui:VisualElement name="BloodFactory" style="flex-grow: 1; flex-direction: column-reverse;">
+        <ui:VisualElement name="UserPanel" style="flex-grow: 1;">
+            <ui:VisualElement name="Top" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Object" parse-escape-sequences="true" display-tooltip-when-elided="true" name="currentObject" style="-unity-font-style: bold; font-size: 27px; margin-top: 37px; margin-right: 37px; margin-bottom: 37px; margin-left: 37px; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Bottom">
+                <ui:VisualElement name="BottomRow" style="flex-grow: 1; flex-direction: row;">
+                    <ui:VisualElement name="Left">
+                        <ui:VisualElement name="BloodSplashes" class="executionPanel">
+                            <ui:Label tabindex="-1" text="Splash" parse-escape-sequences="true" display-tooltip-when-elided="true" name="bloodSplashesLabel" class="executeLabel" />
+                            <ui:Button text="Previous" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeBloodSplashesPrevious" class="executeButton" />
+                            <ui:Button text="Next" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeBloodSplashesNext" class="executeButton" />
+                            <ui:Button text="Repeat" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeBloodSplashesRepeat" class="executeButton" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="BloodSplatters" class="executionPanel">
+                            <ui:Label tabindex="-1" text="Splatter" parse-escape-sequences="true" display-tooltip-when-elided="true" name="bloodSplattersLabel" class="executeLabel" />
+                            <ui:Button text="Previous" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeBloodSplattersPrevious" class="executeButton" />
+                            <ui:Button text="Next" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeBloodSplattersNext" class="executeButton" />
+                            <ui:Button text="Repeat" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeBloodSplattersRepeat" class="executeButton" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="MeshDecals" class="executionPanel">
+                            <ui:Label tabindex="-1" text="Mesh Decals" parse-escape-sequences="true" display-tooltip-when-elided="true" name="meshDecalsLabel" class="executeLabel" />
+                            <ui:Button text="Previous" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeMeshDecalsPrevious" class="executeButton" />
+                            <ui:Button text="Next" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeMeshDecalsNext" class="executeButton" />
+                            <ui:Button text="Repeat" parse-escape-sequences="true" display-tooltip-when-elided="true" name="executeMeshDecalsRepeat" class="executeButton" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Middle" style="flex-grow: 1;" />
+                    <ui:VisualElement name="Right" style="flex-grow: 1;">
+                        <ui:Slider label="Zoom" high-value="1" name="cameraZoom" show-input-field="false" style="-unity-font-style: bold; font-size: 20px;" />
+                        <ui:Slider label="Rotate" high-value="1" name="cameraRotateY" show-input-field="false" style="-unity-font-style: bold; font-size: 20px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

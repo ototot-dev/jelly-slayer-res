@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/PampelGames/Shared/Utility/UIToolkit/StyleSheets/InspectorUSS.uss?fileID=7433441132597879392&amp;guid=a67aab0cbc3193846a6c4c491a7d7663&amp;type=3#InspectorUSS" />
+    <Style src="project://database/Assets/PampelGames/BloodFactory/Editor/Inspectors/BloodFactoryUSS.uss?fileID=7433441132597879392&amp;guid=88db17a712f42a4499647b42e1ce53bd&amp;type=3#BloodFactoryUSS" />
+    <ui:VisualElement name="BloodBase" style="flex-grow: 1;">
+        <uie:Toolbar name="TopToolbar" class="toolbar">
+            <ui:VisualElement name="LeftSide" style="flex-grow: 0; flex-direction: row;">
+                <uie:ToolbarButton parse-escape-sequences="true" display-tooltip-when-elided="true" name="execute" class="toolbarButton">
+                    <ui:VisualElement name="executeImage" class="toolbarButtonImage" style="background-image: url(&quot;project://database/Assets/PampelGames/Shared/Editor/Icons/play-icon.png?fileID=2800000&amp;guid=280a3d3b2b3c88d4896347097e9e227b&amp;type=3#play-icon&quot;); -unity-background-scale-mode: stretch-to-fill; -unity-background-image-tint-color: rgb(236, 236, 236);" />
+                </uie:ToolbarButton>
+            </ui:VisualElement>
+            <ui:VisualElement name="RightSide" style="flex-direction: row; align-self: flex-start;">
+                <uie:ToolbarButton parse-escape-sequences="true" display-tooltip-when-elided="true" name="documentation" class="toolbarButton">
+                    <ui:VisualElement name="documentationImage" class="toolbarButtonImage" style="background-image: url(&quot;project://database/Assets/PampelGames/Shared/Editor/Icons/DocumentationIcon.png?fileID=2800000&amp;guid=893673826e0094443bd45b4020d06618&amp;type=3#DocumentationIcon&quot;); -unity-background-scale-mode: stretch-to-fill; -unity-background-image-tint-color: rgb(236, 236, 236);" />
+                </uie:ToolbarButton>
+            </ui:VisualElement>
+        </uie:Toolbar>
+    </ui:VisualElement>
+</ui:UXML>
