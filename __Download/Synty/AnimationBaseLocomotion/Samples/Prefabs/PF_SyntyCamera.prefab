@@ -45,19 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35617dd18fdbac4fb05187bac222064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTarget: {fileID: 0}
-  lockOnTarget: {fileID: 0}
-  invertCamera: 0
-  hideCursor: 1
-  isLockedOn: 0
-  mouseSensitivity: 80
-  cameraDistance: 4
-  cameraHeightOffset: 0
-  cameraHorizontalOffset: 0
-  cameraTiltOffset: 0
-  cameraTiltBounds: {x: -10, y: 45}
-  positionalCameraLag: 3
-  rotationalCameraLag: 2
+  _syntyCharacter: {fileID: 0}
+  _mainCamera: {fileID: 0}
+  _playerTarget: {fileID: 0}
+  _lockOnTarget: {fileID: 0}
+  _invertCamera: 0
+  _hideCursor: 0
+  _isLockedOn: 0
+  _mouseSensitivity: 0.5
+  _cameraDistance: 5
+  _cameraHeightOffset: 0
+  _cameraHorizontalOffset: 0
+  _cameraTiltOffset: 0
+  _cameraTiltBounds: {x: -10, y: 45}
+  _positionalCameraLag: 1
+  _rotationalCameraLag: 1
 --- !u!1 &7301641809360577997
 GameObject:
   m_ObjectHideFlags: 0
