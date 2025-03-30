@@ -12,7 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _EMISSION_ON
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -101,14 +102,14 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Emission: 0
+    - _Emission: 1
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.2
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _OcclusionStrength: 1
+    - _OcclusionStrength: 0.4
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
