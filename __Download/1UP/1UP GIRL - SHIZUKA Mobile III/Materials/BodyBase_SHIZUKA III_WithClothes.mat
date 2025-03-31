@@ -12,10 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AoEnable
   - _DiffuseEnable
   - _GRAY_NONE
-  - _OutlineEnable
   - _ReflectEnable
   - _ShadowEnable
   - _UV_CHANNEL_UV0
@@ -99,7 +97,7 @@ Material:
     m_Floats:
     - _AO: 1
     - _AOOnly: 0
-    - _AoEnable: 1
+    - _AoEnable: 0
     - _AoLimitValue: 0.6
     - _AoSpread: 128
     - _AoXOffset: 0.04
@@ -124,7 +122,7 @@ Material:
     - _Mode: 0
     - _OUTLINE: 1
     - _OcclusionStrength: 1
-    - _OutlineEnable: 1
+    - _OutlineEnable: 0
     - _OutlineWidth: 0.02
     - _Parallax: 0.02
     - _REFLECT: 1
