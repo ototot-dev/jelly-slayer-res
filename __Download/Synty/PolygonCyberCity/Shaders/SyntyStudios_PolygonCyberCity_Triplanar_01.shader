@@ -1,4 +1,4 @@
-// Made with Amplify Shader Editor v1.9.8.1
+// Made with Amplify Shader Editor v1.9.6.3
 // Available at the Unity Asset Store - http://u3d.as/y3X 
 Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 {
@@ -199,20 +199,13 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			Offset 0 , 0
 			ColorMask RGBA
 
-			Stencil
-			{
-				Ref 16
-				WriteMask 16
-				Comp Always
-				Pass Replace
-				Fail Keep
-				ZFail Keep
-			}
+			
 
 			HLSLPROGRAM
 
 			#define _NORMAL_DROPOFF_TS 1
 			#pragma shader_feature_local _RECEIVE_SHADOWS_OFF
+			#pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
 			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer
 			#pragma multi_compile _ LOD_FADE_CROSSFADE
@@ -220,7 +213,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -242,6 +234,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
 			#pragma multi_compile _ USE_LEGACY_LIGHTMAPS
+			#pragma multi_compile_fragment _ DEBUG_DISPLAY
 
 			#pragma vertex vert
 			#pragma fragment frag
@@ -306,9 +299,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				ASE_SV_POSITION_QUALIFIERS float4 positionCS : SV_POSITION;
 				float4 clipPosV : TEXCOORD0;
 				float4 lightmapUVOrVertexSH : TEXCOORD1;
-				#if defined(ASE_FOG) || defined(_ADDITIONAL_LIGHTS_VERTEX)
-					half4 fogFactorAndVertexLight : TEXCOORD2;
-				#endif
+				half4 fogFactorAndVertexLight : TEXCOORD2;
 				float4 tSpace0 : TEXCOORD3;
 				float4 tSpace1 : TEXCOORD4;
 				float4 tSpace2 : TEXCOORD5;
@@ -471,10 +462,9 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				output.tSpace2 = float4( normalInput.bitangentWS, vertexInput.positionWS.z );
 
 				#if defined(LIGHTMAP_ON)
-					OUTPUT_LIGHTMAP_UV(input.texcoord1, unity_LightmapST, output.lightmapUVOrVertexSH.xy);
-				#else
-					OUTPUT_SH(normalInput.normalWS.xyz, output.lightmapUVOrVertexSH.xyz);
+					OUTPUT_LIGHTMAP_UV( input.texcoord1, unity_LightmapST, output.lightmapUVOrVertexSH.xy );
 				#endif
+
 				#if defined(DYNAMICLIGHTMAP_ON)
 					output.dynamicLightmapUV.xy = input.texcoord2.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
 				#endif
@@ -486,16 +476,15 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 					output.lightmapUVOrVertexSH.xy = input.texcoord.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 				#endif
 
-				#if defined(ASE_FOG) || defined(_ADDITIONAL_LIGHTS_VERTEX)
-					output.fogFactorAndVertexLight = 0;
-					#if defined(ASE_FOG) && !defined(_FOG_FRAGMENT)
-						output.fogFactorAndVertexLight.x = ComputeFogFactor(vertexInput.positionCS.z);
-					#endif
-					#ifdef _ADDITIONAL_LIGHTS_VERTEX
-						half3 vertexLight = VertexLighting( vertexInput.positionWS, normalInput.normalWS );
-						output.fogFactorAndVertexLight.yzw = vertexLight;
-					#endif
+				half3 vertexLight = VertexLighting( vertexInput.positionWS, normalInput.normalWS );
+
+				#ifdef ASE_FOG
+					half fogFactor = ComputeFogFactor( vertexInput.positionCS.z );
+				#else
+					half fogFactor = 0;
 				#endif
+
+				output.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
 
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
 					output.shadowCoord = GetShadowCoord( vertexInput );
@@ -509,7 +498,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				float4 tangentOS : TANGENT;
 				float4 texcoord : TEXCOORD0;
@@ -530,7 +519,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				output.tangentOS = input.tangentOS;
 				output.texcoord = input.texcoord;
@@ -549,11 +538,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -573,7 +562,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				output.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				output.texcoord = patch[0].texcoord * bary.x + patch[1].texcoord * bary.y + patch[2].texcoord * bary.z;
@@ -583,7 +572,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -625,8 +614,9 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#endif
 
 				float3 WorldPosition = float3(input.tSpace0.w,input.tSpace1.w,input.tSpace2.w);
-				float3 WorldViewDirection = GetWorldSpaceNormalizeViewDir( WorldPosition );
+				float3 WorldViewDirection = _WorldSpaceCameraPos.xyz  - WorldPosition;
 				float4 ShadowCoords = float4( 0, 0, 0, 0 );
+
 				float4 ClipPos = input.clipPosV;
 				float4 ScreenPos = ComputeScreenPos( input.clipPosV );
 
@@ -676,7 +666,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				float3 Specular = 0.5;
 				float Metallic = _Metallic;
 				float Smoothness = _Smoothness;
-				float Occlusion = _Smoothness;
+				float Occlusion = 1;
 				float Alpha = 1;
 				float AlphaClipThreshold = 0.5;
 				float AlphaClipThresholdShadow = 0.5;
@@ -726,11 +716,9 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#endif
 
 				#ifdef ASE_FOG
-					inputData.fogCoord = InitializeInputDataFog(float4(inputData.positionWS, 1.0), input.fogFactorAndVertexLight.x);
+					inputData.fogCoord = input.fogFactorAndVertexLight.x;
 				#endif
-				#ifdef _ADDITIONAL_LIGHTS_VERTEX
 					inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
-				#endif
 
 				#if defined(ENABLE_TERRAIN_PERPIXEL_NORMAL)
 					float3 SH = SampleSH(inputData.normalWS.xyz);
@@ -767,9 +755,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 						inputData.staticLightmapUV = input.lightmapUVOrVertexSH.xy;
 					#else
 						inputData.vertexSH = SH;
-					#endif
-					#if defined(USE_APV_PROBE_OCCLUSION)
-						inputData.probeOcclusion = input.probeOcclusion;
 					#endif
 				#endif
 
@@ -820,7 +805,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 							{
 								FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 
-								Light light = GetAdditionalLight(lightIndex, inputData.positionWS, inputData.shadowMask);
+								Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
 								#ifdef _LIGHT_LAYERS
 								if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
 								#endif
@@ -830,7 +815,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 							}
 						#endif
 						LIGHT_LOOP_BEGIN( pixelLightCount )
-							Light light = GetAdditionalLight(lightIndex, inputData.positionWS, inputData.shadowMask);
+							Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
 							#ifdef _LIGHT_LAYERS
 							if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
 							#endif
@@ -869,7 +854,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 							{
 								FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 
-								Light light = GetAdditionalLight(lightIndex, inputData.positionWS, inputData.shadowMask);
+								Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
 								#ifdef _LIGHT_LAYERS
 								if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
 								#endif
@@ -879,7 +864,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 							}
 						#endif
 						LIGHT_LOOP_BEGIN( pixelLightCount )
-							Light light = GetAdditionalLight(lightIndex, inputData.positionWS, inputData.shadowMask);
+							Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
 							#ifdef _LIGHT_LAYERS
 							if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
 							#endif
@@ -906,9 +891,9 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 
 				#ifdef ASE_FOG
 					#ifdef TERRAIN_SPLAT_ADDPASS
-						color.rgb = MixFogColor(color.rgb, half3(0,0,0), inputData.fogCoord);
+						color.rgb = MixFogColor(color.rgb, half3( 0, 0, 0 ), input.fogFactorAndVertexLight.x );
 					#else
-						color.rgb = MixFog(color.rgb, inputData.fogCoord);
+						color.rgb = MixFog(color.rgb, input.fogFactorAndVertexLight.x);
 					#endif
 				#endif
 
@@ -923,6 +908,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 
 				return color;
 			}
+
 			ENDHLSL
 		}
 
@@ -946,7 +932,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -1000,10 +985,12 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			{
 				ASE_SV_POSITION_QUALIFIERS float4 positionCS : SV_POSITION;
 				float4 clipPosV : TEXCOORD0;
-				float3 positionWS : TEXCOORD1;
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
+					float3 positionWS : TEXCOORD1;
+				#endif
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) && defined(ASE_NEEDS_FRAG_SHADOWCOORDS)
 					float4 shadowCoord : TEXCOORD2;
-				#endif
+				#endif				
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
@@ -1089,6 +1076,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				input.normalOS = input.normalOS;
 
 				float3 positionWS = TransformObjectToWorld( input.positionOS.xyz );
+
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
+					output.positionWS = positionWS;
+				#endif
+
 				float3 normalWS = TransformObjectToWorldDir(input.normalOS);
 
 				#if _CASTING_PUNCTUAL_LIGHT_SHADOW
@@ -1099,8 +1091,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 
 				float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, lightDirectionWS));
 
-				//code for UNITY_REVERSED_Z is moved into Shadows.hlsl from 6000.0.22 and or higher
-				positionCS = ApplyShadowClamping(positionCS);
+				#if UNITY_REVERSED_Z
+					positionCS.z = min(positionCS.z, positionCS.w * UNITY_NEAR_CLIP_VALUE);
+				#else
+					positionCS.z = max(positionCS.z, positionCS.w * UNITY_NEAR_CLIP_VALUE);
+				#endif
 
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) && defined(ASE_NEEDS_FRAG_SHADOWCOORDS)
 					VertexPositionInputs vertexInput = (VertexPositionInputs)0;
@@ -1111,14 +1106,13 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 
 				output.positionCS = positionCS;
 				output.clipPosV = positionCS;
-				output.positionWS = positionWS;
 				return output;
 			}
 
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -1135,7 +1129,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				
 				return output;
@@ -1150,11 +1144,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -1174,13 +1168,13 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -1198,12 +1192,15 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 						#ifdef ASE_DEPTH_WRITE_ON
 						,out float outputDepth : ASE_SV_DEPTH
 						#endif
-						 ) : SV_Target
+						 ) : SV_TARGET
 			{
 				UNITY_SETUP_INSTANCE_ID( input );
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( input );
 
-				float3 WorldPosition = input.positionWS;
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
+					float3 WorldPosition = input.positionWS;
+				#endif
+
 				float4 ShadowCoords = float4( 0, 0, 0, 0 );
 				float4 ClipPos = input.clipPosV;
 				float4 ScreenPos = ComputeScreenPos( input.clipPosV );
@@ -1266,7 +1263,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -1317,9 +1313,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			{
 				ASE_SV_POSITION_QUALIFIERS float4 positionCS : SV_POSITION;
 				float4 clipPosV : TEXCOORD0;
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
 				float3 positionWS : TEXCOORD1;
+				#endif
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) && defined(ASE_NEEDS_FRAG_SHADOWCOORDS)
-					float4 shadowCoord : TEXCOORD2;
+				float4 shadowCoord : TEXCOORD2;
 				#endif
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -1405,20 +1403,23 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 
 				VertexPositionInputs vertexInput = GetVertexPositionInputs( input.positionOS.xyz );
 
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
+					output.positionWS = vertexInput.positionWS;
+				#endif
+
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) && defined(ASE_NEEDS_FRAG_SHADOWCOORDS)
 					output.shadowCoord = GetShadowCoord( vertexInput );
 				#endif
 
 				output.positionCS = vertexInput.positionCS;
 				output.clipPosV = vertexInput.positionCS;
-				output.positionWS = vertexInput.positionWS;
 				return output;
 			}
 
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -1435,7 +1436,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				
 				return output;
@@ -1450,11 +1451,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -1474,13 +1475,13 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -1498,12 +1499,15 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 						#ifdef ASE_DEPTH_WRITE_ON
 						,out float outputDepth : ASE_SV_DEPTH
 						#endif
-						 ) : SV_Target
+						 ) : SV_TARGET
 			{
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( input );
 
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
 				float3 WorldPosition = input.positionWS;
+				#endif
+
 				float4 ShadowCoords = float4( 0, 0, 0, 0 );
 				float4 ClipPos = input.clipPosV;
 				float4 ScreenPos = ComputeScreenPos( input.clipPosV );
@@ -1556,7 +1560,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 			#pragma shader_feature EDITOR_VISUALIZATION
@@ -1732,8 +1735,8 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-				float3 ase_normalWS = TransformObjectToWorldNormal( input.normalOS );
-				output.ase_texcoord5.xyz = ase_normalWS;
+				float3 ase_worldNormal = TransformObjectToWorldNormal(input.normalOS);
+				output.ase_texcoord5.xyz = ase_worldNormal;
 				
 				output.ase_texcoord4.xy = input.texcoord0.xy;
 				
@@ -1786,7 +1789,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				float4 texcoord0 : TEXCOORD0;
 				float4 texcoord1 : TEXCOORD1;
@@ -1806,7 +1809,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				output.texcoord0 = input.texcoord0;
 				output.texcoord1 = input.texcoord1;
@@ -1824,11 +1827,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -1848,7 +1851,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				output.texcoord0 = patch[0].texcoord0 * bary.x + patch[1].texcoord0 * bary.y + patch[2].texcoord0 * bary.z;
 				output.texcoord1 = patch[0].texcoord1 * bary.x + patch[1].texcoord1 * bary.y + patch[2].texcoord1 * bary.z;
@@ -1857,7 +1860,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -1871,7 +1874,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			}
 			#endif
 
-			half4 frag(PackedVaryings input  ) : SV_Target
+			half4 frag(PackedVaryings input  ) : SV_TARGET
 			{
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( input );
@@ -1894,24 +1897,24 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				float4 tex2DNode3 = tex2D( _Albedo, uv_Albedo );
 				float4 color15 = IsGammaSpace() ? float4(1,1,1,0) : float4(1,1,1,0);
 				float2 appendResult11 = (float2(_TriplanarTiling_1_X , (( _LinkTiling_1useXonly )?( _TriplanarTiling_1_X ):( _TriplanarTiling_1_Y ))));
-				float3 ase_normalWS = input.ase_texcoord5.xyz;
-				float4 triplanar1 = TriplanarSampling1( _TriplanarTex_1, WorldPosition, ase_normalWS, 1.0, appendResult11, 1.0, 0 );
+				float3 ase_worldNormal = input.ase_texcoord5.xyz;
+				float4 triplanar1 = TriplanarSampling1( _TriplanarTex_1, WorldPosition, ase_worldNormal, 1.0, appendResult11, 1.0, 0 );
 				float2 uv_WallMask_1 = input.ase_texcoord4.xy * _WallMask_1_ST.xy + _WallMask_1_ST.zw;
 				float4 tex2DNode13 = tex2D( _WallMask_1, uv_WallMask_1 );
 				float4 lerpResult14 = lerp( color15 , triplanar1 , tex2DNode13.r);
 				float4 color44 = IsGammaSpace() ? float4(0,0,0,0) : float4(0,0,0,0);
-				float4 triplanar42 = TriplanarSampling42( _TriplanarAlpha_1, WorldPosition, ase_normalWS, 1.0, appendResult11, 1.0, 0 );
+				float4 triplanar42 = TriplanarSampling42( _TriplanarAlpha_1, WorldPosition, ase_worldNormal, 1.0, appendResult11, 1.0, 0 );
 				float4 lerpResult43 = lerp( color44 , triplanar42 , tex2DNode13.r);
 				float4 lerpResult20 = lerp( tex2DNode3 , lerpResult14 , ( lerpResult43 * _DecalTransparency_1 ));
 				float4 lerpResult32 = lerp( color15 , lerpResult14 , ( triplanar42 * _DecalTransparency_1 ));
 				float4 color61 = IsGammaSpace() ? float4(1,1,1,0) : float4(1,1,1,0);
 				float2 appendResult48 = (float2(_TriplanarTiling_2_X , (( _LinkTiling_2useXonly )?( _TriplanarTiling_2_X ):( _TriplanarTiling_2_Y ))));
-				float4 triplanar53 = TriplanarSampling53( _TriplanarTex_2, WorldPosition, ase_normalWS, 1.0, appendResult48, 1.0, 0 );
+				float4 triplanar53 = TriplanarSampling53( _TriplanarTex_2, WorldPosition, ase_worldNormal, 1.0, appendResult48, 1.0, 0 );
 				float2 uv_WallMask_2 = input.ase_texcoord4.xy * _WallMask_2_ST.xy + _WallMask_2_ST.zw;
 				float4 tex2DNode51 = tex2D( _WallMask_2, uv_WallMask_2 );
 				float4 lerpResult56 = lerp( color61 , triplanar53 , tex2DNode51.r);
 				float4 color50 = IsGammaSpace() ? float4(0,0,0,0) : float4(0,0,0,0);
-				float4 triplanar49 = TriplanarSampling49( _TriplanarAlpha_2, WorldPosition, ase_normalWS, 1.0, appendResult48, 1.0, 0 );
+				float4 triplanar49 = TriplanarSampling49( _TriplanarAlpha_2, WorldPosition, ase_worldNormal, 1.0, appendResult48, 1.0, 0 );
 				float4 lerpResult54 = lerp( color50 , triplanar49 , tex2DNode51.r);
 				float4 lerpResult58 = lerp( (( _GrungeDecalSwitch_1 )?( ( tex2DNode3 * lerpResult32 ) ):( lerpResult20 )) , lerpResult56 , ( lerpResult54 * _DecalTransparency_2 ));
 				float4 lerpResult57 = lerp( color61 , lerpResult56 , ( triplanar49 * _DecalTransparency_2 ));
@@ -1960,7 +1963,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -2126,8 +2128,8 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				UNITY_TRANSFER_INSTANCE_ID( input, output );
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( output );
 
-				float3 ase_normalWS = TransformObjectToWorldNormal( input.normalOS );
-				output.ase_texcoord3.xyz = ase_normalWS;
+				float3 ase_worldNormal = TransformObjectToWorldNormal(input.normalOS);
+				output.ase_texcoord3.xyz = ase_worldNormal;
 				
 				output.ase_texcoord2.xy = input.ase_texcoord.xy;
 				
@@ -2162,13 +2164,14 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#endif
 
 				output.positionCS = vertexInput.positionCS;
+
 				return output;
 			}
 
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				float4 ase_texcoord : TEXCOORD0;
 
@@ -2186,7 +2189,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				output.ase_texcoord = input.ase_texcoord;
 				return output;
@@ -2201,11 +2204,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -2225,13 +2228,13 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				output.ase_texcoord = patch[0].ase_texcoord * bary.x + patch[1].ase_texcoord * bary.y + patch[2].ase_texcoord * bary.z;
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -2245,7 +2248,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			}
 			#endif
 
-			half4 frag(PackedVaryings input  ) : SV_Target
+			half4 frag(PackedVaryings input  ) : SV_TARGET
 			{
 				UNITY_SETUP_INSTANCE_ID( input );
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( input );
@@ -2268,24 +2271,24 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				float4 tex2DNode3 = tex2D( _Albedo, uv_Albedo );
 				float4 color15 = IsGammaSpace() ? float4(1,1,1,0) : float4(1,1,1,0);
 				float2 appendResult11 = (float2(_TriplanarTiling_1_X , (( _LinkTiling_1useXonly )?( _TriplanarTiling_1_X ):( _TriplanarTiling_1_Y ))));
-				float3 ase_normalWS = input.ase_texcoord3.xyz;
-				float4 triplanar1 = TriplanarSampling1( _TriplanarTex_1, WorldPosition, ase_normalWS, 1.0, appendResult11, 1.0, 0 );
+				float3 ase_worldNormal = input.ase_texcoord3.xyz;
+				float4 triplanar1 = TriplanarSampling1( _TriplanarTex_1, WorldPosition, ase_worldNormal, 1.0, appendResult11, 1.0, 0 );
 				float2 uv_WallMask_1 = input.ase_texcoord2.xy * _WallMask_1_ST.xy + _WallMask_1_ST.zw;
 				float4 tex2DNode13 = tex2D( _WallMask_1, uv_WallMask_1 );
 				float4 lerpResult14 = lerp( color15 , triplanar1 , tex2DNode13.r);
 				float4 color44 = IsGammaSpace() ? float4(0,0,0,0) : float4(0,0,0,0);
-				float4 triplanar42 = TriplanarSampling42( _TriplanarAlpha_1, WorldPosition, ase_normalWS, 1.0, appendResult11, 1.0, 0 );
+				float4 triplanar42 = TriplanarSampling42( _TriplanarAlpha_1, WorldPosition, ase_worldNormal, 1.0, appendResult11, 1.0, 0 );
 				float4 lerpResult43 = lerp( color44 , triplanar42 , tex2DNode13.r);
 				float4 lerpResult20 = lerp( tex2DNode3 , lerpResult14 , ( lerpResult43 * _DecalTransparency_1 ));
 				float4 lerpResult32 = lerp( color15 , lerpResult14 , ( triplanar42 * _DecalTransparency_1 ));
 				float4 color61 = IsGammaSpace() ? float4(1,1,1,0) : float4(1,1,1,0);
 				float2 appendResult48 = (float2(_TriplanarTiling_2_X , (( _LinkTiling_2useXonly )?( _TriplanarTiling_2_X ):( _TriplanarTiling_2_Y ))));
-				float4 triplanar53 = TriplanarSampling53( _TriplanarTex_2, WorldPosition, ase_normalWS, 1.0, appendResult48, 1.0, 0 );
+				float4 triplanar53 = TriplanarSampling53( _TriplanarTex_2, WorldPosition, ase_worldNormal, 1.0, appendResult48, 1.0, 0 );
 				float2 uv_WallMask_2 = input.ase_texcoord2.xy * _WallMask_2_ST.xy + _WallMask_2_ST.zw;
 				float4 tex2DNode51 = tex2D( _WallMask_2, uv_WallMask_2 );
 				float4 lerpResult56 = lerp( color61 , triplanar53 , tex2DNode51.r);
 				float4 color50 = IsGammaSpace() ? float4(0,0,0,0) : float4(0,0,0,0);
-				float4 triplanar49 = TriplanarSampling49( _TriplanarAlpha_2, WorldPosition, ase_normalWS, 1.0, appendResult48, 1.0, 0 );
+				float4 triplanar49 = TriplanarSampling49( _TriplanarAlpha_2, WorldPosition, ase_worldNormal, 1.0, appendResult48, 1.0, 0 );
 				float4 lerpResult54 = lerp( color50 , triplanar49 , tex2DNode51.r);
 				float4 lerpResult58 = lerp( (( _GrungeDecalSwitch_1 )?( ( tex2DNode3 * lerpResult32 ) ):( lerpResult20 )) , lerpResult56 , ( lerpResult54 * _DecalTransparency_2 ));
 				float4 lerpResult57 = lerp( color61 , lerpResult56 , ( triplanar49 * _DecalTransparency_2 ));
@@ -2326,7 +2329,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -2381,9 +2383,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			{
 				ASE_SV_POSITION_QUALIFIERS float4 positionCS : SV_POSITION;
 				float4 clipPosV : TEXCOORD0;
-				float3 positionWS : TEXCOORD1;
-				float3 normalWS : TEXCOORD2;
-				float4 tangentWS : TEXCOORD3;
+				float3 worldNormal : TEXCOORD1;
+				float4 worldTangent : TEXCOORD2;
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
+					float3 positionWS : TEXCOORD3;
+				#endif
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) && defined(ASE_NEEDS_FRAG_SHADOWCOORDS)
 					float4 shadowCoord : TEXCOORD4;
 				#endif
@@ -2478,22 +2482,26 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				float3 normalWS = TransformObjectToWorldNormal( input.normalOS );
 				float4 tangentWS = float4( TransformObjectToWorldDir( input.tangentOS.xyz ), input.tangentOS.w );
 
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
+					output.positionWS = vertexInput.positionWS;
+				#endif
+
+				output.worldNormal = normalWS;
+				output.worldTangent = tangentWS;
+
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) && defined(ASE_NEEDS_FRAG_SHADOWCOORDS)
 					output.shadowCoord = GetShadowCoord( vertexInput );
 				#endif
 
 				output.positionCS = vertexInput.positionCS;
 				output.clipPosV = vertexInput.positionCS;
-				output.positionWS = vertexInput.positionWS;
-				output.normalWS = normalWS;
-				output.tangentWS = tangentWS;
 				return output;
 			}
 
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				float4 tangentOS : TANGENT;
 				float4 ase_texcoord : TEXCOORD0;
@@ -2512,7 +2520,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				output.tangentOS = input.tangentOS;
 				output.ase_texcoord = input.ase_texcoord;
@@ -2528,11 +2536,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -2552,14 +2560,14 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				output.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				output.ase_texcoord = patch[0].ase_texcoord * bary.x + patch[1].ase_texcoord * bary.y + patch[2].ase_texcoord * bary.z;
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -2586,10 +2594,14 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( input );
 
+				#if defined(ASE_NEEDS_FRAG_WORLD_POSITION)
+					float3 WorldPosition = input.positionWS;
+				#endif
+
 				float4 ShadowCoords = float4( 0, 0, 0, 0 );
-				float3 WorldNormal = input.normalWS;
-				float4 WorldTangent = input.tangentWS;
-				float3 WorldPosition = input.positionWS;
+				float3 WorldNormal = input.worldNormal;
+				float4 WorldTangent = input.worldTangent;
+
 				float4 ClipPos = input.clipPosV;
 				float4 ScreenPos = ComputeScreenPos( input.clipPosV );
 
@@ -2648,7 +2660,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 
 				#ifdef _WRITE_RENDERING_LAYERS
 					uint renderingLayers = GetMeshRenderingLayer();
-					outRenderingLayers = float4(EncodeMeshRenderingLayer(renderingLayers), 0, 0, 0);
+					outRenderingLayers = float4( EncodeMeshRenderingLayer( renderingLayers ), 0, 0, 0 );
 				#endif
 			}
 			ENDHLSL
@@ -2666,15 +2678,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			ZTest LEqual
 			Offset 0 , 0
 			ColorMask RGBA
-			Stencil
-			{
-				Ref 16
-				WriteMask 16
-				Comp Always
-				Pass Replace
-				Fail Keep
-				ZFail Keep
-			}
+			
 
 			HLSLPROGRAM
 
@@ -2687,7 +2691,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -2706,6 +2709,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#pragma multi_compile _ USE_LEGACY_LIGHTMAPS
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
+			#pragma multi_compile_fragment _ DEBUG_DISPLAY
 
 			#pragma vertex vert
 			#pragma fragment frag
@@ -2736,7 +2740,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#if defined(LOD_FADE_CROSSFADE)
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/LODCrossFade.hlsl"
             #endif
-
+			
 			#if defined(UNITY_INSTANCING_ENABLED) && defined(_TERRAIN_INSTANCED_PERPIXEL_NORMAL)
 				#define ENABLE_TERRAIN_PERPIXEL_NORMAL
 			#endif
@@ -2770,9 +2774,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				ASE_SV_POSITION_QUALIFIERS float4 positionCS : SV_POSITION;
 				float4 clipPosV : TEXCOORD0;
 				float4 lightmapUVOrVertexSH : TEXCOORD1;
-				#if defined(ASE_FOG) || defined(_ADDITIONAL_LIGHTS_VERTEX)
-					half4 fogFactorAndVertexLight : TEXCOORD2;
-				#endif
+				half4 fogFactorAndVertexLight : TEXCOORD2;
 				float4 tSpace0 : TEXCOORD3;
 				float4 tSpace1 : TEXCOORD4;
 				float4 tSpace2 : TEXCOORD5;
@@ -2951,16 +2953,9 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 					output.lightmapUVOrVertexSH.xy = input.texcoord.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 				#endif
 
-				#if defined(ASE_FOG) || defined(_ADDITIONAL_LIGHTS_VERTEX)
-					output.fogFactorAndVertexLight = 0;
-					#if defined(ASE_FOG) && !defined(_FOG_FRAGMENT)
-						// @diogo: no fog applied in GBuffer
-					#endif
-					#ifdef _ADDITIONAL_LIGHTS_VERTEX
-						half3 vertexLight = VertexLighting( vertexInput.positionWS, normalInput.normalWS );
-						output.fogFactorAndVertexLight.yzw = vertexLight;
-					#endif
-				#endif
+				half3 vertexLight = VertexLighting( vertexInput.positionWS, normalInput.normalWS );
+
+				output.fogFactorAndVertexLight = half4(0, vertexLight);
 
 				#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR)
 					output.shadowCoord = GetShadowCoord( vertexInput );
@@ -2974,7 +2969,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				float4 tangentOS : TANGENT;
 				float4 texcoord : TEXCOORD0;
@@ -2995,7 +2990,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				output.tangentOS = input.tangentOS;
 				output.texcoord = input.texcoord;
@@ -3014,11 +3009,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -3038,7 +3033,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				output.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				output.texcoord = patch[0].texcoord * bary.x + patch[1].texcoord * bary.y + patch[2].texcoord * bary.z;
@@ -3048,7 +3043,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -3087,8 +3082,9 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#endif
 
 				float3 WorldPosition = float3(input.tSpace0.w,input.tSpace1.w,input.tSpace2.w);
-				float3 WorldViewDirection = GetWorldSpaceNormalizeViewDir( WorldPosition );
+				float3 WorldViewDirection = _WorldSpaceCameraPos.xyz  - WorldPosition;
 				float4 ShadowCoords = float4( 0, 0, 0, 0 );
+
 				float4 ClipPos = input.clipPosV;
 				float4 ScreenPos = ComputeScreenPos( input.clipPosV );
 
@@ -3140,7 +3136,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				float3 Specular = 0.5;
 				float Metallic = _Metallic;
 				float Smoothness = _Smoothness;
-				float Occlusion = _Smoothness;
+				float Occlusion = 1;
 				float Alpha = 1;
 				float AlphaClipThreshold = 0.5;
 				float AlphaClipThresholdShadow = 0.5;
@@ -3178,12 +3174,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				inputData.normalWS = NormalizeNormalPerPixel(inputData.normalWS);
 				inputData.viewDirectionWS = SafeNormalize( WorldViewDirection );
 
-				#ifdef ASE_FOG
-					// @diogo: no fog applied in GBuffer
-				#endif
-				#ifdef _ADDITIONAL_LIGHTS_VERTEX
-					inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
-				#endif
+				inputData.vertexLighting = input.fogFactorAndVertexLight.yzw;
 
 				#if defined(ENABLE_TERRAIN_PERPIXEL_NORMAL)
 					float3 SH = SampleSH(inputData.normalWS.xyz);
@@ -3220,9 +3211,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 						inputData.staticLightmapUV = input.lightmapUVOrVertexSH.xy;
 					#else
 						inputData.vertexSH = SH;
-					#endif
-					#if defined(USE_APV_PROBE_OCCLUSION)
-						inputData.probeOcclusion = input.probeOcclusion;
 					#endif
 				#endif
 
@@ -3276,7 +3264,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -3419,7 +3406,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -3436,7 +3423,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				
 				return output;
@@ -3451,11 +3438,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -3475,13 +3462,13 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -3495,7 +3482,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			}
 			#endif
 
-			half4 frag(PackedVaryings input ) : SV_Target
+			half4 frag(PackedVaryings input ) : SV_TARGET
 			{
 				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
 
@@ -3541,7 +3528,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -3683,7 +3669,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#if defined(ASE_TESSELLATION)
 			struct VertexControl
 			{
-				float4 positionOS : INTERNALTESSPOS;
+				float4 vertex : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
 				
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -3700,7 +3686,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				VertexControl output;
 				UNITY_SETUP_INSTANCE_ID(input);
 				UNITY_TRANSFER_INSTANCE_ID(input, output);
-				output.positionOS = input.positionOS;
+				output.vertex = input.positionOS;
 				output.normalOS = input.normalOS;
 				
 				return output;
@@ -3715,11 +3701,11 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#if defined(ASE_FIXED_TESSELLATION)
 				tf = FixedTess( tessValue );
 				#elif defined(ASE_DISTANCE_TESSELLATION)
-				tf = DistanceBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
+				tf = DistanceBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, tessValue, tessMin, tessMax, GetObjectToWorldMatrix(), _WorldSpaceCameraPos );
 				#elif defined(ASE_LENGTH_TESSELLATION)
-				tf = EdgeLengthBasedTess(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
+				tf = EdgeLengthBasedTess(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams );
 				#elif defined(ASE_LENGTH_CULL_TESSELLATION)
-				tf = EdgeLengthBasedTessCull(input[0].positionOS, input[1].positionOS, input[2].positionOS, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
+				tf = EdgeLengthBasedTessCull(input[0].vertex, input[1].vertex, input[2].vertex, edgeLength, tessMaxDisp, GetObjectToWorldMatrix(), _WorldSpaceCameraPos, _ScreenParams, unity_CameraWorldClipPlanes );
 				#endif
 				output.edge[0] = tf.x; output.edge[1] = tf.y; output.edge[2] = tf.z; output.inside = tf.w;
 				return output;
@@ -3739,13 +3725,13 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			PackedVaryings DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
 				Attributes output = (Attributes) 0;
-				output.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
+				output.positionOS = patch[0].vertex * bary.x + patch[1].vertex * bary.y + patch[2].vertex * bary.z;
 				output.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
 				
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
 				for (int i = 0; i < 3; ++i)
-					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].positionOS.xyz, patch[i].normalOS));
+					pp[i] = output.positionOS.xyz - patch[i].normalOS * (dot(output.positionOS.xyz, patch[i].normalOS) - dot(patch[i].vertex.xyz, patch[i].normalOS));
 				float phongStrength = _TessPhongStrength;
 				output.positionOS.xyz = phongStrength * (pp[0]*bary.x + pp[1]*bary.y + pp[2]*bary.z) + (1.0f-phongStrength) * output.positionOS.xyz;
 				#endif
@@ -3759,7 +3745,7 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			}
 			#endif
 
-			half4 frag(PackedVaryings input ) : SV_Target
+			half4 frag(PackedVaryings input ) : SV_TARGET
 			{
 				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
 
@@ -3807,7 +3793,6 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 			#define ASE_FOG 1
 			#define _EMISSION
 			#define _NORMALMAP 1
-			#define ASE_VERSION 19801
 			#define ASE_SRP_VERSION 170003
 
 
@@ -3957,8 +3942,8 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 				#endif
 
 				output.previousPositionCSNoJitter = mul( _PrevViewProjMatrix, mul( UNITY_PREV_MATRIX_M, prevPos ) );
-				// removed in ObjectMotionVectors.hlsl found in unity 6000.0.23 and higher
-				//ApplyMotionVectorZBias( output.positionCS );
+
+				ApplyMotionVectorZBias( output.positionCS );
 				return output;
 			}
 
@@ -4002,8 +3987,8 @@ Shader "SyntyStudios_PolygonCyberCity_Triplanar_01"
 	Fallback "Hidden/InternalErrorShader"
 }
 /*ASEBEGIN
-Version=19801
-Node;AmplifyShaderEditor.RangedFloatNode;9;-3783.954,407.3972;Inherit;False;Property;_TriplanarTiling_1_X;TriplanarTiling_1_X;6;1;[Header];Create;True;1;Layer 1;0;0;False;0;False;1;0.05;0;0;0;1;FLOAT;0
+Version=19603
+Node;AmplifyShaderEditor.RangedFloatNode;9;-3783.954,407.3972;Inherit;False;Property;_TriplanarTiling_1_X;TriplanarTiling_1_X;6;1;[Header];Create;True;1;Layer 1;0;0;False;0;False;1;-0.2;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;10;-3782.954,540.3971;Inherit;False;Property;_TriplanarTiling_1_Y;TriplanarTiling_1_Y;7;0;Create;True;0;0;0;False;0;False;1;-0.36;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.ToggleSwitchNode;24;-3566.954,500.3974;Inherit;False;Property;_LinkTiling_1useXonly;LinkTiling_1 (use X only);8;0;Create;True;0;0;0;False;0;False;1;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;45;-3433.23,-600.1127;Inherit;False;Property;_TriplanarTiling_2_X;TriplanarTiling_2_X;14;1;[Header];Create;True;1;Layer 2;0;0;False;0;False;1;0.26;0;0;0;1;FLOAT;0
@@ -4012,7 +3997,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;46;-3432.23,-467.1125;Inherit;False;Pro
 Node;AmplifyShaderEditor.SamplerNode;13;-3004.14,701.1534;Inherit;True;Property;_WallMask_1;WallMask_1;12;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.ColorNode;15;-2934.234,206.5117;Inherit;False;Constant;_Color0;Color 0;8;0;Create;True;0;0;0;False;0;False;1,1,1,0;0,0,0,0;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.TriplanarNode;42;-3328.611,55.22384;Inherit;True;Spherical;World;False;TriplanarAlpha_1;_TriplanarAlpha_1;white;10;None;Mid Texture 1;_MidTexture1;white;-1;None;Bot Texture 1;_BotTexture1;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.RangedFloatNode;27;-2629.648,650.6108;Inherit;False;Property;_DecalTransparency_1;DecalTransparency_1;11;0;Create;True;0;0;0;False;0;False;1;0.43;0;1;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;27;-2629.648,650.6108;Inherit;False;Property;_DecalTransparency_1;DecalTransparency_1;11;0;Create;True;0;0;0;False;0;False;1;0.709;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TriplanarNode;1;-3138.66,392.62;Inherit;True;Spherical;World;False;TriplanarTex_1;_TriplanarTex_1;white;9;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ColorNode;44;-3017.638,-160.5869;Inherit;False;Constant;_Color1;Color 1;12;0;Create;True;0;0;0;False;0;False;0,0,0,0;0,0,0,0;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.ToggleSwitchNode;47;-3216.23,-507.1124;Inherit;False;Property;_LinkTiling_2useXonly;LinkTiling_2 (use X only);16;0;Create;True;0;0;0;False;0;False;1;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
@@ -4024,7 +4009,7 @@ Node;AmplifyShaderEditor.TriplanarNode;53;-2787.937,-616.5303;Inherit;True;Spher
 Node;AmplifyShaderEditor.RangedFloatNode;52;-2262.52,-342.1339;Inherit;False;Property;_DecalTransparency_2;DecalTransparency_2;19;0;Create;True;0;0;0;False;0;False;1;0.604;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;33;-2366.851,209.8468;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SamplerNode;51;-2707.552,-398.2271;Inherit;True;Property;_WallMask_2;WallMask_2;20;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
-Node;AmplifyShaderEditor.SamplerNode;3;-2451.693,-64.1735;Inherit;True;Property;_Albedo;Albedo;0;0;Create;True;0;0;0;False;0;False;-1;None;6eb4cbadc47905a43ad99db5e8c7aea1;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
+Node;AmplifyShaderEditor.SamplerNode;3;-2451.693,-64.1735;Inherit;True;Property;_Albedo;Albedo;0;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.ColorNode;50;-2575.043,-1133.645;Inherit;False;Constant;_Color2;Color 2;12;0;Create;True;0;0;0;False;0;False;0,0,0,0;0,0,0,0;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.ColorNode;61;-2603.198,-784.5926;Inherit;False;Constant;_Color3;Color 3;8;0;Create;True;0;0;0;False;0;False;1,1,1,0;0,0,0,0;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.TriplanarNode;49;-2968.044,-950.6451;Inherit;True;Spherical;World;False;TriplanarAlpha_2;_TriplanarAlpha_2;white;18;None;Mid Texture 2;_MidTexture2;white;-1;None;Bot Texture 2;_BotTexture2;white;-1;None;Triplanar Sampler;Tangent;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
@@ -4042,21 +4027,21 @@ Node;AmplifyShaderEditor.RangedFloatNode;66;-651.4473,432.1395;Inherit;False;Pro
 Node;AmplifyShaderEditor.LerpOp;58;-1067.652,-349.2052;Inherit;False;3;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;2;FLOAT4;0,0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;59;-1087.361,-123.6982;Inherit;True;2;2;0;COLOR;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.ToggleSwitchNode;60;-794.7595,-215.5278;Inherit;False;Property;_GrungeDecalSwitch_2;GrungeDecalSwitch_2;21;0;Create;True;0;0;0;False;0;False;0;True;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;4;-642.7433,-50.47886;Inherit;True;Property;_Normal;Normal;1;0;Create;True;0;0;0;False;0;False;-1;None;5065b8b8dc2a9f8499e81c61ae7c4f60;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
+Node;AmplifyShaderEditor.SamplerNode;4;-642.7433,-50.47886;Inherit;True;Property;_Normal;Normal;1;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;65;-209.5878,81.57029;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;8;-225.4999,293;Inherit;False;Property;_Smoothness;Smoothness;3;0;Create;True;0;0;0;False;0;False;0.2;0.2;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;7;-208.9998,207.7;Inherit;False;Property;_Metallic;Metallic;2;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;78;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;DepthNormals;0;6;DepthNormals;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=DepthNormals;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;72;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ExtraPrePass;0;0;ExtraPrePass;5;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;0;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;73;0,0;Float;False;True;-1;2;UnityEditor.ShaderGraphLitGUI;0;12;SyntyStudios_PolygonCyberCity_Triplanar_01;94348b07e5e8bab40bd6c8a1e3df54cd;True;Forward;0;1;Forward;21;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalForward;False;False;0;Hidden/InternalErrorShader;0;0;Standard;44;Lighting Model;0;0;Workflow;1;0;Surface;0;0;  Refraction Model;0;0;  Blend;0;0;Two Sided;1;0;Fragment Normal Space,InvertActionOnDeselection;0;0;Forward Only;0;0;Transmission;0;0;  Transmission Shadow;0.5,False,;0;Translucency;0;0;  Translucency Strength;1,False,;0;  Normal Distortion;0.5,False,;0;  Scattering;2,False,;0;  Direct;0.9,False,;0;  Ambient;0.1,False,;0;  Shadow;0.5,False,;0;Cast Shadows;1;0;  Use Shadow Threshold;0;0;Receive Shadows;1;0;Receive SSAO;1;0;Motion Vectors;1;0;  Add Precomputed Velocity;0;0;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;1;0;_FinalColorxAlpha;0;0;Meta Pass;1;0;Override Baked GI;0;0;Extra Pre Pass;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Write Depth;0;0;  Early Z;0;0;Vertex Position,InvertActionOnDeselection;1;0;Debug Display;0;0;Clear Coat;0;0;0;11;False;True;True;True;True;True;True;True;True;True;True;False;;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;74;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ShadowCaster;0;2;ShadowCaster;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;True;False;False;False;False;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;False;True;1;LightMode=ShadowCaster;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;75;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;DepthOnly;0;3;DepthOnly;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;True;False;False;False;False;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;False;False;True;1;LightMode=DepthOnly;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;76;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;Meta;0;4;Meta;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Meta;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;77;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;Universal2D;0;5;Universal2D;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;False;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=Universal2D;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;79;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;GBuffer;0;7;GBuffer;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;True;16;False;;255;False;;16;False;;7;False;;3;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalGBuffer;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;79;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;GBuffer;0;7;GBuffer;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;False;True;False;255;False;;255;False;;255;False;;7;False;;1;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalGBuffer;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;80;0,80;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;SceneSelectionPass;0;8;SceneSelectionPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=SceneSelectionPass;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;81;0,80;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ScenePickingPass;0;9;ScenePickingPass;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=Picking;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;82;0,100;Float;False;False;-1;2;UnityEditor.ShaderGraphLitGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;MotionVectors;0;10;MotionVectors;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;False;False;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=MotionVectors;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;73;0,0;Float;False;True;-1;2;UnityEditor.ShaderGraphLitGUI;0;12;SyntyStudios_PolygonCyberCity_Triplanar_01;94348b07e5e8bab40bd6c8a1e3df54cd;True;Forward;0;1;Forward;21;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;;False;True;0;False;;False;False;False;False;False;False;False;False;False;True;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;4;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;UniversalMaterialType=Lit;True;5;True;12;all;0;False;True;1;1;False;;0;False;;1;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;16;False;;255;False;;16;False;;7;False;;3;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;True;3;False;;True;True;0;False;;0;False;;True;1;LightMode=UniversalForward;False;False;0;Hidden/InternalErrorShader;0;0;Standard;45;Lighting Model;0;0;Workflow;1;0;Surface;0;0;  Refraction Model;0;0;  Blend;0;0;Two Sided;1;0;Alpha Clipping;0;638790524710394350;  Use Shadow Threshold;0;0;Fragment Normal Space,InvertActionOnDeselection;0;0;Forward Only;0;0;Transmission;0;0;  Transmission Shadow;0.5,False,;0;Translucency;0;0;  Translucency Strength;1,False,;0;  Normal Distortion;0.5,False,;0;  Scattering;2,False,;0;  Direct;0.9,False,;0;  Ambient;0.1,False,;0;  Shadow;0.5,False,;0;Cast Shadows;1;0;Receive Shadows;1;0;Receive SSAO;0;638790524948952990;Motion Vectors;1;0;  Add Precomputed Velocity;0;0;GPU Instancing;1;0;LOD CrossFade;1;0;Built-in Fog;1;0;_FinalColorxAlpha;0;0;Meta Pass;1;0;Override Baked GI;0;0;Extra Pre Pass;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Write Depth;0;0;  Early Z;0;0;Vertex Position,InvertActionOnDeselection;1;0;Debug Display;0;0;Clear Coat;0;0;0;11;False;True;True;True;True;True;True;True;True;True;True;False;;False;0
 WireConnection;24;0;10;0
 WireConnection;24;1;9;0
 WireConnection;11;0;9;0
@@ -4116,6 +4101,5 @@ WireConnection;73;1;4;0
 WireConnection;73;2;65;0
 WireConnection;73;3;7;0
 WireConnection;73;4;8;0
-WireConnection;73;5;8;0
 ASEEND*/
-//CHKSM=FE0275362B76D7A67BD2003AF5B4D63032AA309C
+//CHKSM=92FAF4B8ABCC449CA11B4A886F8F27B8ECDD5F20

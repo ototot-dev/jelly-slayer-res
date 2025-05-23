@@ -1,6 +1,6 @@
 ﻿# License Summary
 
-This is a summary of the license for the Synty Animation Sword Combat software provided by Synty Studios Limited. This summary is for convenience only and is not legally binding. The full terms of the End User License Agreement (EULA) apply and can be found at [https://syntystore.com/pages/end-user-licence-agreement](https://syntystore.com/pages/end-user-licence-agreement).
+This is a summary of the license for the Synty Animation Idles software provided by Synty Studios Limited. This summary is for convenience only and is not legally binding. The full terms of the End User License Agreement (EULA) apply and can be found at [https://syntystore.com/pages/end-user-licence-agreement](https://syntystore.com/pages/end-user-licence-agreement).
 
 ## Key Points:
 
