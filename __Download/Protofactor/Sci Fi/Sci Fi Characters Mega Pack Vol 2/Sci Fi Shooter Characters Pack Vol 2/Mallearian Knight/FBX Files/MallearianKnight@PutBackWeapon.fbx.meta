@@ -1,0 +1,419 @@
+fileFormatVersion: 2
+guid: 45ecc4de140d2144a89d4c418451aa05
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: SK_MallearianKnight(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0.0000015418622, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SK_Mallearian
+      parentName: SK_MallearianKnight(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SK_Belt
+      parentName: SK_MallearianKnight(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: root
+      parentName: SK_MallearianKnight(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mallearian_
+      parentName: root
+      position: {x: -0, y: 0.027999999, z: 1.025945}
+      rotation: {x: 0.0000000059526566, y: 0.000000016437884, z: 0.7071056, w: 0.707108}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mallearian_ Pelvis
+      parentName: Mallearian_
+      position: {x: -0.000000002635906, y: 0.000000001651236, z: 0.05214727}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000006}
+    - name: SM_MallearianSatchel
+      parentName: Mallearian_ Pelvis
+      position: {x: -0.051704023, y: -0.124451436, z: 0.0000007629393}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mallearian_ L Thigh
+      parentName: Mallearian_ Pelvis
+      position: {x: 0.000000076293944, y: 0.0000001502037, z: 0.0768834}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: Mallearian_ L Calf
+      parentName: Mallearian_ L Thigh
+      position: {x: -0.48072973, y: -0.0000000011920929, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Mallearian_ L Foot
+      parentName: Mallearian_ L Calf
+      position: {x: -0.45075846, y: 0, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.9999996, z: 1}
+    - name: Mallearian_ L Toe0
+      parentName: Mallearian_ L Foot
+      position: {x: -0.11520229, y: 0.1603891, z: 0.006120262}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000004}
+    - name: Mallearian_ R Thigh
+      parentName: Mallearian_ Pelvis
+      position: {x: -0.000000076293944, y: -0.000000059604645, z: -0.0768834}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Mallearian_ R Calf
+      parentName: Mallearian_ R Thigh
+      position: {x: -0.48072982, y: 0.0000000011920929, z: -0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mallearian_ R Foot
+      parentName: Mallearian_ R Calf
+      position: {x: -0.45075846, y: 0.000000009536743, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: Mallearian_ R Toe0
+      parentName: Mallearian_ R Foot
+      position: {x: -0.11520229, y: 0.16038911, z: -0.006120243}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 1.0000004}
+    - name: Mallearian_ Spine
+      parentName: Mallearian_ Pelvis
+      position: {x: -0.09651512, y: -0.0001039505, z: 0.00000013398879}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mallearian_ Spine1
+      parentName: Mallearian_ Spine
+      position: {x: -0.13060753, y: -0.00010400295, z: -2.8920566e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Mallearian_ Spine2
+      parentName: Mallearian_ Spine1
+      position: {x: -0.13060737, y: -0.00010399818, z: -2.884417e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SM_MallearianBackPack
+      parentName: Mallearian_ Spine2
+      position: {x: -0.09903518, y: -0.12762688, z: 0.00000015258789}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiBoStaff_Idle
+      parentName: Mallearian_ Spine2
+      position: {x: -0.1640525, y: -0.125676, z: -0.108465135}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: SM_SciFiBoStaff_Idle
+      parentName: SciFiBoStaff_Idle
+      position: {x: 0.00000015258789, y: -0.000000076293944, z: 0.00000010967254}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.999999, z: 1}
+    - name: Mallearian_ Neck
+      parentName: Mallearian_ Spine2
+      position: {x: -0.1295935, y: -0.002542553, z: 0.000000048458148}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+    - name: Mallearian_ Head
+      parentName: Mallearian_ Neck
+      position: {x: -0.16940613, y: 0.0000000023841857, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Arkhrin_EyeLidUpperLeft
+      parentName: Mallearian_ Head
+      position: {x: -0.10375158, y: 0.052539185, z: 0.061353147}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 0.9999998, z: 1.0000004}
+    - name: Arkhrin_EyeLidLowerLeft
+      parentName: Mallearian_ Head
+      position: {x: -0.10375169, y: 0.052539166, z: 0.061353147}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 0.9999997, z: 1.0000005}
+    - name: Arkhrin_EyeLidLowerRight
+      parentName: Mallearian_ Head
+      position: {x: -0.10375159, y: 0.05253891, z: -0.06100006}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: Arkhrin_EyeLeft
+      parentName: Mallearian_ Head
+      position: {x: -0.1037517, y: 0.052538995, z: 0.061353147}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: Arkhrin_EyeLidUpperRight
+      parentName: Mallearian_ Head
+      position: {x: -0.10375158, y: 0.05253891, z: -0.06100006}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1}
+    - name: Arkhrin_EyeRight
+      parentName: Mallearian_ Head
+      position: {x: -0.10375158, y: 0.05253891, z: -0.06100006}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: Mallearian_ Ponytail1
+      parentName: Mallearian_ Head
+      position: {x: -0.0077542113, y: 0.03196841, z: 0.00000011384571}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000007, y: 1.000001, z: 1.0000004}
+    - name: Mallearian_ R Clavicle
+      parentName: Mallearian_ Spine2
+      position: {x: -0.12523986, y: -0.01280786, z: -0.031007275}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: 0.7071068, w: -0.000000030908623}
+      scale: {x: 0.9999997, y: 0.9999996, z: 0.9999998}
+    - name: Mallearian_ R UpperArm
+      parentName: Mallearian_ R Clavicle
+      position: {x: -0.10863032, y: 0.0000000047683715, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000005}
+    - name: Mallearian_ R Forearm
+      parentName: Mallearian_ R UpperArm
+      position: {x: -0.3600839, y: 0, z: -0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000002}
+    - name: Mallearian_ R Hand
+      parentName: Mallearian_ R Forearm
+      position: {x: -0.33312607, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.99999994, y: 1, z: 0.9999997}
+    - name: Mallearian_ R Finger2
+      parentName: Mallearian_ R Hand
+      position: {x: -0.09424766, y: -0.0062130736, z: -0.017407188}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000002}
+    - name: Mallearian_ R Finger21
+      parentName: Mallearian_ R Finger2
+      position: {x: -0.04790245, y: 0.000000076293944, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.9999996, z: 0.99999994}
+    - name: Mallearian_ R Finger22
+      parentName: Mallearian_ R Finger21
+      position: {x: -0.04095352, y: 0, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: Mallearian_ R Finger1
+      parentName: Mallearian_ R Hand
+      position: {x: -0.093757935, y: -0.0016775512, z: 0.018919868}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Mallearian_ R Finger11
+      parentName: Mallearian_ R Finger1
+      position: {x: -0.04892082, y: 0.000000076293944, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: Mallearian_ R Finger12
+      parentName: Mallearian_ R Finger11
+      position: {x: -0.03959923, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 0.9999998, z: 1}
+    - name: Mallearian_ R Finger0
+      parentName: Mallearian_ R Hand
+      position: {x: -0.03210747, y: 0.00004821777, z: 0.02222187}
+      rotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000006}
+    - name: Mallearian_ R Finger01
+      parentName: Mallearian_ R Finger0
+      position: {x: -0.036430128, y: 0.000000076293944, z: 0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: Mallearian_ R Finger02
+      parentName: Mallearian_ R Finger01
+      position: {x: -0.043330915, y: -0.000000038146972, z: -0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.9999997, z: 0.99999994}
+    - name: SciFiBoStaffHandle
+      parentName: Mallearian_ R Hand
+      position: {x: -0.10006258, y: 0.045071878, z: -0.074552536}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000002}
+    - name: SK_SciFiBoStaff_Action
+      parentName: SciFiBoStaffHandle
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SciFiBoStaffLAserBlade2
+      parentName: SciFiBoStaffHandle
+      position: {x: 0.31439024, y: 0.0012700326, z: -0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000005, y: 0.99999994, z: 0.99999994}
+    - name: SciFiBoStaffLaserBlade1
+      parentName: SciFiBoStaffHandle
+      position: {x: -0.31445923, y: 0.0012698687, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000004, z: 1.0000006}
+    - name: Mallearian_ R ForearmTwist
+      parentName: Mallearian_ R Forearm
+      position: {x: -0.15116347, y: -0.00013683319, z: 0.00021860123}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000012, y: 1.0000004, z: 0.9999993}
+    - name: Mallearian_ L Clavicle
+      parentName: Mallearian_ Spine2
+      position: {x: -0.12523986, y: -0.012808036, z: 0.031007199}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
+      scale: {x: 1, y: 1.0000004, z: 1.0000006}
+    - name: Mallearian_ L UpperArm
+      parentName: Mallearian_ L Clavicle
+      position: {x: -0.10863035, y: -0.0000000047683715, z: -0.00000015258789}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.9999998}
+    - name: Mallearian_ L Forearm
+      parentName: Mallearian_ L UpperArm
+      position: {x: -0.3600839, y: 0.000000019073486, z: -0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: Mallearian_ L Hand
+      parentName: Mallearian_ L Forearm
+      position: {x: -0.3331261, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000006}
+    - name: Mallearian_ L Finger0
+      parentName: Mallearian_ L Hand
+      position: {x: -0.03210747, y: 0.00004821777, z: -0.02222187}
+      rotation: {x: 0, y: 0.3826835, z: 0, w: -0.9238795}
+      scale: {x: 1.0000005, y: 1.0000005, z: 0.99999994}
+    - name: Mallearian_ L Finger01
+      parentName: Mallearian_ L Finger0
+      position: {x: -0.036430053, y: 0.000000038146972, z: -0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1}
+    - name: Mallearian_ L Finger02
+      parentName: Mallearian_ L Finger01
+      position: {x: -0.043330915, y: 0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000008, y: 1.0000007, z: 1}
+    - name: Mallearian_ L Finger1
+      parentName: Mallearian_ L Hand
+      position: {x: -0.093757935, y: -0.0016773987, z: -0.018919868}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000004, y: 1.0000008, z: 1.0000004}
+    - name: Mallearian_ L Finger11
+      parentName: Mallearian_ L Finger1
+      position: {x: -0.048920896, y: 0, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000004, z: 1.0000002}
+    - name: Mallearian_ L Finger12
+      parentName: Mallearian_ L Finger11
+      position: {x: -0.039599076, y: 0, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000008, z: 1.0000004}
+    - name: Mallearian_ L Finger2
+      parentName: Mallearian_ L Hand
+      position: {x: -0.09424766, y: -0.006212921, z: 0.01740715}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000004, z: 1.0000004}
+    - name: Mallearian_ L Finger21
+      parentName: Mallearian_ L Finger2
+      position: {x: -0.04790245, y: 0, z: -0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999997, y: 1.0000002, z: 1}
+    - name: Mallearian_ L Finger22
+      parentName: Mallearian_ L Finger21
+      position: {x: -0.04095352, y: -0.000000076293944, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Mallearian_ L ForearmTwist
+      parentName: Mallearian_ L Forearm
+      position: {x: -0.15105796, y: -0.00030128477, z: -0.0004411316}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: root
+    hasTranslationDoF: 1
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 59a645142cce0d042864b4ae1aebf2a4,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186888
+  packageName: SCI FI CHARACTERS MEGA PACK VOL 2
+  packageVersion: 1.31
+  assetPath: Assets/Protofactor/Sci Fi/Sci Fi Characters Mega Pack Vol 2/Sci Fi Shooter
+    Characters Pack Vol 2/Mallearian Knight/FBX Files/MallearianKnight@PutBackWeapon.fbx
+  uploadId: 502946
